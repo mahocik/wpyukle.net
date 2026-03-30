@@ -1,45 +1,97 @@
-<!DOCTYPE html>
-<html lang="az">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klik Et</title>
-
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      font-family: Arial, sans-serif;
+font-weight: 700;
+      margin-bottom: 16px;
     }
 
-    .btn {
-      padding: 20px 40px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      background: #ff3d00;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: 0.3s;
+    .loading-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.92);
+      max-width: 290px;
     }
 
-    .btn:hover {
-      background: #ff5722;
-      transform: scale(1.05);
+    .success-note {
+      margin-top: 18px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 430px) {
+      .top-title {
+        font-size: 28px;
+      }
+
+      .screen,
+      .loading-screen {
+        min-height: 700px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <a href="https://pulvar.xyz" class="btn" target="_blank">
-    BURA KLİK EDİN
-  </a>
+  <div class="wrapper">
+    <div class="top-title">
+      Aktivlik Bağlantısı 2026
+    </div>
+
+    <div class="phone">
+      <div class="notch"></div>
+
+      <!-- MAIN SCREEN -->
+      <div class="screen" id="mainScreen">
+        <div class="header">
+          <div class="back">←</div>
+          <h2>Yeni Profil Əlavə Et</h2>
+        </div>
+
+        <div class="logo-box">👤</div>
+
+        <div class="subtitle">
+          Qoşulmaq istədiyiniz nömrəni və şəxsin adını daxil edin
+        </div>
+
+        <div class="label">Nömrə</div>
+        <div class="row">
+          <input class="input code" type="text" value="(AZ) +994" />
+          <input class="input number" type="text" placeholder="050 123 45 67" />
+        </div>
+
+        <div class="label">Ad</div>
+        <input class="input" type="text" placeholder="Şəxsin adını yazın" />
+
+        <button class="btn" onclick="goLoading()">Davam Et</button>
+
+        <div class="footer-note">
+          Qoşulma yalnız qarşı tərəfin təsdiqi ilə tamamlanır.
+        </div>
+      </div>
+
+      <!-- LOADING SCREEN -->
+      <div class="screen loading-screen" id="loadingScreen">
+        <div class="spinner"></div>
+        <div class="loading-title">Bağlantı hazırlanır...</div>
+        <div class="loading-text">
+          Zəhmət olmasa bir qədər gözləyin, bu proses bir neçə dəqiqə çəkə bilər.
+        </div>
+        <div class="success-note">
+          Təsdiq alındıqdan sonra sistem qoşulmanı emal edir.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goLoading() {
+      document.getElementById("mainScreen").style.display = "none";
+      document.getElementById("loadingScreen").style.display = "flex";
+    }
+  </script>
 
 </body>
 </html>
