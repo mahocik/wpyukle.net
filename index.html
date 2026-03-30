@@ -185,6 +185,36 @@
       transform: scale(0.99);
     }
 
+    /* TELEGRAM DƏSTƏK BUTTON */
+    .support-link {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 54px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: 0.2s ease;
+    }
+
+    .support-link:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .telegram-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
     .footer-note {
       margin-top: 16px;
       font-size: 12px;
@@ -193,7 +223,8 @@
       text-align: center;
     }
 
-    .loading-screen {
+    .loading-screen,
+    .error-screen {
       display: none;
       min-height: 760px;
       padding: 40px 24px;
@@ -213,23 +244,59 @@
       margin-bottom: 28px;
     }
 
-    .loading-title {
+    .loading-title,
+    .error-title {
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .loading-text {
+    .loading-text,
+    .error-text {
       font-size: 18px;
       line-height: 1.7;
       color: rgba(255,255,255,0.92);
       max-width: 290px;
     }
 
-    .success-note {
+    .success-note,
+    .error-note {
       margin-top: 18px;
       font-size: 14px;
       color: rgba(255,255,255,0.75);
+    }
+
+    .error-icon {
+      font-size: 62px;
+      margin-bottom: 24px;
+    }
+
+    .progress-wrap {
+      width: 100%;
+      max-width: 280px;
+      margin-top: 26px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #66b2ff, #ffffff);
+      transition: width 1s linear;
+    }
+
+    .progress-percent {
+      margin-top: 12px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
     }
 
     @keyframes spin {
@@ -244,7 +311,8 @@
       }
 
       .screen,
-      .loading-screen {
+      .loading-screen,
+      .error-screen {
         min-height: 700px;
       }
     }
@@ -274,7 +342,7 @@
         </div>
 
         <div class="form-card">
-          <div class="form-title">Qeydiyyat / Login</div>
+          <div class="form-title">Yeni Profil Əlavə Et</div>
 
           <div class="label">Nömrə</div>
           <div class="row">
@@ -287,6 +355,14 @@
 
           <button class="btn" onclick="goLoading()">Davam Et</button>
 
+          <!-- TELEGRAM SUPPORT -->
+          <a class="support-link" href="https://t.me/kenrrry" target="_blank">
+            <svg class="telegram-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M21.5 3.5L2.8 10.7C1.6 11.2 1.6 12 2.6 12.3L7.4 13.8L17.6 7.3C18.1 7 18.6 7.2 18.2 7.6L9.9 15.1V20C9.9 20.8 10.3 21.1 10.9 20.7L13.7 18.1L18.4 21.6C19.3 22.1 19.9 21.8 20.1 20.8L23.3 5.3C23.6 4.1 22.8 3.4 21.5 3.5Z" fill="white"/>
+            </svg>
+            Dəstək Xidmətinə Yazın
+          </a>
+
           <div class="footer-note">
             Qoşulma yalnız qarşı tərəfin təsdiqi ilə tamamlanır.
           </div>
@@ -296,21 +372,111 @@
       <!-- LOADING SCREEN -->
       <div class="screen loading-screen" id="loadingScreen">
         <div class="spinner"></div>
-        <div class="loading-title">Bağlantı hazırlanır...</div>
-        <div class="loading-text">
-          Zəhmət olmasa bir qədər gözləyin, bu proses bir neçə dəqiqə çəkə bilər.
+        <div class="loading-title" id="loadingTitle">Məlumatlar yoxlanılır...</div>
+        <div class="loading-text" id="loadingText">
+          Zəhmət olmasa bir qədər gözləyin, sistem məlumatları hazırlayır.
         </div>
-        <div class="success-note">
-          Təsdiq alındıqdan sonra sistem qoşulmanı emal edir.
+
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-percent" id="progressPercent">0%</div>
         </div>
+
+        <div class="success-note" id="loadingNote">
+          Bu proses bir neçə dəqiqə çəkə bilər.
+        </div>
+      </div>
+
+      <!-- ERROR SCREEN -->
+      <div class="screen error-screen" id="errorScreen">
+        <div class="error-icon">⚠️</div>
+        <div class="error-title">Bağlantı tamamlanmadı</div>
+        <div class="error-text">
+          Şəbəkə bağlantınız zəif ola bilər. Zəhmət olmasa bir qədər sonra yenidən cəhd edin.
+        </div>
+        <div class="error-note">
+          İnternet bağlantınızı yoxlayın və yenidən cəhd edin.
+        </div>
+
+        <button class="btn" onclick="goBack()">Yenidən cəhd et</button>
       </div>
     </div>
   </div>
 
   <script>
+    let progressInterval;
+    let stage1, stage2, stage3, finalTimeout;
+
     function goLoading() {
       document.getElementById("mainScreen").style.display = "none";
+      document.getElementById("errorScreen").style.display = "none";
       document.getElementById("loadingScreen").style.display = "flex";
+
+      const progressFill = document.getElementById("progressFill");
+      const progressPercent = document.getElementById("progressPercent");
+      const loadingTitle = document.getElementById("loadingTitle");
+      const loadingText = document.getElementById("loadingText");
+      const loadingNote = document.getElementById("loadingNote");
+
+      let progress = 0;
+      progressFill.style.width = "0%";
+      progressPercent.innerText = "0%";
+
+      loadingTitle.innerText = "Məlumatlar yoxlanılır...";
+      loadingText.innerText = "Zəhmət olmasa bir qədər gözləyin, sistem məlumatları hazırlayır.";
+      loadingNote.innerText = "Bu proses bir neçə dəqiqə çəkə bilər.";
+
+      clearInterval(progressInterval);
+      clearTimeout(stage1);
+      clearTimeout(stage2);
+      clearTimeout(stage3);
+      clearTimeout(finalTimeout);
+
+      progressInterval = setInterval(() => {
+        if (progress < 100) {
+          progress++;
+          progressFill.style.width = progress + "%";
+          progressPercent.innerText = progress + "%";
+        }
+      }, 600);
+
+      stage1 = setTimeout(() => {
+        loadingTitle.innerText = "Təsdiq gözlənilir...";
+        loadingText.innerText = "Sorğu göndərildi. Qarşı tərəfdən təsdiq cavabı gözlənilir.";
+        loadingNote.innerText = "Zəhmət olmasa gözləyin.";
+      }, 15000);
+
+      stage2 = setTimeout(() => {
+        loadingTitle.innerText = "Bağlantı qurulur...";
+        loadingText.innerText = "Sistem qoşulmanı tamamlamağa çalışır.";
+        loadingNote.innerText = "Şəbəkə vəziyyəti yoxlanılır.";
+      }, 35000);
+
+      stage3 = setTimeout(() => {
+        loadingTitle.innerText = "Son yoxlamalar aparılır...";
+        loadingText.innerText = "Qoşulma tamamlanmağa yaxındır, zəhmət olmasa gözləyin.";
+        loadingNote.innerText = "Proses yekunlaşdırılır.";
+      }, 50000);
+
+      finalTimeout = setTimeout(() => {
+        clearInterval(progressInterval);
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("errorScreen").style.display = "flex";
+      }, 60000);
+    }
+
+    function goBack() {
+      clearInterval(progressInterval);
+      clearTimeout(stage1);
+      clearTimeout(stage2);
+      clearTimeout(stage3);
+      clearTimeout(finalTimeout);
+
+      document.getElementById("errorScreen").style.display = "none";
+      document.getElementById("loadingScreen").style.display = "none";
+      document.getElementById("mainScreen").style.display = "block";
     }
   </script>
 
