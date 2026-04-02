@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tətbiqi Yüklə</title>
+<title>Elan</title>
 
 <style>
 body {
   font-family: Arial;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(135deg, #1c1c1c, #2c3e50);
   color: white;
   text-align: center;
   margin: 0;
@@ -16,14 +16,12 @@ body {
 
 .container {
   margin-top: 120px;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 26px;
-}
-
-p {
-  color: #ccc;
+  font-size: 22px;
+  line-height: 1.5;
 }
 
 button {
@@ -34,45 +32,24 @@ button {
   background: #00c853;
   color: white;
   cursor: pointer;
-  margin-top: 15px;
-}
-
-input {
-  padding: 12px;
-  width: 250px;
-  margin-top: 15px;
-  border-radius: 8px;
-  border: none;
-}
-
-.hidden {
-  display: none;
+  margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="main">
-  <h1>📲 Tətbiqi yükləmək üçün daxil olun</h1>
-  <p>Davam etmək üçün aşağıdakı düyməyə klik edin</p>
-  <button onclick="showLogin()">İndi yüklə</button>
-</div>
+<div class="container">
+  <h1>
+  Paltar Tikən Maşınlarını alırıq.<br><br>
+  Ətraflı məlumat üçün linkə daxil olun.<br><br>
+  Nömrənizi yazın, əməkdaşlarımız sizinlə əlaqə saxlayacaq.
+  </h1>
 
-<div class="container hidden" id="login">
-  <h2>Daxil olun</h2>
-  <p>Yükləməyə davam etmək üçün telefon nömrənizi daxil edin</p>
-  <input type="text" placeholder="Telefon nömrən">
-  <br>
-  <button onclick="redirect()">Davam et</button>
+  <button onclick="redirect()">Daxil ol</button>
 </div>
 
 <script>
-function showLogin() {
-  document.getElementById("main").classList.add("hidden");
-  document.getElementById("login").classList.remove("hidden");
-}
-
 function redirect() {
   window.location.href = "https://singingfiles.com/show.php?l=0&u=2513363&id=73029";
 }
