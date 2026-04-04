@@ -1,230 +1,138 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mostbet Bonus</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostbet Bonus</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255, 184, 0, 0.18), transparent 25%),
-        radial-gradient(circle at top right, rgba(255, 140, 0, 0.16), transparent 25%),
-        linear-gradient(135deg, #050505, #111111 45%, #1a1205 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      overflow: hidden;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .glow-bg::before,
-    .glow-bg::after {
-      content: "";
-      position: fixed;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      filter: blur(90px);
-      z-index: 0;
-      opacity: 0.35;
-      animation: pulse 4s infinite ease-in-out;
-    }
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #6b4300 0%, #1a0f00 60%, #000 100%);
+  font-family: Arial, sans-serif;
+}
 
-    .glow-bg::before {
-      background: #ffb300;
-      top: -80px;
-      left: -80px;
-    }
+/* KART */
+.card {
+  width: 90%;
+  max-width: 400px;
+  background: #0a0a0a;
+  border-radius: 25px;
+  padding: 30px 20px;
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+  border: 1px solid rgba(255, 166, 0, 0.3);
+  text-align: center;
+}
 
-    .glow-bg::after {
-      background: #ff6a00;
-      bottom: -80px;
-      right: -80px;
-      animation-delay: 1.5s;
-    }
+/* BASLIQ */
+.title {
+  color: #ffa500;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.25; }
-      50% { transform: scale(1.15); opacity: 0.45; }
-    }
+/* METN */
+.text {
+  color: #ddd;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
 
-    .card {
-      position: relative;
-      z-index: 1;
-      width: 92%;
-      max-width: 760px;
-      background: rgba(10, 10, 10, 0.88);
-      border: 1px solid rgba(255, 184, 0, 0.35);
-      border-radius: 24px;
-      padding: 34px 28px;
-      box-shadow:
-        0 0 20px rgba(255, 179, 0, 0.18),
-        0 0 55px rgba(255, 119, 0, 0.1);
-      text-align: center;
-      backdrop-filter: blur(8px);
-    }
+.highlight {
+  color: #ffcc00;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0;
+}
 
-    .brand {
-      display: inline-block;
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #ffffff 0%, #ffd54a 45%, #ff8c00 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 18px rgba(255, 166, 0, 0.25);
-      margin-bottom: 18px;
-    }
+/* LIST */
+.list {
+  text-align: left;
+  margin: 15px 0;
+}
 
-    .title {
-      font-size: 34px;
-      font-weight: 800;
-      line-height: 1.25;
-      color: #ffd24d;
-      margin-bottom: 20px;
-      text-shadow: 0 0 14px rgba(255, 179, 0, 0.2);
-    }
+.list p {
+  color: #ccc;
+  margin: 8px 0;
+}
 
-    .desc {
-      font-size: 22px;
-      line-height: 1.7;
-      color: #f5f5f5;
-      margin-bottom: 24px;
-    }
+/* BUTTON */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, #ff8c00, #ff5e00);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-    .bonus {
-      display: inline-block;
-      margin: 12px 0 22px;
-      font-size: 44px;
-      font-weight: 900;
-      color: #ffcc29;
-      text-shadow:
-        0 0 10px rgba(255, 204, 41, 0.4),
-        0 0 24px rgba(255, 136, 0, 0.25);
-      animation: bonusGlow 1.6s infinite alternate;
-    }
+.btn:hover {
+  opacity: 0.9;
+}
 
-    @keyframes bonusGlow {
-      from { transform: scale(1); }
-      to { transform: scale(1.04); }
-    }
+.footer {
+  color: #888;
+  font-size: 13px;
+  margin-top: 10px;
+}
+</style>
 
-    .features {
-      list-style: none;
-      margin: 10px 0 28px;
-      padding: 0;
-    }
-
-    .features li {
-      font-size: 20px;
-      margin: 10px 0;
-      color: #ffffff;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      background: linear-gradient(90deg, #ff6a00, #ff9900, #ff6a00);
-      background-size: 200% 100%;
-      color: #fff;
-      font-size: 24px;
-      font-weight: 800;
-      padding: 18px 42px;
-      border-radius: 16px;
-      box-shadow:
-        0 0 18px rgba(255, 115, 0, 0.45),
-        0 0 30px rgba(255, 166, 0, 0.25);
-      transition: 0.25s ease;
-      animation: buttonMove 2s infinite linear;
-    }
-
-    @keyframes buttonMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    .btn:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow:
-        0 0 22px rgba(255, 115, 0, 0.7),
-        0 0 40px rgba(255, 166, 0, 0.4);
-    }
-
-    .small {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #cfcfcf;
-      opacity: 0.85;
-    }
-
-    @media (max-width: 600px) {
-      .card {
-        padding: 24px 18px;
-        border-radius: 18px;
-      }
-
-      .brand {
-        font-size: 30px;
-      }
-
-      .title {
-        font-size: 25px;
-      }
-
-      .desc {
-        font-size: 18px;
-      }
-
-      .bonus {
-        font-size: 34px;
-      }
-
-      .features li {
-        font-size: 17px;
-      }
-
-      .btn {
-        width: 100%;
-        font-size: 22px;
-        padding: 16px 20px;
-      }
-    }
-  </style>
 </head>
+
 <body>
-  <div class="glow-bg"></div>
 
-  <div class="card">
-    <div class="brand">MOSTBET</div>
+<div class="card">
 
-    <div class="title">Mostbet ilə qazancını artır!</div>
+  <div class="title">MOSTBET</div>
 
-    <div class="desc">
-      İndi qeydiyyatdan keç və ilk depozitində<br>
-      💰 <strong>10–20 AZN yatıraraq</strong><br>
-      🎁 <span class="bonus">200$-a qədər bonus əldə et!</span>
-    </div>
-
-    <ul class="features">
-      <li>🔥 Sürətli qeydiyyat</li>
-      <li>🔥 Asan depozit &amp; çıxarış</li>
-      <li>🔥 Yüksək qazanc şansı</li>
-    </ul>
-
-    <a class="btn" href="https://66avrzh.com/eb0U" target="_blank" rel="noopener noreferrer">
-      👉 Qeydiyyatdan keç
-    </a>
-
-    <div class="small">İndi qoşul və qazanmağa başla!</div>
+  <div class="text">
+    Mostbet ilə qazancını artır!
   </div>
+
+  <div class="text">
+    İndi qeydiyyatdan keç və ilk depozitində
+  </div>
+
+  <div class="text">
+    💰 10–20 AZN yatıraraq 🎁
+  </div>
+
+  <div class="highlight">
+    200$-a qədər bonus əldə et!
+  </div>
+
+  <div class="list">
+    <p>🔥 Sürətli qeydiyyat</p>
+    <p>🔥 Asan depozit & çıxarış</p>
+    <p>🔥 Yüksək qazanc şansı</p>
+  </div>
+
+  <!-- BUTTON -->
+  <a href="https://66avrzh.com/eb0U" class="btn">
+    👉 Qeydiyyatdan keç
+  </a>
+
+  <div class="footer">
+    İndi qoşul və qazanmağa başla!
+  </div>
+
+</div>
+
 </body>
 </html>
