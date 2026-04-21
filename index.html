@@ -6,169 +6,167 @@
 <title>Pulvar Qazanc</title>
 
 <style>
-body {
+body{
   margin:0;
-  font-family: Arial;
-  background:#0f0f0f;
+  font-family:Arial;
+  background:#0d0d0d;
   color:white;
 }
-.container {
+
+.box{
+  max-width:400px;
+  margin:80px auto;
   padding:20px;
 }
-input, button {
+
+h2{
+  text-align:center;
+}
+
+input{
   width:100%;
-  padding:12px;
+  padding:14px;
   margin-top:10px;
   border:none;
-  border-radius:8px;
-}
-input {
-  background:#222;
+  border-radius:10px;
+  background:#1f1f1f;
   color:white;
 }
-button {
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border:none;
+  border-radius:10px;
   background:#f5a623;
-  color:black;
   font-weight:bold;
 }
-.card {
+
+.link{
+  text-align:center;
+  margin-top:15px;
+  color:#aaa;
+}
+
+.hidden{display:none;}
+
+.panel{
+  padding:20px;
+}
+
+.card{
   background:#1a1a1a;
   padding:15px;
   border-radius:12px;
   margin-top:15px;
 }
-.hidden {display:none;}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="box" id="auth">
 
-<!-- LOGIN -->
-<div id="login">
-  <h2>Giriş Et</h2>
-  <input id="loginUser" placeholder="Login">
-  <input id="loginPass" type="password" placeholder="Parol">
-  <button onclick="login()">Giriş</button>
-  <p onclick="showRegister()">Qeydiyyat</p>
+<h2 id="title">Giriş Et</h2>
+
+<input id="user" placeholder="Login">
+<input id="pass" type="password" placeholder="Parol">
+
+<button onclick="action()">Giriş</button>
+
+<div class="link" onclick="toggle()">Qeydiyyat</div>
+
 </div>
 
-<!-- REGISTER -->
-<div id="register" class="hidden">
-  <h2>Qeydiyyat</h2>
-  <input id="regUser" placeholder="Login">
-  <input id="regPass" type="password" placeholder="Parol">
-  <button onclick="register()">Qeydiyyatdan keç</button>
-  <p onclick="showLogin()">Girişə qayıt</p>
+<div class="panel hidden" id="panel">
+
+<h2>Balans: <span id="bal">0</span> AZN</h2>
+
+<div class="card">
+<button onclick="bonus()">🎁 Bonus al (+0.05)</button>
 </div>
 
-<!-- PANEL -->
-<div id="panel" class="hidden">
-  <h2>Balans: <span id="balance">0</span> AZN</h2>
-
-  <div class="card">
-    <h3>🎁 Gündəlik bonus</h3>
-    <button onclick="daily()">Al</button>
-  </div>
-
-  <div class="card">
-    <h3>🎯 Tapşırıq</h3>
-    <button onclick="task()">Tapşırıq et (+0.05 AZN)</button>
-  </div>
-
-  <div class="card">
-    <h3>👥 Referral</h3>
-    <p>Sənin linkin:</p>
-    <input id="refLink" readonly>
-  </div>
-
-  <div class="card">
-    <h3>📤 Çıxarış</h3>
-    <button onclick="withdraw()">Pul çıxar</button>
-  </div>
-
-  <button onclick="logout()">Çıxış</button>
+<div class="card">
+<button onclick="task()">🎯 Tapşırıq et (+0.05)</button>
 </div>
+
+<div class="card">
+<p>Referral link:</p>
+<input id="ref" readonly>
+</div>
+
+<div class="card">
+<button onclick="withdraw()">📤 Çıxarış</button>
+</div>
+
+<button onclick="logout()">Çıxış</button>
 
 </div>
 
 <script>
 
-let currentUser = null;
+let mode="login";
+let current=null;
 
-function showRegister(){
-  login.style.display="none";
-  register.style.display="block";
-}
-function showLogin(){
-  register.style.display="none";
-  login.style.display="block";
-}
-
-function register(){
-  let u = regUser.value;
-  let p = regPass.value;
-
-  if(!u || !p) return alert("Boş buraxma");
-
-  localStorage.setItem(u, JSON.stringify({
-    pass:p,
-    balance:0
-  }));
-
-  alert("Qeydiyyat tamam");
-  showLogin();
-}
-
-function login(){
-  let u = loginUser.value;
-  let p = loginPass.value;
-
-  let data = JSON.parse(localStorage.getItem(u));
-
-  if(!data || data.pass !== p){
-    return alert("Yanlış məlumat");
+function toggle(){
+  if(mode=="login"){
+    mode="reg";
+    title.innerText="Qeydiyyat";
+    document.querySelector("button").innerText="Qeydiyyatdan keç";
+  }else{
+    mode="login";
+    title.innerText="Giriş Et";
+    document.querySelector("button").innerText="Giriş";
   }
-
-  currentUser = u;
-  login.style.display="none";
-  panel.style.display="block";
-
-  document.getElementById("balance").innerText = data.balance.toFixed(2);
-
-  document.getElementById("refLink").value =
-    location.href + "?ref=" + u;
 }
 
-function save(balance){
-  let data = JSON.parse(localStorage.getItem(currentUser));
-  data.balance = balance;
-  localStorage.setItem(currentUser, JSON.stringify(data));
-  document.getElementById("balance").innerText = balance.toFixed(2);
-}
+function action(){
+  let u=user.value;
+  let p=pass.value;
 
-function daily(){
-  let data = JSON.parse(localStorage.getItem(currentUser));
-  let b = data.balance + 0.05;
-  save(b);
-}
+  if(!u||!p)return alert("Boş buraxma");
 
-function task(){
-  let data = JSON.parse(localStorage.getItem(currentUser));
-  let b = data.balance + 0.05;
-  save(b);
-}
-
-function withdraw(){
-  let data = JSON.parse(localStorage.getItem(currentUser));
-
-  if(data.balance < 5){
-    alert("Minimum 5 AZN lazımdır");
+  if(mode=="reg"){
+    localStorage.setItem(u,JSON.stringify({pass:p,balance:0}));
+    alert("Qeydiyyat oldu");
     return;
   }
 
-  alert("Sorğu qəbul edildi");
+  let data=JSON.parse(localStorage.getItem(u));
+
+  if(!data||data.pass!=p)return alert("Yanlış");
+
+  current=u;
+  auth.style.display="none";
+  panel.style.display="block";
+
+  bal.innerText=data.balance.toFixed(2);
+  ref.value=location.href+"?ref="+u;
+}
+
+function save(b){
+  let d=JSON.parse(localStorage.getItem(current));
+  d.balance=b;
+  localStorage.setItem(current,JSON.stringify(d));
+  bal.innerText=b.toFixed(2);
+}
+
+function bonus(){
+  let d=JSON.parse(localStorage.getItem(current));
+  save(d.balance+0.05);
+}
+
+function task(){
+  let d=JSON.parse(localStorage.getItem(current));
+  save(d.balance+0.05);
+}
+
+function withdraw(){
+  let d=JSON.parse(localStorage.getItem(current));
+  if(d.balance<5)return alert("Minimum 5 AZN");
+  alert("Sorğu göndərildi");
 }
 
 function logout(){
