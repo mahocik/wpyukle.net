@@ -1,228 +1,181 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MOSTBET Bonus</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulvar Qazanc</title>
 
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at center, rgba(255,140,0,0.22) 0%, rgba(0,0,0,0.96) 45%, #000 100%);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 430px;
-      background: linear-gradient(180deg, rgba(25,25,25,0.95), rgba(5,5,5,0.98));
-      border: 1px solid rgba(255,140,0,0.18);
-      border-radius: 28px;
-      padding: 34px 24px 28px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(255,140,0,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(255,140,0,0.22), transparent 70%);
-      pointer-events: none;
-    }
-
-    .brand {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #ff9800;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .title {
-      font-size: 28px;
-      line-height: 1.2;
-      font-weight: 800;
-      color: #ffb300;
-      margin-bottom: 14px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #f4f4f4;
-      margin-bottom: 18px;
-    }
-
-    .deposit {
-      font-size: 24px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-
-    .bonus {
-      font-size: 42px;
-      font-weight: 900;
-      color: #ffb300;
-      margin: 18px 0 22px;
-      text-shadow: 0 0 12px rgba(255,179,0,0.18);
-    }
-
-    .features {
-      list-style: none;
-      text-align: left;
-      margin: 0 auto 26px;
-      max-width: 260px;
-    }
-
-    .features li {
-      font-size: 19px;
-      color: #f2f2f2;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .features li span {
-      font-size: 22px;
-    }
-
-    .btn {
-      display: inline-block;
-      width: 100%;
-      padding: 18px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 24px;
-      font-weight: 800;
-      color: white;
-      background: linear-gradient(90deg, #ff9800, #ff6a00);
-      box-shadow: 0 10px 25px rgba(255,106,0,0.28);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -80%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.35),
-        transparent
-      );
-      transform: skewX(-20deg);
-      animation: shine 2.4s infinite;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(255,106,0,0.35);
-    }
-
-    .note {
-      margin-top: 18px;
-      font-size: 16px;
-      color: #bbbbbb;
-      line-height: 1.5;
-    }
-
-    @keyframes shine {
-      0% {
-        left: -80%;
-      }
-      100% {
-        left: 140%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 28px 18px 24px;
-        border-radius: 24px;
-      }
-
-      .title {
-        font-size: 24px;
-      }
-
-      .subtitle {
-        font-size: 17px;
-      }
-
-      .deposit {
-        font-size: 21px;
-      }
-
-      .bonus {
-        font-size: 34px;
-      }
-
-      .features li {
-        font-size: 17px;
-      }
-
-      .btn {
-        font-size: 21px;
-        padding: 16px 18px;
-      }
-    }
-  </style>
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background:#0f0f0f;
+  color:white;
+}
+.container {
+  padding:20px;
+}
+input, button {
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
+}
+input {
+  background:#222;
+  color:white;
+}
+button {
+  background:#f5a623;
+  color:black;
+  font-weight:bold;
+}
+.card {
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+.hidden {display:none;}
+</style>
 </head>
+
 <body>
 
+<div class="container">
+
+<!-- LOGIN -->
+<div id="login">
+  <h2>Giriş Et</h2>
+  <input id="loginUser" placeholder="Login">
+  <input id="loginPass" type="password" placeholder="Parol">
+  <button onclick="login()">Giriş</button>
+  <p onclick="showRegister()">Qeydiyyat</p>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="hidden">
+  <h2>Qeydiyyat</h2>
+  <input id="regUser" placeholder="Login">
+  <input id="regPass" type="password" placeholder="Parol">
+  <button onclick="register()">Qeydiyyatdan keç</button>
+  <p onclick="showLogin()">Girişə qayıt</p>
+</div>
+
+<!-- PANEL -->
+<div id="panel" class="hidden">
+  <h2>Balans: <span id="balance">0</span> AZN</h2>
+
   <div class="card">
-    <div class="brand">MOSTBET</div>
-
-    <div class="title">Mostbet ilə qazancını artır!</div>
-
-    <div class="subtitle">
-      İndi qeydiyyatdan keç və ilk depozitində
-    </div>
-
-    <div class="deposit">💰 10–20 AZN yatıraraq 🎁</div>
-
-    <div class="bonus">200$-a qədər bonus əldə et!</div>
-
-    <ul class="features">
-      <li><span>🔥</span> Sürətli qeydiyyat</li>
-      <li><span>🔥</span> Asan depozit & çıxarış</li>
-      <li><span>🔥</span> Yüksək qazanc şansı</li>
-    </ul>
-
-    <a class="btn" href="https://66avrzh.com/MXKF" target="_blank" rel="noopener noreferrer">
-      👉 Qeydiyyatdan keç
-    </a>
-
-    <div class="note">
-      İndi qoşul və qazanmağa başla!
-    </div>
+    <h3>🎁 Gündəlik bonus</h3>
+    <button onclick="daily()">Al</button>
   </div>
+
+  <div class="card">
+    <h3>🎯 Tapşırıq</h3>
+    <button onclick="task()">Tapşırıq et (+0.05 AZN)</button>
+  </div>
+
+  <div class="card">
+    <h3>👥 Referral</h3>
+    <p>Sənin linkin:</p>
+    <input id="refLink" readonly>
+  </div>
+
+  <div class="card">
+    <h3>📤 Çıxarış</h3>
+    <button onclick="withdraw()">Pul çıxar</button>
+  </div>
+
+  <button onclick="logout()">Çıxış</button>
+</div>
+
+</div>
+
+<script>
+
+let currentUser = null;
+
+function showRegister(){
+  login.style.display="none";
+  register.style.display="block";
+}
+function showLogin(){
+  register.style.display="none";
+  login.style.display="block";
+}
+
+function register(){
+  let u = regUser.value;
+  let p = regPass.value;
+
+  if(!u || !p) return alert("Boş buraxma");
+
+  localStorage.setItem(u, JSON.stringify({
+    pass:p,
+    balance:0
+  }));
+
+  alert("Qeydiyyat tamam");
+  showLogin();
+}
+
+function login(){
+  let u = loginUser.value;
+  let p = loginPass.value;
+
+  let data = JSON.parse(localStorage.getItem(u));
+
+  if(!data || data.pass !== p){
+    return alert("Yanlış məlumat");
+  }
+
+  currentUser = u;
+  login.style.display="none";
+  panel.style.display="block";
+
+  document.getElementById("balance").innerText = data.balance.toFixed(2);
+
+  document.getElementById("refLink").value =
+    location.href + "?ref=" + u;
+}
+
+function save(balance){
+  let data = JSON.parse(localStorage.getItem(currentUser));
+  data.balance = balance;
+  localStorage.setItem(currentUser, JSON.stringify(data));
+  document.getElementById("balance").innerText = balance.toFixed(2);
+}
+
+function daily(){
+  let data = JSON.parse(localStorage.getItem(currentUser));
+  let b = data.balance + 0.05;
+  save(b);
+}
+
+function task(){
+  let data = JSON.parse(localStorage.getItem(currentUser));
+  let b = data.balance + 0.05;
+  save(b);
+}
+
+function withdraw(){
+  let data = JSON.parse(localStorage.getItem(currentUser));
+
+  if(data.balance < 5){
+    alert("Minimum 5 AZN lazımdır");
+    return;
+  }
+
+  alert("Sorğu qəbul edildi");
+}
+
+function logout(){
+  location.reload();
+}
+
+</script>
 
 </body>
 </html>
