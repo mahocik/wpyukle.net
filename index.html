@@ -1,179 +1,237 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulvar Qazanc</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPhone üçün əlavə WhatsApp imkanı</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0d0d0d;
-  color:white;
-}
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1b1b1b, #111);
+      color: white;
+      min-height: 100vh;
+    }
 
-.box{
-  max-width:400px;
-  margin:80px auto;
-  padding:20px;
-}
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-h2{
-  text-align:center;
-}
+    .hero {
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+    }
 
-input{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border:none;
-  border-radius:10px;
-  background:#1f1f1f;
-  color:white;
-}
+    .iphone-icon {
+      font-size: 64px;
+      margin-bottom: 15px;
+    }
 
-button{
-  width:100%;
-  padding:14px;
-  margin-top:15px;
-  border:none;
-  border-radius:10px;
-  background:#f5a623;
-  font-weight:bold;
-}
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.3;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
 
-.link{
-  text-align:center;
-  margin-top:15px;
-  color:#aaa;
-}
+    .subtitle {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #f1f1f1;
+      margin-bottom: 25px;
+    }
 
-.hidden{display:none;}
+    .price-box {
+      margin: 25px 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffd700, #ffb700);
+      color: #111;
+      font-size: 26px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
 
-.panel{
-  padding:20px;
-}
+    .section {
+      margin-top: 24px;
+      padding: 22px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-.card{
-  background:#1a1a1a;
-  padding:15px;
-  border-radius:12px;
-  margin-top:15px;
-}
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #ffd700;
+      text-align: center;
+    }
 
-</style>
+    .features {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .features li {
+      background: rgba(255, 255, 255, 0.06);
+      margin-bottom: 12px;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      line-height: 1.5;
+      border-left: 4px solid #ffd700;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px;
+      margin-top: 18px;
+      border-radius: 16px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .pay-btn {
+      background: linear-gradient(135deg, #ffd700, #ffb700);
+      color: #111;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    }
+
+    .pay-btn:hover {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    .support-btn {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 0 18px rgba(37, 211, 102, 0.25);
+    }
+
+    .support-btn:hover {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .warning {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #bbbbbb;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .footer {
+      margin: 30px 0 15px;
+      text-align: center;
+      font-size: 13px;
+      color: #999;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 25px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+
+      .price-box {
+        font-size: 22px;
+      }
+
+      .section h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
 
-<div class="box" id="auth">
+    <div class="hero">
+      <div class="iphone-icon">📱</div>
+      <div class="title">iPhone üçün əlavə WhatsApp imkanı</div>
+      <div class="subtitle">
+        iPhone istifadəçiləri üçün xüsusi hazırlanmış premium həll.
+        Bir telefonda əlavə WhatsApp istifadə etmək artıq daha rahat və sadədir.
+      </div>
 
-<h2 id="title">Giriş Et</h2>
+      <div class="price-box">
+        Bir dəfəlik ödəniş — 7 AZN
+      </div>
 
-<input id="user" placeholder="Login">
-<input id="pass" type="password" placeholder="Parol">
+      <a href="#" class="button pay-btn">Ödəniş et və əldə et</a>
+    </div>
 
-<button onclick="action()">Giriş</button>
+    <div class="section">
+      <h2>Sənə nə verir?</h2>
+      <ul class="features">
+        <li>✔️ 1 telefonda əlavə WhatsApp istifadəsi</li>
+        <li>⚡ Sürətli və sadə aktivləşdirmə</li>
+        <li>📲 iPhone ilə uyğun istifadə</li>
+        <li>💬 Dəstək xidməti mövcuddur</li>
+      </ul>
+    </div>
 
-<div class="link" onclick="toggle()">Qeydiyyat</div>
+    <div class="section">
+      <h2>Necə əldə edilir?</h2>
+      <ul class="features">
+        <li>1️⃣ Aşağıdakı ödəniş düyməsinə klik et</li>
+        <li>2️⃣ Ödənişi tamamla</li>
+        <li>3️⃣ Dəstək xidmətinə yaz</li>
+        <li>4️⃣ Aktivləşdirməni əldə et</li>
+      </ul>
 
-</div>
+      <a href="#" class="button support-btn">Dəstək xidmətinə yaz</a>
 
-<div class="panel hidden" id="panel">
+      <div class="note">
+        Ödəniş etdikdən sonra bizimlə əlaqə saxlayın və
+        <span class="highlight">aktivləşdirməni əldə edin.</span>
+      </div>
 
-<h2>Balans: <span id="bal">0</span> AZN</h2>
+      <div class="warning">
+        Bu xidmət yalnız iPhone istifadəçiləri üçün nəzərdə tutulub.
+      </div>
+    </div>
 
-<div class="card">
-<button onclick="bonus()">🎁 Bonus al (+0.05)</button>
-</div>
+    <div class="footer">
+      Premium görünüş • Sadə istifadə • iPhone üçün uyğun həll
+    </div>
 
-<div class="card">
-<button onclick="task()">🎯 Tapşırıq et (+0.05)</button>
-</div>
-
-<div class="card">
-<p>Referral link:</p>
-<input id="ref" readonly>
-</div>
-
-<div class="card">
-<button onclick="withdraw()">📤 Çıxarış</button>
-</div>
-
-<button onclick="logout()">Çıxış</button>
-
-</div>
-
-<script>
-
-let mode="login";
-let current=null;
-
-function toggle(){
-  if(mode=="login"){
-    mode="reg";
-    title.innerText="Qeydiyyat";
-    document.querySelector("button").innerText="Qeydiyyatdan keç";
-  }else{
-    mode="login";
-    title.innerText="Giriş Et";
-    document.querySelector("button").innerText="Giriş";
-  }
-}
-
-function action(){
-  let u=user.value;
-  let p=pass.value;
-
-  if(!u||!p)return alert("Boş buraxma");
-
-  if(mode=="reg"){
-    localStorage.setItem(u,JSON.stringify({pass:p,balance:0}));
-    alert("Qeydiyyat oldu");
-    return;
-  }
-
-  let data=JSON.parse(localStorage.getItem(u));
-
-  if(!data||data.pass!=p)return alert("Yanlış");
-
-  current=u;
-  auth.style.display="none";
-  panel.style.display="block";
-
-  bal.innerText=data.balance.toFixed(2);
-  ref.value=location.href+"?ref="+u;
-}
-
-function save(b){
-  let d=JSON.parse(localStorage.getItem(current));
-  d.balance=b;
-  localStorage.setItem(current,JSON.stringify(d));
-  bal.innerText=b.toFixed(2);
-}
-
-function bonus(){
-  let d=JSON.parse(localStorage.getItem(current));
-  save(d.balance+0.05);
-}
-
-function task(){
-  let d=JSON.parse(localStorage.getItem(current));
-  save(d.balance+0.05);
-}
-
-function withdraw(){
-  let d=JSON.parse(localStorage.getItem(current));
-  if(d.balance<5)return alert("Minimum 5 AZN");
-  alert("Sorğu göndərildi");
-}
-
-function logout(){
-  location.reload();
-}
-
-</script>
-
+  </div>
 </body>
 </html>
