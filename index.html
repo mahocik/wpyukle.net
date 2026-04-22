@@ -17,24 +17,29 @@ body {
   max-width:430px;
   margin:auto;
   padding:20px;
+  text-align:center;
 }
 
 h1 {
-  text-align:center;
   color:#ffcc00;
+  margin-bottom:10px;
+}
+
+/* ACIQLAMA */
+.desc {
+  color:#ddd;
+  font-size:15px;
+  line-height:1.6;
 }
 
 /* ONLINE */
 .online {
-  text-align:center;
-  color:#7dff9a;
   margin-top:10px;
-  font-size:15px;
+  color:#7dff9a;
 }
 
 /* PRICE */
 .price {
-  text-align:center;
   margin:15px 0;
   padding:12px;
   border:1px solid #ffcc00;
@@ -43,9 +48,8 @@ h1 {
   font-size:22px;
 }
 
-/* COUNTDOWN */
+/* TIMER */
 .timer {
-  text-align:center;
   color:#ff4444;
   margin-bottom:10px;
   font-weight:bold;
@@ -55,8 +59,8 @@ h1 {
 .btn {
   width:100%;
   padding:18px;
-  border-radius:20px;
   border:none;
+  border-radius:20px;
   font-size:18px;
   font-weight:bold;
   cursor:pointer;
@@ -68,6 +72,17 @@ h1 {
   color:black;
 }
 
+/* YANIB SONEN */
+.glow {
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow:0 0 10px #ffcc00; }
+  to { box-shadow:0 0 25px #ffcc00; }
+}
+
+/* PAYMENT */
 .section {
   display:none;
   margin-top:20px;
@@ -76,15 +91,14 @@ h1 {
   border-radius:20px;
 }
 
-.active {
-  display:block;
-}
+.active { display:block; }
 
 .box {
   background:#1a1a1a;
   padding:15px;
   border-radius:15px;
   margin-bottom:10px;
+  text-align:left;
 }
 
 .label {
@@ -112,28 +126,12 @@ h1 {
 }
 
 .note {
-  text-align:center;
   margin-top:10px;
 }
 
 .warn {
   color:red;
-  text-align:center;
   margin-top:10px;
-}
-
-/* POPUP */
-.popup {
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#111;
-  padding:12px 18px;
-  border-radius:12px;
-  border:1px solid #ffcc00;
-  display:none;
-  font-size:14px;
 }
 </style>
 </head>
@@ -144,22 +142,28 @@ h1 {
 
 <h1>WhatsApp Plus 2026</h1>
 
-<div class="online" id="online">● 0 nəfər baxır</div>
+<p class="desc">
+WhatsApp Plus iPhone və Android telefonları üçün yüklənə bilər. 
+Artıq WhatsApp Plus istifadə etmək üçün ödənişli versiyaya keçid edilib.
+</p>
 
-<div class="price">Qiymət: 2.55₼</div>
+<div class="online" id="online">● 7 nəfər baxır</div>
+
+<div class="price glow">Qiymət: 2.55₼</div>
 
 <div class="timer" id="timer">Təklif bitir: 05:00</div>
 
-<button class="btn main-btn" onclick="openPayment()">
+<button class="btn main-btn glow" onclick="openPayment()">
 Ödəniş et və əldə et
 </button>
 
+<!-- PAYMENT -->
 <div id="payment" class="section">
 
-<h2 style="text-align:center;color:#ffcc00;">Ödəniş məlumatı</h2>
+<h2 style="color:#ffcc00;text-align:center;">Ödəniş məlumatı</h2>
 
 <p style="text-align:center;">
-WhatsApp Plus əldə etmək üçün <b>2.55₼</b> ödəniş edin və qəbzi bizə göndərin.
+WhatsApp Plus əldə etmək üçün <b>2.55₼</b> ödəniş edin və qəbzi göndərin.
 </p>
 
 <div class="box">
@@ -195,49 +199,34 @@ Saxta qəbz aşkar olunsa hesabınız ban ediləcək.
 
 </div>
 
-<div class="popup" id="popup"></div>
-
 <script>
-/* OPEN PAYMENT */
+/* OPEN */
 function openPayment(){
   document.getElementById("payment").classList.add("active");
 }
 
 /* COPY */
 function copyCard(){
-  let text = document.getElementById("card").innerText;
+  let text=document.getElementById("card").innerText;
   navigator.clipboard.writeText(text);
   alert("Kart kopyalandı");
 }
 
 /* ONLINE FAKE */
 setInterval(()=>{
-  let num = Math.floor(Math.random()*20)+5;
-  document.getElementById("online").innerText = "● " + num + " nəfər baxır";
+  let num=Math.floor(Math.random()*15)+5;
+  document.getElementById("online").innerText="● "+num+" nəfər baxır";
 },3000);
 
-/* COUNTDOWN */
-let time = 300;
+/* TIMER */
+let time=300;
 setInterval(()=>{
-  let m = Math.floor(time/60);
-  let s = time%60;
-  document.getElementById("timer").innerText =
-    "Təklif bitir: " + m + ":" + (s<10?"0"+s:s);
+  let m=Math.floor(time/60);
+  let s=time%60;
+  document.getElementById("timer").innerText=
+  "Təklif bitir: "+m+":"+(s<10?"0"+s:s);
   if(time>0) time--;
 },1000);
-
-/* FAKE SALES POPUP */
-let names = ["Elvin","Murad","Aysel","Nihat","Orxan","Rauf","Tural"];
-
-setInterval(()=>{
-  let name = names[Math.floor(Math.random()*names.length)];
-  let popup = document.getElementById("popup");
-  popup.innerText = name + " az əvvəl satın aldı";
-  popup.style.display = "block";
-
-  setTimeout(()=>{ popup.style.display="none"; },3000);
-
-},7000);
 </script>
 
 </body>
