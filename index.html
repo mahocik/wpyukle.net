@@ -1,233 +1,425 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Plus 2026</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-<style>
-body {
-  margin:0;
-  background:#050505;
-  font-family:Arial;
-  color:white;
-}
+    body{
+      background:#000;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
 
-.container {
-  max-width:430px;
-  margin:auto;
-  padding:20px;
-  text-align:center;
-}
+    .page{
+      width:100%;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:40px 16px 60px;
+    }
 
-h1 {
-  color:#ffcc00;
-  margin-bottom:10px;
-}
+    .container{
+      width:100%;
+      max-width:520px;
+      text-align:center;
+    }
 
-/* ACIQLAMA */
-.desc {
-  color:#ddd;
-  font-size:15px;
-  line-height:1.6;
-}
+    .hero{
+      background:linear-gradient(180deg, #0d0d0d, #050505);
+      border:1px solid rgba(255,204,0,0.28);
+      border-radius:30px;
+      padding:30px 18px 24px;
+      box-shadow:
+        0 0 25px rgba(255,204,0,0.08),
+        0 0 60px rgba(255,204,0,0.04);
+    }
 
-/* ONLINE */
-.online {
-  margin-top:10px;
-  color:#7dff9a;
-}
+    h1{
+      color:#ffcc00;
+      font-size:clamp(34px, 6vw, 54px);
+      line-height:1.1;
+      margin-bottom:14px;
+      text-shadow:0 0 12px rgba(255,204,0,0.25);
+    }
 
-/* PRICE */
-.price {
-  margin:15px 0;
-  padding:12px;
-  border:1px solid #ffcc00;
-  border-radius:15px;
-  color:#ffcc00;
-  font-size:22px;
-}
+    .desc{
+      color:#e2e2e2;
+      font-size:20px;
+      line-height:1.7;
+      margin:0 auto 14px;
+      max-width:440px;
+    }
 
-/* TIMER */
-.timer {
-  color:#ff4444;
-  margin-bottom:10px;
-  font-weight:bold;
-}
+    .compatibility{
+      margin-top:8px;
+      color:#bdbdbd;
+      font-size:17px;
+    }
 
-/* BUTTON */
-.btn {
-  width:100%;
-  padding:18px;
-  border:none;
-  border-radius:20px;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:10px;
-}
+    .highlight{
+      margin-top:10px;
+      color:#ff6b6b;
+      font-size:16px;
+      font-weight:bold;
+    }
 
-.main-btn {
-  background:#ffcc00;
-  color:black;
-}
+    .price{
+      margin-top:22px;
+      border:2px solid #ffcc00;
+      border-radius:22px;
+      padding:18px 14px;
+      color:#ffcc00;
+      font-size:34px;
+      font-weight:bold;
+      background:#070707;
+      animation:glowBox 1.5s infinite alternate;
+    }
 
-/* YANIB SONEN */
-.glow {
-  animation: glow 1.5s infinite alternate;
-}
+    .main-btn,
+    .copy-btn,
+    .support-btn{
+      width:100%;
+      border:none;
+      border-radius:24px;
+      padding:20px 18px;
+      font-size:28px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.25s ease;
+      margin-top:18px;
+    }
 
-@keyframes glow {
-  from { box-shadow:0 0 10px #ffcc00; }
-  to { box-shadow:0 0 25px #ffcc00; }
-}
+    .main-btn{
+      background:#ffcc00;
+      color:#111;
+      box-shadow:0 0 28px rgba(255,204,0,0.45);
+      animation:glowBtn 1.5s infinite alternate;
+    }
 
-/* PAYMENT */
-.section {
-  display:none;
-  margin-top:20px;
-  padding:15px;
-  border:1px solid #ffcc00;
-  border-radius:20px;
-}
+    .main-btn:hover,
+    .copy-btn:hover,
+    .support-btn:hover{
+      transform:scale(1.02);
+    }
 
-.active { display:block; }
+    .features,
+    .reviews,
+    .payment-section{
+      margin-top:22px;
+      background:#0b0b0b;
+      border:1px solid rgba(255,204,0,0.22);
+      border-radius:26px;
+      padding:22px 16px;
+      box-shadow:0 0 18px rgba(255,204,0,0.06);
+    }
 
-.box {
-  background:#1a1a1a;
-  padding:15px;
-  border-radius:15px;
-  margin-bottom:10px;
-  text-align:left;
-}
+    .section-title{
+      color:#ffcc00;
+      font-size:30px;
+      font-weight:bold;
+      margin-bottom:16px;
+      text-align:center;
+    }
 
-.label {
-  color:#aaa;
-}
+    .feature-item{
+      background:#151515;
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:18px;
+      padding:14px 14px;
+      text-align:left;
+      font-size:18px;
+      color:#ededed;
+      margin-bottom:10px;
+    }
 
-.value {
-  font-size:20px;
-  font-weight:bold;
-}
+    .review-item{
+      background:#151515;
+      border-radius:18px;
+      padding:14px;
+      text-align:left;
+      margin-bottom:10px;
+      color:#f0f0f0;
+      font-size:17px;
+      line-height:1.6;
+    }
 
-.card {
-  color:#3b6cff;
-  text-decoration:underline;
-}
+    .review-name{
+      color:#ffcc00;
+      font-weight:bold;
+      margin-bottom:6px;
+      display:block;
+    }
 
-.copy-btn {
-  background:#ffcc00;
-  color:black;
-}
+    .payment-section{
+      display:none;
+    }
 
-.support-btn {
-  background:#25D366;
-  color:white;
-}
+    .payment-section.active{
+      display:block;
+      animation:fadeIn 0.35s ease;
+    }
 
-.note {
-  margin-top:10px;
-}
+    .payment-text{
+      color:#f2f2f2;
+      font-size:19px;
+      line-height:1.8;
+      text-align:center;
+      margin-bottom:16px;
+    }
 
-.warn {
-  color:red;
-  margin-top:10px;
-}
-</style>
+    .box{
+      background:#17171c;
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:20px;
+      padding:16px;
+      margin-bottom:12px;
+      text-align:left;
+    }
+
+    .label{
+      color:#b9b9b9;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+
+    .value{
+      color:#fff;
+      font-size:30px;
+      font-weight:bold;
+      word-break:break-word;
+    }
+
+    .card-number{
+      color:#4b6cff;
+      text-decoration:underline;
+      font-size:27px;
+    }
+
+    .copy-btn{
+      background:#ffcc00;
+      color:#111;
+    }
+
+    .support-btn{
+      background:#25D366;
+      color:#fff;
+      display:block;
+      text-decoration:none;
+      text-align:center;
+      box-shadow:0 0 20px rgba(37,211,102,0.22);
+    }
+
+    .note{
+      color:#e7e7e7;
+      font-size:17px;
+      line-height:1.7;
+      text-align:center;
+      margin-top:16px;
+    }
+
+    .warn{
+      color:#ff9b9b;
+      font-size:16px;
+      line-height:1.7;
+      text-align:center;
+      margin-top:12px;
+    }
+
+    .copied{
+      display:none;
+      color:#7dff9a;
+      margin-top:12px;
+      font-size:16px;
+      text-align:center;
+    }
+
+    @keyframes glowBox{
+      from{ box-shadow:0 0 10px rgba(255,204,0,0.30); }
+      to{ box-shadow:0 0 28px rgba(255,204,0,0.55); }
+    }
+
+    @keyframes glowBtn{
+      from{ box-shadow:0 0 12px rgba(255,204,0,0.35); }
+      to{ box-shadow:0 0 34px rgba(255,204,0,0.60); }
+    }
+
+    @keyframes fadeIn{
+      from{ opacity:0; transform:translateY(14px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    @media (max-width:600px){
+      .page{
+        padding:26px 14px 40px;
+      }
+
+      .hero{
+        padding:26px 14px 20px;
+        border-radius:24px;
+      }
+
+      .desc{
+        font-size:16px;
+      }
+
+      .compatibility{
+        font-size:15px;
+      }
+
+      .highlight{
+        font-size:14px;
+      }
+
+      .price{
+        font-size:24px;
+        padding:16px 12px;
+      }
+
+      .main-btn,
+      .copy-btn,
+      .support-btn{
+        font-size:18px;
+        padding:18px 14px;
+        border-radius:20px;
+      }
+
+      .section-title{
+        font-size:24px;
+      }
+
+      .feature-item,
+      .review-item,
+      .payment-text,
+      .note{
+        font-size:16px;
+      }
+
+      .value{
+        font-size:22px;
+      }
+
+      .card-number{
+        font-size:20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <div class="container">
 
-<div class="container">
+      <div class="hero">
+        <h1>WhatsApp Plus 2026</h1>
 
-<h1>WhatsApp Plus 2026</h1>
+        <p class="desc">
+          WhatsApp Plus iPhone və Android telefonları üçün yüklənə bilər.
+          Artıq Wp Plus istifadə etmək üçün ödənişli versiyaya keçid edilib.
+        </p>
 
-<p class="desc">
-WhatsApp Plus iPhone və Android telefonları üçün yüklənə bilər. 
-Artıq WhatsApp Plus istifadə etmək üçün ödənişli versiyaya keçid edilib.
-</p>
+        <div class="compatibility">📱 iPhone | 🤖 Android uyğun</div>
+        <div class="highlight">⚠️ Pulsuz versiyalar hər cihazda stabil işləmir</div>
 
-<div class="online" id="online">● 7 nəfər baxır</div>
+        <div class="price">Qiymət: 2.55₼</div>
 
-<div class="price glow">Qiymət: 2.55₼</div>
+        <button class="main-btn" onclick="openPayment()">
+          Ödəniş et və əldə et
+        </button>
+      </div>
 
-<div class="timer" id="timer">Təklif bitir: 05:00</div>
+      <div class="features">
+        <div class="section-title">Üstünlüklər</div>
 
-<button class="btn main-btn glow" onclick="openPayment()">
-Ödəniş et və əldə et
-</button>
+        <div class="feature-item">✔ Daha fərqli görünüş və əlavə tema seçimləri</div>
+        <div class="feature-item">✔ iPhone və Android cihazlarda istifadə imkanı</div>
+        <div class="feature-item">✔ Sadə və rahat quraşdırılma prosesi</div>
+        <div class="feature-item">✔ Dəstək xidməti ilə birbaşa əlaqə</div>
+      </div>
 
-<!-- PAYMENT -->
-<div id="payment" class="section">
+      <div class="reviews">
+        <div class="section-title">İstifadəçi rəyləri</div>
 
-<h2 style="color:#ffcc00;text-align:center;">Ödəniş məlumatı</h2>
+        <div class="review-item">
+          <span class="review-name">⭐️⭐️⭐️⭐️⭐️ Elvin</span>
+          Quraşdırılması rahat oldu, dəstək də tez cavab verdi.
+        </div>
 
-<p style="text-align:center;">
-WhatsApp Plus əldə etmək üçün <b>2.55₼</b> ödəniş edin və qəbzi göndərin.
-</p>
+        <div class="review-item">
+          <span class="review-name">⭐️⭐️⭐️⭐️⭐️ Murad</span>
+          Dizaynı yaxşıdır, yükləmə prosesi də aydın idi.
+        </div>
 
-<div class="box">
-<div class="label">Bank</div>
-<div class="value">ABB BANK</div>
-</div>
+        <div class="review-item">
+          <span class="review-name">⭐️⭐️⭐️⭐️⭐️ Aysel</span>
+          Sadə və səliqəli şəkildə izah olunub, rahat başa düşülür.
+        </div>
+      </div>
 
-<div class="box">
-<div class="label">Kart nömrəsi</div>
-<div class="value card" id="card">5522 0993 6459 2899</div>
-</div>
+      <div class="payment-section" id="paymentSection">
+        <div class="section-title">Ödəniş məlumatı</div>
 
-<div class="box">
-<div class="label">Ad Familya</div>
-<div class="value">M.A</div>
-</div>
+        <p class="payment-text">
+          WhatsApp Plus əldə etmək üçün göstərilən kart nömrəsinə
+          <b>2.55₼</b> ödəniş edin və sonra qəbzi dəstək xidmətinə göndərin.
+        </p>
 
-<button class="btn copy-btn" onclick="copyCard()">Kartı kopyala</button>
+        <div class="box">
+          <div class="label">Bank</div>
+          <div class="value">ABB BANK</div>
+        </div>
 
-<a href="https://t.me/kenrrry" target="_blank">
-<button class="btn support-btn">Dəstək xidmətinə yaz</button>
-</a>
+        <div class="box">
+          <div class="label">Kart nömrəsi</div>
+          <div class="value card-number" id="cardNumber">5522 0993 6459 2899</div>
+        </div>
 
-<div class="note">
-Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
-</div>
+        <div class="box">
+          <div class="label">Ad Familya</div>
+          <div class="value">M.A</div>
+        </div>
 
-<div class="warn">
-Saxta qəbz aşkar olunsa hesabınız ban ediləcək.
-</div>
+        <button class="copy-btn" onclick="copyCard()">Kartı kopyala</button>
 
-</div>
+        <a class="support-btn" href="https://t.me/kenrrry" target="_blank">
+          Dəstək xidmətinə yaz
+        </a>
 
-</div>
+        <div class="copied" id="copiedMsg">Kart nömrəsi kopyalandı</div>
 
-<script>
-/* OPEN */
-function openPayment(){
-  document.getElementById("payment").classList.add("active");
-}
+        <div class="note">
+          Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
+        </div>
 
-/* COPY */
-function copyCard(){
-  let text=document.getElementById("card").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Kart kopyalandı");
-}
+        <div class="warn">
+          Saxta qəbz aşkar olunarsa hesab bloklana bilər.
+        </div>
+      </div>
 
-/* ONLINE FAKE */
-setInterval(()=>{
-  let num=Math.floor(Math.random()*15)+5;
-  document.getElementById("online").innerText="● "+num+" nəfər baxır";
-},3000);
+    </div>
+  </div>
 
-/* TIMER */
-let time=300;
-setInterval(()=>{
-  let m=Math.floor(time/60);
-  let s=time%60;
-  document.getElementById("timer").innerText=
-  "Təklif bitir: "+m+":"+(s<10?"0"+s:s);
-  if(time>0) time--;
-},1000);
-</script>
+  <script>
+    function openPayment() {
+      const section = document.getElementById("paymentSection");
+      section.classList.add("active");
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 
+    function copyCard() {
+      const cardNumber = document.getElementById("cardNumber").innerText;
+      navigator.clipboard.writeText(cardNumber).then(() => {
+        document.getElementById("copiedMsg").style.display = "block";
+      });
+    }
+  </script>
 </body>
 </html>
