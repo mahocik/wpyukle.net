@@ -11,33 +11,21 @@ body {
   background:#050505;
   font-family:Arial;
   color:white;
-
-  /* TAM MERKEZ */
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
 }
 
-/* KONTEYNER */
 .container {
-  width:380px;
-  max-width:95%;
-  background:#0d0d0d;
-  border-radius:25px;
-  padding:25px;
-  box-shadow:0 0 40px rgba(255,204,0,0.15);
+  max-width:430px;
+  margin:auto;
+  padding:20px;
   text-align:center;
 }
 
-/* TITLE */
 h1 {
   color:#ffcc00;
-  font-size:28px;
   margin-bottom:10px;
 }
 
-/* TEXT */
+/* ACIQLAMA */
 .desc {
   color:#ddd;
   font-size:15px;
@@ -48,17 +36,16 @@ h1 {
 .online {
   margin-top:10px;
   color:#7dff9a;
-  font-size:14px;
 }
 
 /* PRICE */
 .price {
   margin:15px 0;
-  padding:14px;
+  padding:12px;
   border:1px solid #ffcc00;
   border-radius:15px;
   color:#ffcc00;
-  font-size:24px;
+  font-size:22px;
 }
 
 /* TIMER */
@@ -85,9 +72,9 @@ h1 {
   color:black;
 }
 
-/* GLOW */
+/* YANIB SONEN */
 .glow {
-  animation:glow 1.5s infinite alternate;
+  animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
@@ -99,27 +86,27 @@ h1 {
 .section {
   display:none;
   margin-top:20px;
-  text-align:left;
+  padding:15px;
+  border:1px solid #ffcc00;
+  border-radius:20px;
 }
 
-.active {
-  display:block;
-}
+.active { display:block; }
 
 .box {
   background:#1a1a1a;
-  padding:14px;
+  padding:15px;
   border-radius:15px;
   margin-bottom:10px;
+  text-align:left;
 }
 
 .label {
   color:#aaa;
-  font-size:14px;
 }
 
 .value {
-  font-size:18px;
+  font-size:20px;
   font-weight:bold;
 }
 
@@ -139,13 +126,11 @@ h1 {
 }
 
 .note {
-  text-align:center;
   margin-top:10px;
 }
 
 .warn {
   color:red;
-  text-align:center;
   margin-top:10px;
 }
 </style>
@@ -159,10 +144,10 @@ h1 {
 
 <p class="desc">
 WhatsApp Plus iPhone və Android telefonları üçün yüklənə bilər. 
-Artıq istifadə etmək üçün ödənişli versiyaya keçid edilib.
+Artıq WhatsApp Plus istifadə etmək üçün ödənişli versiyaya keçid edilib.
 </p>
 
-<div class="online" id="online">● 8 nəfər baxır</div>
+<div class="online" id="online">● 7 nəfər baxır</div>
 
 <div class="price glow">Qiymət: 2.55₼</div>
 
@@ -172,12 +157,13 @@ Artıq istifadə etmək üçün ödənişli versiyaya keçid edilib.
 Ödəniş et və əldə et
 </button>
 
+<!-- PAYMENT -->
 <div id="payment" class="section">
 
-<h3 style="color:#ffcc00;text-align:center;">Ödəniş məlumatı</h3>
+<h2 style="color:#ffcc00;text-align:center;">Ödəniş məlumatı</h2>
 
 <p style="text-align:center;">
-2.55₼ ödəniş edin və qəbzi göndərin.
+WhatsApp Plus əldə etmək üçün <b>2.55₼</b> ödəniş edin və qəbzi göndərin.
 </p>
 
 <div class="box">
@@ -202,11 +188,11 @@ Artıq istifadə etmək üçün ödənişli versiyaya keçid edilib.
 </a>
 
 <div class="note">
-Ödənişdən sonra qəbzi göndərin
+Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
 </div>
 
 <div class="warn">
-Saxta qəbz = ban
+Saxta qəbz aşkar olunsa hesabınız ban ediləcək.
 </div>
 
 </div>
@@ -214,17 +200,19 @@ Saxta qəbz = ban
 </div>
 
 <script>
+/* OPEN */
 function openPayment(){
   document.getElementById("payment").classList.add("active");
 }
 
+/* COPY */
 function copyCard(){
   let text=document.getElementById("card").innerText;
   navigator.clipboard.writeText(text);
-  alert("Kopyalandı");
+  alert("Kart kopyalandı");
 }
 
-/* ONLINE */
+/* ONLINE FAKE */
 setInterval(()=>{
   let num=Math.floor(Math.random()*15)+5;
   document.getElementById("online").innerText="● "+num+" nəfər baxır";
