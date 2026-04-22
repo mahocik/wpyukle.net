@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WhatsApp Plus</title>
+  <title>WhatsApp Plus 2026</title>
   <style>
     * {
       margin: 0;
@@ -13,257 +13,172 @@
     }
 
     body {
-      background: #050505;
-      color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at top, rgba(255, 208, 0, 0.12), transparent 35%),
-        radial-gradient(circle at bottom, rgba(255, 208, 0, 0.08), transparent 30%);
-      pointer-events: none;
-      z-index: 0;
+      background: linear-gradient(180deg, #050505, #111111);
+      color: white;
+      padding: 20px;
     }
 
     .container {
-      width: 100%;
       max-width: 430px;
       margin: 0 auto;
-      padding: 20px 16px 40px;
-      position: relative;
-      z-index: 1;
     }
 
-    .card-box {
-      background: linear-gradient(180deg, #111 0%, #161616 100%);
-      border: 1px solid rgba(255, 196, 0, 0.18);
+    .hero {
+      background: #111;
+      border: 1px solid rgba(255, 196, 0, 0.25);
       border-radius: 28px;
-      padding: 22px 18px;
-      box-shadow: 0 0 25px rgba(255, 196, 0, 0.08);
-      margin-bottom: 18px;
-    }
-
-    .top-logo {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 10px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #1b1b1b, #2b2b2b);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      box-shadow: 0 0 18px rgba(255, 196, 0, 0.08);
-    }
-
-    .site-badge {
-      width: fit-content;
-      margin: 0 auto 22px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #fff;
-      font-size: 15px;
-    }
-
-    .title {
+      padding: 26px 20px;
       text-align: center;
-      color: #ffc400;
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.3;
-      margin-bottom: 18px;
+      box-shadow: 0 0 25px rgba(255, 196, 0, 0.1);
+      margin-bottom: 20px;
     }
 
-    .subtitle {
-      color: #e9e9e9;
-      font-size: 16px;
-      line-height: 1.8;
-      text-align: left;
-      margin-bottom: 22px;
-    }
-
-    .price-box {
-      background: linear-gradient(180deg, #ffd400 0%, #ffbf00 100%);
-      color: #111;
-      border-radius: 22px;
-      padding: 24px 18px;
-      text-align: center;
-      font-size: 26px;
-      font-weight: 800;
-      line-height: 1.35;
-      margin-bottom: 16px;
-      box-shadow: 0 0 24px rgba(255, 196, 0, 0.28);
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      border: none;
-      border-radius: 20px;
-      padding: 18px 16px;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: 0.2s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .pay-btn {
-      background: linear-gradient(180deg, #ffd400 0%, #ffbf00 100%);
-      color: #111;
-      box-shadow: 0 0 20px rgba(255, 196, 0, 0.22);
-    }
-
-    .support-btn {
-      margin-top: 14px;
-      background: #1f1f1f;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .payment-box {
-      display: none;
-      margin-top: 18px;
-      background: linear-gradient(180deg, #111 0%, #191919 100%);
-      border: 1px solid rgba(255, 196, 0, 0.18);
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: 0 0 18px rgba(255, 196, 0, 0.08);
-      animation: fadeIn .25s ease;
-    }
-
-    .payment-title {
-      text-align: center;
-      color: #ffc400;
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .payment-text {
-      font-size: 15px;
-      line-height: 1.8;
-      color: #f3f3f3;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .pay-row {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 12px 14px;
+    .hero h1 {
+      color: #ffcc00;
+      font-size: 32px;
       margin-bottom: 10px;
     }
 
-    .pay-label {
-      font-size: 13px;
-      color: #bbb;
-      margin-bottom: 6px;
+    .hero p {
+      color: #d7d7d7;
+      font-size: 17px;
+      line-height: 1.6;
     }
 
-    .pay-value {
-      font-size: 17px;
-      color: #fff;
-      font-weight: 700;
+    .price-box {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 18px;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 204, 0, 0.2);
+      color: #ffcc00;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 22px;
+      padding: 20px;
+      margin-top: 18px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #ffcc00;
+      color: #111;
+      box-shadow: 0 0 18px rgba(255, 204, 0, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.02);
+    }
+
+    .payment-section {
+      display: none;
+      margin-top: 22px;
+      background: #0d0d0d;
+      border: 1px solid rgba(255, 196, 0, 0.25);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 196, 0, 0.08);
+    }
+
+    .payment-section.active {
+      display: block;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .payment-section h2 {
+      text-align: center;
+      color: #ffcc00;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .payment-text {
+      text-align: center;
+      color: #ededed;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .card-box {
+      background: #1b1b1f;
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .label {
+      color: #bdbdbd;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .value {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
       word-break: break-word;
+    }
+
+    .card-number {
+      color: #4f7dff;
+      text-decoration: underline;
     }
 
     .copy-btn {
       width: 100%;
-      margin-top: 10px;
-      border: none;
-      border-radius: 16px;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: 800;
-      background: linear-gradient(180deg, #ffd400 0%, #ffbf00 100%);
+      background: #ffcc00;
       color: #111;
+      border: none;
+      border-radius: 20px;
+      padding: 18px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
-    }
-
-    .mini-note {
-      margin-top: 12px;
-      text-align: center;
-      color: #d9d9d9;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .warn {
-      margin-top: 12px;
-      text-align: center;
-      color: #ffb3b3;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .footer {
-      text-align: center;
-      color: #8f8f8f;
-      font-size: 13px;
-      line-height: 1.7;
       margin-top: 10px;
     }
 
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%);
-      background: #111;
-      color: #fff;
-      border: 1px solid rgba(255, 196, 0, 0.3);
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-size: 14px;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.25s ease;
-      z-index: 9999;
-      box-shadow: 0 0 18px rgba(255,196,0,0.12);
+    .bottom-note {
+      text-align: center;
+      color: #e8e8e8;
+      font-size: 15px;
+      margin-top: 18px;
+      line-height: 1.8;
     }
 
-    .toast.show {
-      opacity: 1;
-      bottom: 34px;
+    .warning {
+      color: #ff9ea5;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .copied-msg {
+      display: none;
+      text-align: center;
+      color: #7dff9a;
+      margin-top: 12px;
+      font-size: 15px;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 390px) {
-      .title {
-        font-size: 25px;
-      }
-
-      .price-box {
-        font-size: 23px;
-      }
-
-      .subtitle {
-        font-size: 15px;
       }
     }
   </style>
@@ -271,106 +186,61 @@
 <body>
   <div class="container">
 
-    <div class="card-box">
-      <div class="top-logo">📱</div>
-      <div class="site-badge">wpyukle.net</div>
-
-      <div class="title">WhatsApp Plus</div>
-
-      <div class="subtitle">
-        WhatsApp Plus standart versiyadan fərqli olaraq daha çox imkan təqdim edən xüsusi versiyadır.
-        Daha çox rahatlıq, daha çox məxfilik və əlavə funksiyalar bir yerdə.
-      </div>
-
-      <div class="price-box">
-        Bir dəfəlik ödəniş — 3.99₼
-      </div>
-
-      <button class="btn pay-btn" onclick="showPaymentBox()">Ödəniş et və əldə et</button>
-
-      <div class="payment-box" id="paymentBox">
-        <div class="payment-title">Ödəniş məlumatı</div>
-
-        <div class="payment-text">
-          WhatsApp Plus əldə etmək üçün birinci növbədə göstərilən kart nömrəsinə ödənişi edib qəbzi bizə göndərin.
-        </div>
-
-        <div class="pay-row">
-          <div class="pay-label">Bank</div>
-          <div class="pay-value">ABB BANK</div>
-        </div>
-
-        <div class="pay-row">
-          <div class="pay-label">Kart nömrəsi</div>
-          <div class="pay-value" id="cardNumber">5522 0993 6459 2899</div>
-        </div>
-
-        <div class="pay-row">
-          <div class="pay-label">Ad Familya</div>
-          <div class="pay-value">M.A</div>
-        </div>
-
-        <button class="copy-btn" onclick="copyCardNumber()">Kartı kopyala</button>
-
-        <div class="mini-note">
-          Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
-        </div>
-
-        <div class="warn">
-          Saxta qəbz aşkar olunsa hesabınız ban ediləcək.
-        </div>
-      </div>
-
-      <a href="https://t.me/kenrrry" class="btn support-btn">Dəstək xidmətinə yaz</a>
+    <div class="hero">
+      <h1>WhatsApp Plus 2026</h1>
+      <p>Yeni versiyanı əldə etmək üçün aşağıdakı düyməyə basın.</p>
+      <div class="price-box">Qiymət: 2.55₼</div>
+      <button class="btn btn-primary" onclick="openPayment()">Ödəniş et və əldə et</button>
     </div>
 
-    <div class="footer">
-      Premium görünüş • Sadə istifadə • Rahat aktivləşdirmə
+    <div class="payment-section" id="paymentSection">
+      <h2>Ödəniş məlumatı</h2>
+      <p class="payment-text">
+        WhatsApp Plus əldə etmək üçün birinci növbədə göstərilən kart nömrəsinə
+        <b>2.55₼</b> ödəniş edin və qəbzi bizə göndərin.
+      </p>
+
+      <div class="card-box">
+        <div class="label">Bank</div>
+        <div class="value">ABB BANK</div>
+      </div>
+
+      <div class="card-box">
+        <div class="label">Kart nömrəsi</div>
+        <div class="value card-number" id="cardNumber">5522 0993 6459 2899</div>
+      </div>
+
+      <div class="card-box">
+        <div class="label">Ad Familya</div>
+        <div class="value">M.A</div>
+      </div>
+
+      <button class="copy-btn" onclick="copyCard()">Kartı kopyala</button>
+      <div class="copied-msg" id="copiedMsg">Kart nömrəsi kopyalandı</div>
+
+      <div class="bottom-note">
+        Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
+      </div>
+
+      <div class="warning">
+        Saxta qəbz aşkar olunsa hesabınız ban ediləcək.
+      </div>
     </div>
+
   </div>
 
-  <div class="toast" id="toast">Kart nömrəsi kopyalandı</div>
-
   <script>
-    function showPaymentBox() {
-      const box = document.getElementById("paymentBox");
-      if (box.style.display === "block") {
-        box.style.display = "none";
-      } else {
-        box.style.display = "block";
-        box.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+    function openPayment() {
+      const section = document.getElementById("paymentSection");
+      section.classList.add("active");
+      section.scrollIntoView({ behavior: "smooth" });
     }
 
-    function copyCardNumber() {
-      const cardText = document.getElementById("cardNumber").innerText.replace(/\s+/g, " ").trim();
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(cardText).then(showToast);
-      } else {
-        const textarea = document.createElement("textarea");
-        textarea.value = cardText;
-        textarea.style.position = "fixed";
-        textarea.style.left = "-9999px";
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        try {
-          document.execCommand("copy");
-          showToast();
-        } catch (e) {
-          alert("Kopyalama alınmadı");
-        }
-        document.body.removeChild(textarea);
-      }
-    }
-
-    function showToast() {
-      const toast = document.getElementById("toast");
-      toast.classList.add("show");
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 1800);
+    function copyCard() {
+      const cardNumber = document.getElementById("cardNumber").innerText;
+      navigator.clipboard.writeText(cardNumber).then(() => {
+        document.getElementById("copiedMsg").style.display = "block";
+      });
     }
   </script>
 </body>
