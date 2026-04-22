@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iPhone üçün əlavə WhatsApp imkanı</title>
+  <title>WhatsApp Plus</title>
   <style>
     * {
       margin: 0;
@@ -134,41 +134,6 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .section {
-      background: linear-gradient(180deg, #141414 0%, #1a1a1a 100%);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 24px;
-      padding: 18px 14px;
-      margin-bottom: 18px;
-      box-shadow: 0 0 18px rgba(255, 196, 0, 0.05);
-    }
-
-    .section h2 {
-      text-align: center;
-      color: #ffc400;
-      font-size: 22px;
-      margin-bottom: 16px;
-      font-weight: 800;
-    }
-
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(180deg, #242424 0%, #2d2d2d 100%);
-      border-left: 5px solid #ffc400;
-      border-radius: 18px;
-      padding: 14px 14px;
-      margin-bottom: 12px;
-      color: #f5f5f5;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .item:last-child {
-      margin-bottom: 0;
-    }
-
     .payment-box {
       display: none;
       margin-top: 18px;
@@ -186,6 +151,14 @@
       font-size: 22px;
       font-weight: 800;
       margin-bottom: 14px;
+    }
+
+    .payment-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #f3f3f3;
+      text-align: center;
+      margin-bottom: 16px;
     }
 
     .pay-row {
@@ -233,7 +206,7 @@
     .warn {
       margin-top: 12px;
       text-align: center;
-      color: #a8a8a8;
+      color: #ffb3b3;
       font-size: 13px;
       line-height: 1.7;
     }
@@ -302,15 +275,15 @@
       <div class="top-logo">📱</div>
       <div class="site-badge">wpyukle.net</div>
 
-      <div class="title">iPhone üçün əlavə WhatsApp imkanı</div>
+      <div class="title">WhatsApp Plus</div>
 
       <div class="subtitle">
-        iPhone istifadəçiləri üçün xüsusi hazırlanmış premium həll.
-        Bir telefonda əlavə WhatsApp istifadə etmək artıq daha rahat və sadədir.
+        WhatsApp Plus standart versiyadan fərqli olaraq daha çox imkan təqdim edən xüsusi versiyadır.
+        Daha çox rahatlıq, daha çox məxfilik və əlavə funksiyalar bir yerdə.
       </div>
 
       <div class="price-box">
-        Bir dəfəlik ödəniş — 7 AZN
+        Bir dəfəlik ödəniş — 3.99₼
       </div>
 
       <button class="btn pay-btn" onclick="showPaymentBox()">Ödəniş et və əldə et</button>
@@ -318,9 +291,13 @@
       <div class="payment-box" id="paymentBox">
         <div class="payment-title">Ödəniş məlumatı</div>
 
+        <div class="payment-text">
+          WhatsApp Plus əldə etmək üçün birinci növbədə göstərilən kart nömrəsinə ödənişi edib qəbzi bizə göndərin.
+        </div>
+
         <div class="pay-row">
           <div class="pay-label">Bank</div>
-          <div class="pay-value">ABB Bank</div>
+          <div class="pay-value">ABB BANK</div>
         </div>
 
         <div class="pay-row">
@@ -336,37 +313,19 @@
         <button class="copy-btn" onclick="copyCardNumber()">Kartı kopyala</button>
 
         <div class="mini-note">
-          Ödəniş etdikdən sonra aşağıdakı dəstək düyməsinə basaraq bizimlə əlaqə saxlayın.
+          Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
+        </div>
+
+        <div class="warn">
+          Saxta qəbz aşkar olunsa hesabınız ban ediləcək.
         </div>
       </div>
 
       <a href="https://t.me/kenrrry" class="btn support-btn">Dəstək xidmətinə yaz</a>
     </div>
 
-    <div class="section">
-      <h2>Sənə nə verir?</h2>
-
-      <div class="item">✔️ 1 telefonda əlavə WhatsApp istifadəsi</div>
-      <div class="item">⚡ Sürətli və sadə aktivləşdirmə</div>
-      <div class="item">📲 iPhone ilə uyğun istifadə</div>
-      <div class="item">💬 Dəstək xidməti mövcuddur</div>
-    </div>
-
-    <div class="section">
-      <h2>Necə əldə edilir?</h2>
-
-      <div class="item">1️⃣ Aşağıdakı ödəniş düyməsinə klik et</div>
-      <div class="item">2️⃣ Ödənişi tamamla</div>
-      <div class="item">3️⃣ Dəstək xidmətinə yaz</div>
-      <div class="item">4️⃣ Aktivləşdirməni əldə et</div>
-
-      <div class="warn">
-        Bu xidmət yalnız iPhone istifadəçiləri üçün nəzərdə tutulub.
-      </div>
-    </div>
-
     <div class="footer">
-      Premium görünüş • Sadə istifadə • iPhone üçün uyğun həll
+      Premium görünüş • Sadə istifadə • Rahat aktivləşdirmə
     </div>
   </div>
 
