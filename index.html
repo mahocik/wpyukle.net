@@ -22,12 +22,7 @@ width:100%;
 height:100%;
 background:radial-gradient(circle,#00ff88 0%, transparent 70%);
 opacity:0.15;
-animation:bgGlow 3s infinite alternate;
 z-index:-1;
-}
-@keyframes bgGlow{
-0%{opacity:0.1;}
-100%{opacity:0.25;}
 }
 
 .container{
@@ -69,36 +64,13 @@ text-decoration:none;
 text-align:center;
 }
 
-/* tarix */
+/* TARİX */
 #datetime{
 color:#00ff88;
 margin-top:15px;
 }
 
-/* modal */
-.sheet{
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:90%;
-max-width:360px;
-background:#111;
-padding:20px;
-border-radius:20px;
-z-index:1000;
-}
-
-.overlay{
-display:none;
-position:fixed;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-}
-
-/* loading */
+/* LOADING */
 .loading{
 display:none;
 position:fixed;
@@ -114,16 +86,32 @@ flex-direction:column;
 color:#00ff88;
 }
 
-.spinner{
-width:40px;
-height:40px;
-border:4px solid #00ff88;
-border-top:4px solid transparent;
-border-radius:50%;
-animation:spin 1s linear infinite;
+/* 🔥 ƏSAS FIX BURDA */
+.overlay{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000; /* TAM QARA */
+opacity:0.98; /* demək olar tam örtür */
+z-index:999;
 }
-@keyframes spin{
-100%{transform:rotate(360deg);}
+
+/* MODAL */
+.sheet{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:90%;
+max-width:360px;
+background:#111;
+padding:20px;
+border-radius:20px;
+z-index:1000;
 }
 
 /* footer */
@@ -154,7 +142,6 @@ margin-top:10px;
 <p>🎨 VIP görünüş</p>
 </div>
 
-<!-- TARİX GERİ -->
 <div id="datetime"></div>
 
 <div class="price">
@@ -165,20 +152,20 @@ margin-top:10px;
 
 </div>
 
-<!-- loading -->
+<!-- LOADING -->
 <div class="loading" id="loading">
 ⏳ Sistem yoxlanılır...
-<div class="spinner"></div>
 </div>
 
+<!-- 🔥 OVERLAY -->
 <div class="overlay" id="overlay"></div>
 
-<!-- modal -->
+<!-- MODAL -->
 <div class="sheet" id="sheet">
 
 <p><b>Ödəniş etdikdən sonra Dəstək xidmətinə göndərin</b></p>
 
-<p style="margin-top:10px;">ABB BANK</p>
+<p>ABB BANK</p>
 <p style="color:#00ff88;">4127 2141 2112 2730</p>
 
 <a class="btn" onclick="copyCard()">Kartı kopyala</a>
@@ -191,7 +178,7 @@ Dəstək Xidməti
 
 </div>
 
-<!-- footer -->
+<!-- FOOTER -->
 <div class="footer">
 
 <img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
@@ -220,6 +207,7 @@ function openSheet(){
 document.getElementById("sheet").style.display="block";
 document.getElementById("overlay").style.display="block";
 }
+
 function closeSheet(){
 document.getElementById("sheet").style.display="none";
 document.getElementById("overlay").style.display="none";
@@ -231,10 +219,9 @@ navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kart kopyalandı");
 }
 
-// TARİX + SAAT
+// TARİX
 function updateDateTime(){
 const now=new Date();
-
 const days=["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"];
 const months=["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"];
 
