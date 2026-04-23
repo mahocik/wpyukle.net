@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Plus Admin Panel</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    }
+
+    body{
+      background:#050707;
+      color:#eef7ef;
+    }
+
+    .layout{
+      display:flex;
+      min-height:100vh;
+    }
+
+    .sidebar{
+      width:260px;
+      background:#070b09;
+      border-right:1px solid rgba(0,255,136,0.08);
+      padding:28px 18px;
+      box-shadow:0 0 30px rgba(0,255,136,0.06);
+    }
+
+    .brand{
+      margin-bottom:28px;
+    }
+
+    .brand h1{
+      font-size:18px;
+      color:#37ff9c;
+      margin-bottom:6px;
+    }
+
+    .brand p{
+      color:#8ea095;
+      font-size:14px;
+    }
+
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:#c9d8cd;
+      padding:14px 16px;
+      border-radius:14px;
+      display:block;
+      background:transparent;
+      border:1px solid transparent;
+      transition:0.2s ease;
+    }
+
+    .menu a.active,
+    .menu a:hover{
+      color:#fff;
+      border-color:rgba(55,255,156,0.35);
+      background:rgba(20,60,37,0.55);
+      box-shadow:0 0 18px rgba(55,255,156,0.16);
+    }
+
+    .sidebar-card{
+      margin-top:28px;
+      padding:18px 14px;
+      border-radius:18px;
+      background:linear-gradient(180deg,#0c160f,#0a110c);
+      border:1px solid rgba(55,255,156,0.18);
+      text-align:center;
+      box-shadow:0 0 24px rgba(55,255,156,0.08);
+    }
+
+    .sidebar-card .crown{
+      font-size:24px;
+      margin-bottom:8px;
+    }
+
+    .sidebar-card h3{
+      font-size:16px;
+      margin-bottom:8px;
+      color:#f5fff7;
+    }
+
+    .sidebar-card p{
+      color:#86c597;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .main{
+      flex:1;
+      padding:26px 26px 34px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:24px;
+    }
+
+    .burger{
+      font-size:28px;
+      color:#aab6ad;
+    }
+
+    .admin-box{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#a7b5aa;
+    }
+
+    .avatar{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:#13773f;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight:700;
+      box-shadow:0 0 16px rgba(55,255,156,0.16);
+    }
+
+    .welcome h2{
+      font-size:26px;
+      margin-bottom:8px;
+      color:#f5fff7;
+    }
+
+    .welcome p{
+      color:#90a59a;
+      font-size:15px;
+      margin-bottom:26px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-bottom:22px;
+    }
+
+    .stat{
+      background:#08100b;
+      border:1px solid rgba(55,255,156,0.12);
+      border-radius:20px;
+      padding:22px 18px;
+      box-shadow:0 0 18px rgba(55,255,156,0.05);
+    }
+
+    .stat .icon{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      border:1px solid rgba(55,255,156,0.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      color:#39ff9e;
+      margin-bottom:16px;
+      box-shadow:0 0 18px rgba(55,255,156,0.14);
+    }
+
+    .stat .label{
+      color:#a6b6aa;
+      font-size:15px;
+      margin-bottom:8px;
+    }
+
+    .stat .value{
+      font-size:24px;
+      font-weight:700;
+      color:#ffffff;
+      margin-bottom:8px;
+    }
+
+    .stat .delta{
+      color:#39ff9e;
+      font-size:14px;
+    }
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:1.35fr 1fr;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .card{
+      background:#08100b;
+      border:1px solid rgba(55,255,156,0.12);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 0 18px rgba(55,255,156,0.05);
+    }
+
+    .card-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .card-head h3{
+      font-size:18px;
+      color:#ffffff;
+    }
+
+    .see-all{
+      color:#39ff9e;
+      font-size:14px;
+      text-decoration:none;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    th, td{
+      padding:14px 10px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      font-size:14px;
+    }
+
+    th{
+      color:#8ea095;
+      font-weight:500;
+    }
+
+    td{
+      color:#e8f3ea;
+    }
+
+    .user-mini{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .user-mini .round{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#0d5f32;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#dffff0;
+      font-weight:700;
+    }
+
+    .user-mini small{
+      color:#8ea095;
+      display:block;
+      margin-top:4px;
+      font-size:12px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:10px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .ok{ background:#103c22; color:#50ff9e; }
+    .wait{ background:#4d3a07; color:#ffd452; }
+    .cancel{ background:#4a1111; color:#ff7b7b; }
+
+    .receipt-list{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .receipt{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding-bottom:12px;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .receipt-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .receipt-thumb{
+      width:42px;
+      height:54px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#f2f2f2,#d4d4d4);
+      box-shadow:0 0 8px rgba(255,255,255,0.08);
+    }
+
+    .receipt-name{
+      color:#f0f7f1;
+      font-size:15px;
+      margin-bottom:4px;
+    }
+
+    .receipt-phone{
+      color:#8ea095;
+      font-size:13px;
+    }
+
+    .receipt-right{
+      text-align:right;
+      font-size:13px;
+      color:#9cad9f;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#39ff9e;
+      display:inline-block;
+      margin-left:6px;
+      box-shadow:0 0 10px #39ff9e;
+    }
+
+    .bottom-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .chart-box{
+      height:220px;
+      border-radius:16px;
+      background:
+        linear-gradient(180deg,rgba(57,255,158,0.12),rgba(57,255,158,0.02)),
+        #07100a;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(55,255,156,0.10);
+    }
+
+    .chart-grid{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(to top, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size:60px 44px;
+      opacity:0.45;
+    }
+
+    .chart-line{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+      height:140px;
+    }
+
+    .chart-line svg{
+      width:100%;
+      height:100%;
+      filter:drop-shadow(0 0 10px rgba(57,255,158,0.55));
+    }
+
+    .mini-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .mini-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#0a140d;
+      border:1px solid rgba(55,255,156,0.08);
+    }
+
+    .mini-row span:first-child{
+      color:#dfeadf;
+    }
+
+    .mini-row span:last-child{
+      color:#39ff9e;
+      font-weight:700;
+    }
+
+    @media (max-width: 1100px){
+      .stats{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .content-grid,
+      .bottom-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .layout{
+        flex-direction:column;
+      }
+      .sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid rgba(55,255,156,0.08);
+      }
+      .main{
+        padding:18px 14px 24px;
+      }
+      .stats{
+        grid-template-columns:1fr;
+      }
+      .topbar{
+        margin-bottom:18px;
+      }
+      .welcome h2{
+        font-size:22px;
+      }
+      th:nth-child(2),
+      td:nth-child(2),
+      th:nth-child(5),
+      td:nth-child(5){
+        display:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>WhatsApp Plus</h1>
+        <p>Admin Panel</p>
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">🧾 Sifarişlər</a>
+        <a href="#">👥 İstifadəçilər</a>
+        <a href="#">💳 Ödənişlər</a>
+        <a href="#">📄 Qəbzlər</a>
+        <a href="#">💬 Dəstək Mesajları</a>
+        <a href="#">📊 Statistika</a>
+        <a href="#">⚙️ Ayarlar</a>
+        <a href="#">↪️ Çıxış</a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="crown">👑</div>
+        <h3>Premium Sistem</h3>
+        <p>WhatsApp Plus idarə paneli</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="burger">☰</div>
+        <div class="admin-box">
+          <span>🔔</span>
+          <span>Admin</span>
+          <div class="avatar">A</div>
+        </div>
+      </div>
+
+      <div class="welcome">
+        <h2>Xoş gəldiniz, Admin!</h2>
+        <p>WhatsApp Plus idarə panelinə xoş gəldiniz.</p>
+      </div>
+
+      <section class="stats">
+        <div class="stat">
+          <div class="icon">👥</div>
+          <div class="label">Ümumi istifadəçi</div>
+          <div class="value">1,248</div>
+          <div class="delta">+35 bu gün</div>
+        </div>
+
+        <div class="stat">
+          <div class="icon">🛒</div>
+          <div class="label">Ümumi Sifariş</div>
+          <div class="value">356</div>
+          <div class="delta">+12 bu gün</div>
+        </div>
+
+        <div class="stat">
+          <div class="icon">💵</div>
+          <div class="label">Ümumi Qazanc</div>
+          <div class="value">2,136 ₼</div>
+          <div class="delta">+65 ₼ bu gün</div>
+        </div>
+
+        <div class="stat">
+          <div class="icon">💬</div>
+          <div class="label">Dəstək Mesajları</div>
+          <div class="value">24</div>
+          <div class="delta">+5 cavabsız</div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="card">
+          <div class="card-head">
+            <h3>Son Sifarişlər</h3>
+            <a class="see-all" href="#">Hamısına bax →</a>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>İstifadəçi</th>
+                <th>Paket</th>
+                <th>Məbləğ</th>
+                <th>Status</th>
+                <th>Tarix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="user-mini">
+                    <div class="round">E</div>
+                    <div>
+                      Elvin Quliyev
+                      <small>+994 50 123 45 67</small>
+                    </div>
+                  </div>
+                </td>
+                <td>3 il</td>
+                <td>6 ₼</td>
+                <td><span class="badge ok">Tamamlandı</span></td>
+                <td>25.05.2026 14:32</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="user-mini">
+                    <div class="round">M</div>
+                    <div>
+                      Murad Əliyev
+                      <small>+994 55 987 65 43</small>
+                    </div>
+                  </div>
+                </td>
+                <td>3 il</td>
+                <td>6 ₼</td>
+                <td><span class="badge wait">Gözləyir</span></td>
+                <td>25.05.2026 14:28</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="user-mini">
+                    <div class="round">A</div>
+                    <div>
+                      Aysel Məmmədova
+                      <small>+994 70 555 35 35</small>
+                    </div>
+                  </div>
+                </td>
+                <td>3 il</td>
+                <td>6 ₼</td>
+                <td><span class="badge ok">Tamamlandı</span></td>
+                <td>25.05.2026 14:25</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="user-mini">
+                    <div class="round">N</div>
+                    <div>
+                      Nihat Məmmədli
+                      <small>+994 77 321 11 22</small>
+                    </div>
+                  </div>
+                </td>
+                <td>3 il</td>
+                <td>6 ₼</td>
+                <td><span class="badge ok">Tamamlandı</span></td>
+                <td>25.05.2026 14:20</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="user-mini">
+                    <div class="round">R</div>
+                    <div>
+                      Rəşad İsmayılov
+                      <small>+994 51 456 78 90</small>
+                    </div>
+                  </div>
+                </td>
+                <td>3 il</td>
+                <td>6 ₼</td>
+                <td><span class="badge cancel">Ləğv olundu</span></td>
+                <td>25.05.2026 14:10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Son Qəbzlər</h3>
+            <a class="see-all" href="#">Hamısına bax →</a>
+          </div>
+
+          <div class="receipt-list">
+            <div class="receipt">
+              <div class="receipt-left">
+                <div class="receipt-thumb"></div>
+                <div>
+                  <div class="receipt-name">Elvin Quliyev</div>
+                  <div class="receipt-phone">+994 50 123 45 67</div>
+                </div>
+              </div>
+              <div class="receipt-right">
+                25.05.2026<br>14:32 <span class="dot"></span>
+              </div>
+            </div>
+
+            <div class="receipt">
+              <div class="receipt-left">
+                <div class="receipt-thumb"></div>
+                <div>
+                  <div class="receipt-name">Murad Əliyev</div>
+                  <div class="receipt-phone">+994 55 987 65 43</div>
+                </div>
+              </div>
+              <div class="receipt-right">
+                25.05.2026<br>14:28 <span class="dot"></span>
+              </div>
+            </div>
+
+            <div class="receipt">
+              <div class="receipt-left">
+                <div class="receipt-thumb"></div>
+                <div>
+                  <div class="receipt-name">Aysel Məmmədova</div>
+                  <div class="receipt-phone">+994 70 555 35 35</div>
+                </div>
+              </div>
+              <div class="receipt-right">
+                25.05.2026<br>14:25 <span class="dot"></span>
+              </div>
+            </div>
+
+            <div class="receipt">
+              <div class="receipt-left">
+                <div class="receipt-thumb"></div>
+                <div>
+                  <div class="receipt-name">Nihat Məmmədli</div>
+                  <div class="receipt-phone">+994 77 321 11 22</div>
+                </div>
+              </div>
+              <div class="receipt-right">
+                25.05.2026<br>14:20 <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-grid">
+        <div class="card">
+          <div class="card-head">
+            <h3>Tez Statistika</h3>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-grid"></div>
+            <div class="chart-line">
+              <svg viewBox="0 0 700 180" preserveAspectRatio="none">
+                <polyline
+                  fill="none"
+                  stroke="#39ff9e"
+                  stroke-width="5"
+                  points="0,150 90,95 170,85 250,35 340,70 430,45 520,30 610,72 700,50"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Qısa Məlumat</h3>
+          </div>
+
+          <div class="mini-list">
+            <div class="mini-row">
+              <span>Bugünkü satış</span>
+              <span>12</span>
+            </div>
+            <div class="mini-row">
+              <span>Bugünkü qazanc</span>
+              <span>72 ₼</span>
+            </div>
+            <div class="mini-row">
+              <span>Cavab gözləyən mesaj</span>
+              <span>5</span>
+            </div>
+            <div class="mini-row">
+              <span>Təsdiqlənən qəbz</span>
+              <span>9</span>
+            </div>
+            <div class="mini-row">
+              <span>Aktiv istifadəçi</span>
+              <span>1,248</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
