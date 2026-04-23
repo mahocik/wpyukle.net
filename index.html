@@ -20,48 +20,44 @@ margin:auto;
 padding:30px 20px;
 }
 
-/* BAŞLIQ */
 h1{
 color:#00ff88;
 text-shadow:0 0 20px #00ff88;
 }
 
-/* IPHONE SEKIL */
 .iphone{
 width:200px;
 margin:20px auto;
 filter: drop-shadow(0 0 20px #00ff88);
 }
 
-/* YANIB SÖNƏN BLOK */
+/* popup */
+.popup{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+padding:10px 15px;
+border-radius:10px;
+border:1px solid #00ff88;
+display:none;
+}
+
+/* glow */
 .features{
-margin-top:15px;
 padding:15px;
 border-radius:15px;
 border:1px solid #00ff88;
-animation: glow 1.2s infinite alternate;
+animation:glow 1.2s infinite alternate;
 }
 
 @keyframes glow{
 0%{box-shadow:0 0 5px #00ff88;}
-100%{box-shadow:0 0 30px #00ff88;}
+100%{box-shadow:0 0 25px #00ff88;}
 }
 
-.features p{
-margin:6px 0;
-}
-
-/* QİYMƏT */
-.price{
-margin:20px 0;
-padding:15px;
-border-radius:20px;
-border:1px solid #00ff88;
-color:#00ff88;
-box-shadow:0 0 20px #00ff88;
-}
-
-/* DÜYMƏ YANIB SÖNÜR */
+/* button */
 .btn{
 background:#00ff88;
 color:#000;
@@ -71,7 +67,7 @@ border-radius:30px;
 width:100%;
 margin-top:10px;
 font-weight:bold;
-animation: pulse 1.5s infinite;
+animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
@@ -80,7 +76,12 @@ animation: pulse 1.5s infinite;
 100%{box-shadow:0 0 5px #00ff88;}
 }
 
-/* AÇILAN */
+.price{
+margin:20px 0;
+color:#00ff88;
+}
+
+/* modal */
 .sheet{
 display:none;
 position:fixed;
@@ -89,19 +90,6 @@ width:100%;
 background:#111;
 padding:20px;
 border-radius:20px 20px 0 0;
-}
-
-/* KART */
-.card{
-margin-top:10px;
-padding:15px;
-background:#1a1a1a;
-border-radius:15px;
-}
-
-.card-number{
-color:#00ff88;
-font-size:18px;
 }
 </style>
 </head>
@@ -113,58 +101,98 @@ font-size:18px;
 <h1>WhatsApp Plus 2026</h1>
 <p>iPhone üçün yeni versiya</p>
 
-<!-- IPHONE -->
 <img class="iphone" src="https://i.imgur.com/8Km9tLL.png">
 
-<!-- MƏTN -->
 <div class="features">
 <p>📱 WhatsApp Plus iPhone üçün</p>
-<p>Gizli funksiyalar və fərqli dizayn</p>
 <p>🔒 Son görülmə gizli</p>
 <p>👀 Statuslara gizli baxış</p>
 <p>🎨 VIP görünüş</p>
 </div>
 
-<div class="price">6₼ · 3 il istifadə</div>
+<div class="price">
+6₼ · 3 il istifadə<br>
+⏳ Təklif bitir: <span id="time">05:00</span>
+</div>
 
 <button class="btn" onclick="openSheet()">Əldə et</button>
 
 </div>
 
-<!-- AÇILAN -->
+<!-- popup -->
+<div class="popup" id="popup"></div>
+
+<!-- modal -->
 <div class="sheet" id="sheet">
 
 <p>6₼ birdəfəlik ödəniş<br>3 il istifadə</p>
 
-<div class="card">
 <p>ABB BANK</p>
-<p class="card-number">4127 2141 2112 2730</p>
-<p>M.A</p>
-</div>
+<p id="card">4127 2141 2112 2730</p>
 
 <button class="btn" onclick="copyCard()">Kartı kopyala</button>
 
-<a href="https://t.me/kenrrry">
-<button class="btn">Dəstək</button>
-</a>
+<button class="btn" onclick="goTelegram()">Dəstək</button>
 
 <button class="btn" onclick="closeSheet()">Bağla</button>
 
 </div>
 
+<audio id="clickSound">
+<source src="https://www.soundjay.com/buttons/sounds/button-16.mp3">
+</audio>
+
 <script>
+function playSound(){
+document.getElementById("clickSound").play();
+}
+
 function openSheet(){
+playSound();
 document.getElementById("sheet").style.display="block";
 }
 
 function closeSheet(){
+playSound();
 document.getElementById("sheet").style.display="none";
 }
 
 function copyCard(){
+playSound();
 navigator.clipboard.writeText("4127 2141 2112 2730");
-alert("Kopyalandı");
+alert("Kart kopyalandı");
 }
+
+function goTelegram(){
+playSound();
+window.open("https://t.me/kenrrry?text=Salam%20mən%206₼%20ödəniş%20etdim","_blank");
+}
+
+/* timer */
+let t=300;
+setInterval(()=>{
+if(t>0){
+t--;
+let m=Math.floor(t/60);
+let s=t%60;
+document.getElementById("time").innerText=
+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+}
+},1000);
+
+/* fake popup */
+let names=["Elvin","Murad","Aysel","Nihat","Orxan"];
+setInterval(()=>{
+let name=names[Math.floor(Math.random()*names.length)];
+let popup=document.getElementById("popup");
+popup.innerText=name+" WhatsApp Plus aldı";
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
+},3000);
+
+},6000);
 </script>
 
 </body>
