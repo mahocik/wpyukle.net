@@ -12,7 +12,6 @@ font-family:-apple-system;
 background:#000;
 color:#fff;
 text-align:center;
-overflow-x:hidden;
 }
 
 /* glow */
@@ -43,17 +42,17 @@ text-shadow:0 0 20px #00ff88;
 }
 
 .features{
-margin-top:15px;
 padding:15px;
-border-radius:15px;
 border:1px solid #00ff88;
+border-radius:15px;
+margin-top:10px;
 }
 
 .price{
 margin:20px 0;
 padding:15px;
-border-radius:20px;
 border:1px solid #00ff88;
+border-radius:20px;
 color:#00ff88;
 }
 
@@ -66,6 +65,13 @@ border-radius:30px;
 width:100%;
 margin-top:10px;
 font-weight:bold;
+cursor:pointer;
+}
+
+/* stats */
+.stats{
+margin-top:20px;
+color:#00ff88;
 }
 
 /* loading */
@@ -82,11 +88,9 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 color:#00ff88;
-font-size:20px;
 }
 
 .spinner{
-margin-top:15px;
 width:40px;
 height:40px;
 border:4px solid #00ff88;
@@ -94,24 +98,8 @@ border-top:4px solid transparent;
 border-radius:50%;
 animation:spin 1s linear infinite;
 }
-
 @keyframes spin{
-0%{transform:rotate(0deg);}
 100%{transform:rotate(360deg);}
-}
-
-/* popup */
-.popup{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:#111;
-padding:10px 15px;
-border-radius:10px;
-border:1px solid #00ff88;
-display:none;
-color:#00ff88;
 }
 
 /* modal */
@@ -140,15 +128,34 @@ left:0;
 z-index:999;
 }
 
-.stats{
-margin-top:20px;
+/* popup */
+.popup{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+padding:10px;
+border:1px solid #00ff88;
+display:none;
 color:#00ff88;
 }
 
+/* footer */
 .footer{
 margin-top:40px;
 color:#888;
 font-size:13px;
+text-align:center;
+}
+
+/* mastercard */
+.mastercard{
+width:40px;
+margin-top:10px;
+display:block;
+margin-left:auto;
+margin-right:auto;
 }
 </style>
 </head>
@@ -167,11 +174,8 @@ font-size:13px;
 <p>🎨 VIP görünüş</p>
 </div>
 
-<div id="datetime"></div>
-
 <div class="price">
-6₼ · 3 il istifadə<br>
-⏳ Təklif bitir: 04:59
+6₼ · 3 il istifadə
 </div>
 
 <button class="btn" onclick="startLoading()">Əldə et</button>
@@ -183,30 +187,46 @@ font-size:13px;
 
 </div>
 
-<!-- LOADING -->
+<!-- loading -->
 <div class="loading" id="loading">
-⏳ Sistem yoxlanılır...
+⏳ Yüklənir...
 <div class="spinner"></div>
 </div>
 
 <!-- popup -->
 <div class="popup" id="popup"></div>
 
-<div class="overlay" id="overlay" onclick="closeSheet()"></div>
+<div class="overlay" id="overlay"></div>
 
 <div class="sheet" id="sheet">
-<p>6₼ birdəfəlik ödəniş<br>3 il istifadə</p>
 
+<p>6₼ birdəfəlik ödəniş</p>
 <p>ABB BANK</p>
 <p>4127 2141 2112 2730</p>
 
 <button class="btn" onclick="copyCard()">Kartı kopyala</button>
+
+<!-- DÜZƏLDİLMİŞ DƏSTƏK -->
+<a href="https://t.me/kenrrry?text=Salam%20mən%20ödəniş%20etdim%20qəbzi%20göndərirəm"
+style="text-decoration:none;">
+<div class="btn">Qəbzi göndər (Dəstək)</div>
+</a>
+
 <button class="btn" onclick="closeSheet()">Bağla</button>
+
 </div>
 
+<!-- footer -->
 <div class="footer">
+
+<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+
 <p>© 2026 Bütün hüquqlar qorunur</p>
-<p>Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.</p>
+
+<p>
+Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.
+</p>
+
 </div>
 
 <script>
@@ -214,7 +234,6 @@ font-size:13px;
 // loading
 function startLoading(){
 document.getElementById("loading").style.display="flex";
-
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
 openSheet();
@@ -236,12 +255,6 @@ function copyCard(){
 navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kopyalandı");
 }
-
-// tarix
-setInterval(()=>{
-let d=new Date();
-document.getElementById("datetime").innerHTML=d.toLocaleString();
-},1000);
 
 // canlı baxan
 setInterval(()=>{
