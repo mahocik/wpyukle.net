@@ -15,7 +15,7 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* glow background */
+/* glow */
 body::before{
 content:"";
 position:fixed;
@@ -47,11 +47,6 @@ margin-top:15px;
 padding:15px;
 border-radius:15px;
 border:1px solid #00ff88;
-animation:glow 1.5s infinite alternate;
-}
-@keyframes glow{
-0%{box-shadow:0 0 10px #00ff88;}
-100%{box-shadow:0 0 30px #00ff88;}
 }
 
 .price{
@@ -71,29 +66,52 @@ border-radius:30px;
 width:100%;
 margin-top:10px;
 font-weight:bold;
-animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-0%{box-shadow:0 0 10px #00ff88;}
-50%{box-shadow:0 0 30px #00ff88;}
-100%{box-shadow:0 0 10px #00ff88;}
 }
 
-/* statistik blok */
-.stats{
-margin-top:25px;
-padding:15px;
-border-radius:15px;
+/* loading */
+.loading{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+z-index:2000;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:#00ff88;
+font-size:20px;
+}
+
+.spinner{
+margin-top:15px;
+width:40px;
+height:40px;
+border:4px solid #00ff88;
+border-top:4px solid transparent;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* popup */
+.popup{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+padding:10px 15px;
+border-radius:10px;
 border:1px solid #00ff88;
-animation:glow 1.5s infinite alternate;
+display:none;
 color:#00ff88;
-font-size:15px;
-line-height:1.8;
-}
-
-#datetime{
-color:#00ff88;
-margin-top:10px;
 }
 
 /* modal */
@@ -122,29 +140,15 @@ left:0;
 z-index:999;
 }
 
-.card{
-margin-top:10px;
-padding:15px;
-background:#1a1a1a;
-border-radius:15px;
-}
-
-.card-number{
+.stats{
+margin-top:20px;
 color:#00ff88;
-font-size:18px;
 }
 
-/* footer */
 .footer{
 margin-top:40px;
-padding:20px;
 color:#888;
 font-size:13px;
-}
-
-.mastercard{
-width:45px;
-margin-top:10px;
 }
 </style>
 </head>
@@ -170,57 +174,52 @@ margin-top:10px;
 ⏳ Təklif bitir: 04:59
 </div>
 
-<button class="btn" onclick="openSheet()">Əldə et</button>
+<button class="btn" onclick="startLoading()">Əldə et</button>
 
-<!-- YENİ HİSSƏ -->
 <div class="stats">
-* 1,200+ aktiv istifadəçi<br>
-* Hal-hazırda <span id="live">7</span> nəfər baxır
+* 1,200+ istifadəçi<br>
+* <span id="live">7</span> nəfər baxır
 </div>
 
 </div>
 
-<!-- overlay -->
+<!-- LOADING -->
+<div class="loading" id="loading">
+⏳ Sistem yoxlanılır...
+<div class="spinner"></div>
+</div>
+
+<!-- popup -->
+<div class="popup" id="popup"></div>
+
 <div class="overlay" id="overlay" onclick="closeSheet()"></div>
 
-<!-- modal -->
 <div class="sheet" id="sheet">
+<p>6₼ birdəfəlik ödəniş<br>3 il istifadə</p>
 
-<p>
-WhatsApp Plus iPhone üçün 6₼ birdəfəlik ödəniş edirsiniz.<br>
-3 il istifadə edə bilərsiniz.
-</p>
-
-<div class="card">
 <p>ABB BANK</p>
-<p class="card-number">4127 2141 2112 2730</p>
-<p>M.A</p>
-</div>
+<p>4127 2141 2112 2730</p>
 
 <button class="btn" onclick="copyCard()">Kartı kopyala</button>
-
-<a href="https://t.me/kenrrry">
-<button class="btn">Dəstək</button>
-</a>
-
 <button class="btn" onclick="closeSheet()">Bağla</button>
-
 </div>
 
-<!-- footer -->
 <div class="footer">
-
-<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
-
 <p>© 2026 Bütün hüquqlar qorunur</p>
-
-<p>
-Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.
-</p>
-
+<p>Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.</p>
 </div>
 
 <script>
+
+// loading
+function startLoading(){
+document.getElementById("loading").style.display="flex";
+
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+openSheet();
+},2000);
+}
 
 // modal
 function openSheet(){
@@ -235,26 +234,29 @@ document.getElementById("overlay").style.display="none";
 // copy
 function copyCard(){
 navigator.clipboard.writeText("4127 2141 2112 2730");
-alert("Kart kopyalandı");
+alert("Kopyalandı");
 }
 
 // tarix
-function updateDateTime(){
-const now=new Date();
-const days=["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"];
-const months=["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"];
-
-document.getElementById("datetime").innerHTML=
-`Bu gün ${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>Saat: ${now.toLocaleTimeString()}`;
-}
-setInterval(updateDateTime,1000);
-updateDateTime();
-
-// canlı baxanlar dəyişsin
 setInterval(()=>{
-let n=Math.floor(Math.random()*5)+5;
-document.getElementById("live").innerText=n;
+let d=new Date();
+document.getElementById("datetime").innerHTML=d.toLocaleString();
+},1000);
+
+// canlı baxan
+setInterval(()=>{
+document.getElementById("live").innerText=Math.floor(Math.random()*5)+5;
 },3000);
+
+// popup
+let names=["Elvin","Murad","Aysel","Nihat"];
+setInterval(()=>{
+let name=names[Math.floor(Math.random()*names.length)];
+let p=document.getElementById("popup");
+p.innerText=name+" aldı";
+p.style.display="block";
+setTimeout(()=>{p.style.display="none";},3000);
+},6000);
 
 </script>
 
