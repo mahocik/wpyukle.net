@@ -1,248 +1,176 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WhatsApp Plus</title>
-  <style>
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
-      background:#000;
-      color:#fff;
-      text-align:center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Plus</title>
 
-    .container{
-      max-width:420px;
-      margin:auto;
-      padding:30px 20px 50px;
-    }
+<style>
+body{
+margin:0;
+font-family:-apple-system;
+background:#000;
+color:#fff;
+text-align:center;
+}
 
-    h1{
-      font-size:30px;
-      color:#00ff88;
-      text-shadow:0 0 15px #00ff88;
-      margin-bottom:8px;
-    }
+.container{
+max-width:420px;
+margin:auto;
+padding:30px 20px;
+}
 
-    .subtitle{
-      color:#bcbcbc;
-      font-size:16px;
-      line-height:1.6;
-      margin-bottom:14px;
-    }
+h1{
+font-size:28px;
+color:#00ff88;
+text-shadow:0 0 15px #00ff88;
+}
 
-    .counter{
-      color:#00ff88;
-      font-size:15px;
-      margin-bottom:6px;
-    }
+/* YANIB SÖNƏN BLOK */
+.features{
+margin-top:15px;
+padding:15px;
+border-radius:15px;
+border:1px solid #00ff88;
+animation: glow 1.5s infinite alternate;
+}
 
-    .timer{
-      color:#ff4d4d;
-      font-size:15px;
-      margin-bottom:18px;
-    }
+@keyframes glow{
+0%{box-shadow:0 0 5px #00ff88;}
+100%{box-shadow:0 0 25px #00ff88;}
+}
 
-    .price{
-      margin:20px 0;
-      padding:16px;
-      border-radius:20px;
-      border:1px solid #00ff88;
-      color:#00ff88;
-      box-shadow:0 0 20px rgba(0,255,136,0.45);
-      font-size:24px;
-      font-weight:700;
-      background:#0c0c0c;
-    }
+.features p{
+margin:5px 0;
+font-size:14px;
+}
 
-    .btn{
-      background:#00ff88;
-      color:#000;
-      padding:16px;
-      border-radius:30px;
-      border:none;
-      width:100%;
-      margin-top:12px;
-      font-weight:700;
-      font-size:16px;
-      box-shadow:0 0 20px rgba(0,255,136,0.45);
-      cursor:pointer;
-    }
+/* qiymət */
+.price{
+margin:20px 0;
+padding:15px;
+border-radius:20px;
+border:1px solid #00ff88;
+color:#00ff88;
+box-shadow:0 0 20px #00ff88;
+}
 
-    .btn-dark{
-      background:#111;
-      color:#00ff88;
-      border:1px solid #00ff88;
-    }
+/* düymə */
+.btn{
+background:#00ff88;
+color:#000;
+padding:15px;
+border-radius:30px;
+border:none;
+width:100%;
+margin-top:10px;
+font-weight:bold;
+}
 
-    .info{
-      font-size:12px;
-      color:#9a9a9a;
-      margin-top:14px;
-    }
+/* kart gizli */
+.sheet{
+display:none;
+position:fixed;
+bottom:0;
+width:100%;
+background:#111;
+padding:20px;
+border-radius:20px 20px 0 0;
+}
 
-    .sheet{
-      display:none;
-      position:fixed;
-      left:0;
-      right:0;
-      bottom:0;
-      width:100%;
-      background:#111;
-      padding:22px 18px 26px;
-      border-radius:22px 22px 0 0;
-      box-shadow:0 -10px 30px rgba(0,0,0,0.55);
-      z-index:999;
-    }
+.card{
+margin-top:10px;
+padding:15px;
+background:#1a1a1a;
+border-radius:15px;
+}
 
-    .sheet-content{
-      max-width:420px;
-      margin:auto;
-      text-align:center;
-    }
+.card-number{
+color:#00ff88;
+font-size:18px;
+}
 
-    .sheet h2{
-      margin:0 0 12px;
-      color:#00ff88;
-      font-size:24px;
-      text-shadow:0 0 12px #00ff88;
-    }
+.timer{
+color:red;
+}
 
-    .sheet-text{
-      color:#ededed;
-      font-size:15px;
-      line-height:1.7;
-      margin-bottom:16px;
-    }
-
-    .card-box{
-      background:#181818;
-      border-radius:20px;
-      padding:16px;
-      margin-top:14px;
-      box-shadow:0 0 10px rgba(0,255,136,0.2);
-    }
-
-    .label{
-      color:#9f9f9f;
-      font-size:14px;
-      margin-bottom:8px;
-    }
-
-    .card-number{
-      font-size:20px;
-      color:#00ff88;
-      letter-spacing:2px;
-      font-weight:700;
-      word-break:break-word;
-    }
-
-    .name{
-      font-size:18px;
-      color:#fff;
-      font-weight:700;
-    }
-
-    .warn{
-      font-size:12px;
-      color:#b3b3b3;
-      margin-top:14px;
-    }
-
-    .overlay{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.6);
-      z-index:998;
-    }
-  </style>
+.counter{
+color:#00ff88;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>WhatsApp Plus 2026</h1>
-    <div class="subtitle">iPhone üçün yeni versiya</div>
+<div class="container">
 
-    <div class="counter">● 12 nəfər baxır</div>
-    <div class="timer">Təklif bitir: <span id="time">05:00</span></div>
+<h1>WhatsApp Plus 2026</h1>
+<p>iPhone üçün yeni versiya</p>
 
-    <div class="price">6₼ · 3 il istifadə</div>
+<!-- SƏNİN MƏTN -->
+<div class="features">
+<p>📱 WhatsApp Plus iPhone üçün</p>
+<p>Gizli funksiyalar və fərqli dizaynlarla daha rahat istifadə imkanı verir.</p>
+<p>🔒 Son görülmə gizli</p>
+<p>👀 Statuslara gizli baxış</p>
+<p>🎨 VIP görünüş</p>
+</div>
 
-    <button class="btn" onclick="openSheet()">Əldə et</button>
+<div class="counter">● 12 nəfər baxır</div>
+<div class="timer">Təklif bitir: <span id="time">05:00</span></div>
 
-    <div class="info">Saxta qəbzlər bloklanır</div>
-  </div>
+<div class="price">6₼ · 3 il istifadə</div>
 
-  <div class="overlay" id="overlay" onclick="closeSheet()"></div>
+<button class="btn" onclick="openSheet()">Əldə et</button>
 
-  <div class="sheet" id="sheet">
-    <div class="sheet-content">
-      <h2>Ödəniş məlumatı</h2>
+</div>
 
-      <div class="sheet-text">
-        WhatsApp Plus iPhone üçün <b>6₼</b> birdəfəlik ödəniş edirsiniz.<br>
-        Ödəniş etdikdən sonra <b>3 il</b> istifadə edə bilərsiniz.<br><br>
-        Ödənişdən sonra qəbzi dəstəyə göndərin.
-      </div>
+<!-- AÇILAN KART -->
+<div class="sheet" id="sheet">
+<p>6₼ birdəfəlik ödəniş.<br>3 il istifadə.</p>
 
-      <div class="card-box">
-        <div class="label">Bank</div>
-        <div class="name">ABB BANK</div>
-      </div>
+<div class="card">
+<p>ABB BANK</p>
+<p class="card-number" id="card">4127 2141 2112 2730</p>
+<p>M.A</p>
+</div>
 
-      <div class="card-box">
-        <div class="label">Kart nömrəsi</div>
-        <div class="card-number" id="card">4127 2141 2112 2730</div>
-      </div>
+<button class="btn" onclick="copyCard()">Kartı kopyala</button>
 
-      <div class="card-box">
-        <div class="label">Ad</div>
-        <div class="name">M.A</div>
-      </div>
+<a href="https://t.me/kenrrry">
+<button class="btn">Dəstək</button>
+</a>
 
-      <button class="btn" onclick="copyCard()">Kartı kopyala</button>
+<button class="btn" onclick="closeSheet()">Bağla</button>
 
-      <a href="https://t.me/kenrrry" target="_blank" style="text-decoration:none;">
-        <button class="btn btn-dark" type="button">Dəstək</button>
-      </a>
+</div>
 
-      <button class="btn btn-dark" onclick="closeSheet()">Bağla</button>
+<script>
+function openSheet(){
+document.getElementById("sheet").style.display="block";
+}
 
-      <div class="warn">Saxta qəbz göndərənlər bloklanacaq.</div>
-    </div>
-  </div>
+function closeSheet(){
+document.getElementById("sheet").style.display="none";
+}
 
-  <script>
-    function openSheet(){
-      document.getElementById("sheet").style.display = "block";
-      document.getElementById("overlay").style.display = "block";
-    }
+function copyCard(){
+navigator.clipboard.writeText("4127 2141 2112 2730");
+alert("Kopyalandı");
+}
 
-    function closeSheet(){
-      document.getElementById("sheet").style.display = "none";
-      document.getElementById("overlay").style.display = "none";
-    }
-
-    function copyCard(){
-      const text = document.getElementById("card").innerText;
-      navigator.clipboard.writeText(text);
-      alert("Kart kopyalandı");
-    }
-
-    let t = 300;
-    setInterval(() => {
-      if(t > 0){
-        t--;
-        let m = Math.floor(t/60);
-        let s = t % 60;
-        document.getElementById("time").innerText =
-          (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-      }
-    }, 1000);
-  </script>
+/* timer */
+let t=300;
+setInterval(()=>{
+if(t>0){
+t--;
+let m=Math.floor(t/60);
+let s=t%60;
+document.getElementById("time").innerText=
+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+}
+},1000);
+</script>
 
 </body>
 </html>
