@@ -12,6 +12,26 @@ font-family:-apple-system;
 background:#000;
 color:#fff;
 text-align:center;
+overflow-x:hidden;
+}
+
+/* ARXA FON GLOW */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#00ff88 0%, transparent 70%);
+opacity:0.15;
+animation:bgGlow 3s infinite alternate;
+z-index:-1;
+}
+
+@keyframes bgGlow{
+0%{opacity:0.1;}
+100%{opacity:0.25;}
 }
 
 .container{
@@ -24,19 +44,26 @@ padding:30px 20px;
 h1{
 color:#00ff88;
 text-shadow:0 0 20px #00ff88;
+animation:textGlow 1.5s infinite alternate;
 }
 
-/* məlumat blok */
+@keyframes textGlow{
+0%{text-shadow:0 0 10px #00ff88;}
+100%{text-shadow:0 0 30px #00ff88;}
+}
+
+/* blok */
 .features{
 margin-top:15px;
 padding:15px;
 border-radius:15px;
 border:1px solid #00ff88;
-box-shadow:0 0 15px #00ff88;
+animation:boxGlow 1.5s infinite alternate;
 }
 
-.features p{
-margin:6px 0;
+@keyframes boxGlow{
+0%{box-shadow:0 0 10px #00ff88;}
+100%{box-shadow:0 0 30px #00ff88;}
 }
 
 /* qiymət */
@@ -46,6 +73,7 @@ padding:15px;
 border-radius:20px;
 border:1px solid #00ff88;
 color:#00ff88;
+animation:boxGlow 1.5s infinite alternate;
 }
 
 /* düymə */
@@ -58,26 +86,44 @@ border-radius:30px;
 width:100%;
 margin-top:10px;
 font-weight:bold;
+animation:pulse 1.2s infinite;
 }
 
-/* tarix */
-#datetime{
-color:#00ff88;
-margin-top:10px;
-font-size:14px;
+@keyframes pulse{
+0%{box-shadow:0 0 10px #00ff88;}
+50%{box-shadow:0 0 35px #00ff88;}
+100%{box-shadow:0 0 10px #00ff88;}
 }
 
-/* açılan kart */
+/* MODAL TAM ORTADA */
 .sheet{
 display:none;
 position:fixed;
-bottom:0;
-width:100%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:90%;
+max-width:380px;
 background:#111;
 padding:20px;
-border-radius:20px 20px 0 0;
+border-radius:20px;
+z-index:1000;
+animation:boxGlow 1.5s infinite alternate;
 }
 
+/* overlay */
+.overlay{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+z-index:999;
+}
+
+/* kart */
 .card{
 margin-top:10px;
 padding:15px;
@@ -89,6 +135,13 @@ border-radius:15px;
 color:#00ff88;
 font-size:18px;
 }
+
+/* tarix */
+#datetime{
+color:#00ff88;
+margin-top:10px;
+}
+
 </style>
 </head>
 
@@ -99,7 +152,6 @@ font-size:18px;
 <h1>WhatsApp Plus 2026</h1>
 <p>iPhone üçün yeni versiya</p>
 
-<!-- MƏTN -->
 <div class="features">
 <p>📱 WhatsApp Plus iPhone üçün</p>
 <p>🔒 Son görülmə gizli</p>
@@ -107,10 +159,8 @@ font-size:18px;
 <p>🎨 VIP görünüş</p>
 </div>
 
-<!-- TARİX -->
 <div id="datetime"></div>
 
-<!-- QİYMƏT -->
 <div class="price">
 6₼ · 3 il istifadə<br>
 ⏳ Təklif bitir: 04:59
@@ -120,7 +170,10 @@ font-size:18px;
 
 </div>
 
-<!-- AÇILAN ÖDƏNİŞ -->
+<!-- overlay -->
+<div class="overlay" id="overlay" onclick="closeSheet()"></div>
+
+<!-- modal -->
 <div class="sheet" id="sheet">
 
 <p>
@@ -145,42 +198,38 @@ WhatsApp Plus iPhone üçün 6₼ birdəfəlik ödəniş edirsiniz.<br>
 </div>
 
 <script>
-// açılan
+
+// modal
 function openSheet(){
 document.getElementById("sheet").style.display="block";
-}
-function closeSheet(){
-document.getElementById("sheet").style.display="none";
+document.getElementById("overlay").style.display="block";
 }
 
-// kart copy
+function closeSheet(){
+document.getElementById("sheet").style.display="none";
+document.getElementById("overlay").style.display="none";
+}
+
+// copy
 function copyCard(){
 navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kart kopyalandı");
 }
 
-// tarix + saat
+// tarix
 function updateDateTime(){
 const now = new Date();
 
-const days = ["Bazar", "Bazar ertəsi", "Çərşənbə axşamı", "Çərşənbə", "Cümə axşamı", "Cümə", "Şənbə"];
-const months = ["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"];
+const days=["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"];
+const months=["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"];
 
-const dayName = days[now.getDay()];
-const day = now.getDate();
-const month = months[now.getMonth()];
-const year = now.getFullYear();
-
-const hours = String(now.getHours()).padStart(2,"0");
-const minutes = String(now.getMinutes()).padStart(2,"0");
-const seconds = String(now.getSeconds()).padStart(2,"0");
-
-document.getElementById("datetime").innerHTML =
-`Bu gün ${dayName}, ${day} ${month} ${year}<br>Saat: ${hours}:${minutes}:${seconds}`;
+document.getElementById("datetime").innerHTML=
+`Bu gün ${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>Saat: ${now.toLocaleTimeString()}`;
 }
 
-updateDateTime();
 setInterval(updateDateTime,1000);
+updateDateTime();
+
 </script>
 
 </body>
