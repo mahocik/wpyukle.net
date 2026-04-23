@@ -8,7 +8,7 @@
 <style>
 body{
 margin:0;
-font-family:-apple-system;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 background:#000;
 color:#fff;
 text-align:center;
@@ -19,62 +19,82 @@ overflow-x:hidden;
 body::before{
 content:"";
 position:fixed;
-width:100%;
-height:100%;
+inset:0;
 background:radial-gradient(circle,#00ff88 0%, transparent 70%);
 opacity:0.15;
 animation:bgGlow 3s infinite alternate;
 z-index:-1;
 }
 @keyframes bgGlow{
-0%{opacity:0.1;}
+0%{opacity:0.10;}
 100%{opacity:0.25;}
 }
 
 .container{
 max-width:420px;
 margin:auto;
-padding:30px 20px;
+padding:30px 20px 40px;
 }
 
 h1{
 color:#00ff88;
 text-shadow:0 0 20px #00ff88;
+font-size:30px;
+margin-bottom:10px;
 }
 
-/* blok */
+.subtitle{
+font-size:16px;
+margin-bottom:14px;
+}
+
 .features{
 margin-top:15px;
-padding:15px;
-border-radius:15px;
+padding:18px 15px;
+border-radius:20px;
 border:1px solid #00ff88;
 animation:glow 1.5s infinite alternate;
+background:rgba(0,0,0,0.45);
 }
 @keyframes glow{
 0%{box-shadow:0 0 10px #00ff88;}
 100%{box-shadow:0 0 30px #00ff88;}
 }
-
-/* qiymət */
-.price{
-margin:20px 0;
-padding:15px;
-border-radius:20px;
-border:1px solid #00ff88;
-color:#00ff88;
+.features p{
+margin:10px 0;
+font-size:16px;
 }
 
-/* düymə */
+#datetime{
+color:#00ff88;
+margin-top:16px;
+font-size:16px;
+line-height:1.5;
+}
+
+.price{
+margin:22px 0;
+padding:18px 15px;
+border-radius:24px;
+border:1px solid #00ff88;
+color:#00ff88;
+font-size:17px;
+line-height:1.6;
+background:rgba(0,0,0,0.35);
+}
+
 .btn{
 background:#00ff88;
 color:#000;
-padding:15px;
+padding:16px;
 border:none;
 border-radius:30px;
 width:100%;
 margin-top:10px;
-font-weight:bold;
+font-weight:700;
+font-size:18px;
 animation:pulse 1.5s infinite;
+cursor:pointer;
 }
 @keyframes pulse{
 0%{box-shadow:0 0 10px #00ff88;}
@@ -82,10 +102,26 @@ animation:pulse 1.5s infinite;
 100%{box-shadow:0 0 10px #00ff88;}
 }
 
-/* tarix */
-#datetime{
+/* yeni doldurma hissəsi */
+.info-wrap{
+margin:28px 0 18px;
+display:grid;
+gap:12px;
+}
+
+.info-box{
+padding:14px 12px;
+border-radius:18px;
+border:1px solid rgba(0,255,136,0.6);
+background:rgba(0,0,0,0.35);
+color:#dfffee;
+box-shadow:0 0 14px rgba(0,255,136,0.18);
+font-size:14px;
+line-height:1.6;
+}
+
+.info-box b{
 color:#00ff88;
-margin-top:10px;
 }
 
 /* modal */
@@ -101,6 +137,7 @@ background:#111;
 padding:20px;
 border-radius:20px;
 z-index:1000;
+box-shadow:0 0 26px rgba(0,255,136,0.22);
 }
 
 .overlay{
@@ -114,7 +151,6 @@ left:0;
 z-index:999;
 }
 
-/* kart */
 .card{
 margin-top:10px;
 padding:15px;
@@ -124,22 +160,22 @@ border-radius:15px;
 .card-number{
 color:#00ff88;
 font-size:18px;
+word-break:break-word;
 }
 
-/* footer */
 .footer{
-margin-top:40px;
-padding:20px;
+margin-top:28px;
+padding:16px 10px 28px;
 color:#888;
 font-size:13px;
-line-height:1.6;
+line-height:1.8;
 }
 
-/* mastercard */
 .mastercard{
-width:45px;
-margin-top:10px;
-opacity:0.9;
+width:44px;
+margin:8px auto 12px;
+opacity:0.95;
+display:block;
 }
 </style>
 </head>
@@ -149,7 +185,7 @@ opacity:0.9;
 <div class="container">
 
 <h1>WhatsApp Plus 2026</h1>
-<p>iPhone üçün yeni versiya</p>
+<p class="subtitle">iPhone üçün yeni versiya</p>
 
 <div class="features">
 <p>📱 WhatsApp Plus iPhone üçün</p>
@@ -167,12 +203,28 @@ opacity:0.9;
 
 <button class="btn" onclick="openSheet()">Əldə et</button>
 
+<!-- boş qalan hissə dolduruldu -->
+<div class="info-wrap">
+  <div class="info-box">
+    <b>🔐 Təhlükəsiz bağlantı</b><br>
+    Sistem daxilində məlumatların qorunmasına üstünlük verilir.
+  </div>
+
+  <div class="info-box">
+    <b>⚡ Sürətli aktivləşdirmə</b><br>
+    Ödənişdən sonra dəstək xidməti ilə proses qısa müddətdə tamamlanır.
+  </div>
+
+  <div class="info-box">
+    <b>📩 Dəstək xidməti</b><br>
+    İstifadəçilər üçün əlaqə və yönləndirmə prosesi aktiv saxlanılır.
+  </div>
 </div>
 
-<!-- overlay -->
+</div>
+
 <div class="overlay" id="overlay" onclick="closeSheet()"></div>
 
-<!-- modal -->
 <div class="sheet" id="sheet">
 
 <p>
@@ -188,30 +240,25 @@ WhatsApp Plus iPhone üçün 6₼ birdəfəlik ödəniş edirsiniz.<br>
 
 <button class="btn" onclick="copyCard()">Kartı kopyala</button>
 
-<a href="https://t.me/kenrrry">
-<button class="btn">Dəstək</button>
+<a href="https://t.me/kenrrry" target="_blank">
+<button class="btn" type="button">Dəstək</button>
 </a>
 
 <button class="btn" onclick="closeSheet()">Bağla</button>
 
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-
-<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
 
 <p>© 2026 Bütün hüquqlar qorunur</p>
 
 <p>
 Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.
 </p>
-
 </div>
 
 <script>
-
-// modal
 function openSheet(){
 document.getElementById("sheet").style.display="block";
 document.getElementById("overlay").style.display="block";
@@ -222,13 +269,11 @@ document.getElementById("sheet").style.display="none";
 document.getElementById("overlay").style.display="none";
 }
 
-// copy
 function copyCard(){
 navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kart kopyalandı");
 }
 
-// tarix
 function updateDateTime(){
 const now=new Date();
 
@@ -241,7 +286,6 @@ document.getElementById("datetime").innerHTML=
 
 setInterval(updateDateTime,1000);
 updateDateTime();
-
 </script>
 
 </body>
