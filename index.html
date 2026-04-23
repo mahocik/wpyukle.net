@@ -3,86 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus 2026</title>
+<title>WhatsApp Plus</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont;
     background: #000;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
+
 .container {
+    max-width: 420px;
+    margin: auto;
+    padding: 30px 20px;
     text-align: center;
-    max-width: 350px;
 }
+
+/* başlıq */
 h1 {
-    color: #FFD700;
     font-size: 28px;
+    font-weight: 600;
 }
-p {
-    color: #ccc;
-    font-size: 15px;
-}
-.price {
-    border: 2px solid #FFD700;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 15px;
-    font-size: 20px;
-    color: #FFD700;
-}
-.btn {
-    background: #FFD700;
-    color: #000;
-    padding: 15px;
-    border: none;
-    width: 100%;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-.btn:hover {
-    opacity: 0.9;
-}
-.small {
-    font-size: 12px;
+
+.subtitle {
     color: #aaa;
-    margin-top: 10px;
-}
-.counter {
-    color: #00ff88;
-    margin-top: 10px;
-}
-.timer {
-    color: red;
     margin-top: 5px;
 }
-.modal {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #111;
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+
+/* qiymət */
+.price {
+    font-size: 24px;
+    margin: 20px 0;
 }
-.modal p {
-    color: #fff;
-}
-.close {
-    background: red;
-    color: #fff;
-    padding: 10px;
+
+/* düymə */
+.btn {
+    background: #fff;
+    color: #000;
+    padding: 15px;
+    border-radius: 30px;
     border: none;
     width: 100%;
-    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* kart */
+.card-box {
+    background: #111;
+    border-radius: 20px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.card-number {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+/* info */
+.info {
+    font-size: 13px;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* timer */
+.timer {
+    color: #ff3b30;
+    font-size: 14px;
 }
 </style>
 </head>
@@ -92,61 +83,69 @@ p {
 <div class="container">
 
 <h1>WhatsApp Plus 2026</h1>
-<p>iPhone telefonları üçün yeni versiya</p>
+<div class="subtitle">iPhone üçün yeni versiya</div>
 
-<div class="counter">● 12 nəfər baxır</div>
+<div style="color:#34c759;">● 12 nəfər baxır</div>
 <div class="timer">Təklif bitir: <span id="time">05:00</span></div>
 
 <div class="price">
-Qiymət: 6₼ <br>
-⚡ Birdəfəlik ödəniş <br>
-🕒 3 il istifadə
+6₼ · 3 il istifadə
 </div>
 
-<button class="btn" onclick="openModal()">Ödəniş et və əldə et</button>
+<button class="btn" onclick="openModal()">Əldə et</button>
 
-<a href="https://t.me/kenrrry" target="_blank">
-<button class="btn">Dəstək xidmətinə yaz</button>
+<div class="card-box">
+<p>ABB BANK</p>
+<div class="card-number" id="card">4127 2141 2112 2730</div>
+<p>M.A</p>
+
+<button class="btn" onclick="copyCard()">Kopyala</button>
+</div>
+
+<a href="https://t.me/kenrrry">
+<button class="btn">Dəstək</button>
 </a>
 
-<p class="small">⚠️ Saxta qəbz göndərən istifadəçilər bloklanacaq.</p>
+<div class="info">
+Saxta qəbzlər bloklanır
+</div>
 
 </div>
 
-<!-- Modal -->
-<div class="modal" id="modal">
+<!-- modal -->
+<div id="modal" style="display:none;position:fixed;bottom:0;width:100%;background:#111;padding:20px;border-radius:20px 20px 0 0;">
 <p>
-WhatsApp Plus iPhone üçün 6₼ birdəfəlik ödəniş edirsiniz.<br><br>
-Ödəniş etdikdən sonra 3 il istifadə edə bilərsiniz.<br><br>
-Ödəniş etdikdən sonra qəbzi dəstək xidmətinə göndərin.
+6₼ birdəfəlik ödəniş edirsiniz.<br>
+3 il istifadə edə bilərsiniz.<br><br>
+Qəbzi dəstəyə göndərin.
 </p>
-
-<button class="close" onclick="closeModal()">Bağla</button>
+<button class="btn" onclick="closeModal()">Bağla</button>
 </div>
 
 <script>
-// modal
-function openModal() {
-    document.getElementById("modal").style.display = "block";
+function openModal(){
+document.getElementById("modal").style.display="block";
 }
-function closeModal() {
-    document.getElementById("modal").style.display = "none";
+function closeModal(){
+document.getElementById("modal").style.display="none";
 }
 
-// timer
-let time = 300;
-let timer = document.getElementById("time");
+function copyCard(){
+navigator.clipboard.writeText("4127 2141 2112 2730");
+alert("Kopyalandı");
+}
 
-setInterval(() => {
-    if(time > 0){
-        time--;
-        let m = Math.floor(time/60);
-        let s = time % 60;
-        timer.innerText = 
-            (m<10 ? "0"+m : m) + ":" + 
-            (s<10 ? "0"+s : s);
-    }
-}, 1000);
+/* timer */
+let t=300;
+setInterval(()=>{
+if(t>0){
+t--;
+let m=Math.floor(t/60);
+let s=t%60;
+document.getElementById("time").innerText=
+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+}
+},1000);
 </script>
 
 </body>
