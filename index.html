@@ -8,93 +8,70 @@
 <style>
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+font-family:-apple-system;
 background:#000;
 color:#fff;
 text-align:center;
 overflow-x:hidden;
 }
 
-/* arxa fon glow */
+/* glow background */
 body::before{
 content:"";
 position:fixed;
-inset:0;
+width:100%;
+height:100%;
 background:radial-gradient(circle,#00ff88 0%, transparent 70%);
 opacity:0.15;
 animation:bgGlow 3s infinite alternate;
 z-index:-1;
 }
 @keyframes bgGlow{
-0%{opacity:0.10;}
+0%{opacity:0.1;}
 100%{opacity:0.25;}
 }
 
 .container{
 max-width:420px;
 margin:auto;
-padding:30px 20px 40px;
+padding:30px 20px;
 }
 
 h1{
 color:#00ff88;
 text-shadow:0 0 20px #00ff88;
-font-size:30px;
-margin-bottom:10px;
-}
-
-.subtitle{
-font-size:16px;
-margin-bottom:14px;
 }
 
 .features{
 margin-top:15px;
-padding:18px 15px;
-border-radius:20px;
+padding:15px;
+border-radius:15px;
 border:1px solid #00ff88;
 animation:glow 1.5s infinite alternate;
-background:rgba(0,0,0,0.45);
 }
 @keyframes glow{
 0%{box-shadow:0 0 10px #00ff88;}
 100%{box-shadow:0 0 30px #00ff88;}
 }
-.features p{
-margin:10px 0;
-font-size:16px;
-}
-
-#datetime{
-color:#00ff88;
-margin-top:16px;
-font-size:16px;
-line-height:1.5;
-}
 
 .price{
-margin:22px 0;
-padding:18px 15px;
-border-radius:24px;
+margin:20px 0;
+padding:15px;
+border-radius:20px;
 border:1px solid #00ff88;
 color:#00ff88;
-font-size:17px;
-line-height:1.6;
-background:rgba(0,0,0,0.35);
 }
 
 .btn{
 background:#00ff88;
 color:#000;
-padding:16px;
+padding:15px;
 border:none;
 border-radius:30px;
 width:100%;
 margin-top:10px;
-font-weight:700;
-font-size:18px;
+font-weight:bold;
 animation:pulse 1.5s infinite;
-cursor:pointer;
 }
 @keyframes pulse{
 0%{box-shadow:0 0 10px #00ff88;}
@@ -102,26 +79,21 @@ cursor:pointer;
 100%{box-shadow:0 0 10px #00ff88;}
 }
 
-/* yeni doldurma hissəsi */
-.info-wrap{
-margin:28px 0 18px;
-display:grid;
-gap:12px;
-}
-
-.info-box{
-padding:14px 12px;
-border-radius:18px;
-border:1px solid rgba(0,255,136,0.6);
-background:rgba(0,0,0,0.35);
-color:#dfffee;
-box-shadow:0 0 14px rgba(0,255,136,0.18);
-font-size:14px;
-line-height:1.6;
-}
-
-.info-box b{
+/* statistik blok */
+.stats{
+margin-top:25px;
+padding:15px;
+border-radius:15px;
+border:1px solid #00ff88;
+animation:glow 1.5s infinite alternate;
 color:#00ff88;
+font-size:15px;
+line-height:1.8;
+}
+
+#datetime{
+color:#00ff88;
+margin-top:10px;
 }
 
 /* modal */
@@ -137,7 +109,6 @@ background:#111;
 padding:20px;
 border-radius:20px;
 z-index:1000;
-box-shadow:0 0 26px rgba(0,255,136,0.22);
 }
 
 .overlay{
@@ -157,25 +128,23 @@ padding:15px;
 background:#1a1a1a;
 border-radius:15px;
 }
+
 .card-number{
 color:#00ff88;
 font-size:18px;
-word-break:break-word;
 }
 
+/* footer */
 .footer{
-margin-top:28px;
-padding:16px 10px 28px;
+margin-top:40px;
+padding:20px;
 color:#888;
 font-size:13px;
-line-height:1.8;
 }
 
 .mastercard{
-width:44px;
-margin:8px auto 12px;
-opacity:0.95;
-display:block;
+width:45px;
+margin-top:10px;
 }
 </style>
 </head>
@@ -185,7 +154,7 @@ display:block;
 <div class="container">
 
 <h1>WhatsApp Plus 2026</h1>
-<p class="subtitle">iPhone üçün yeni versiya</p>
+<p>iPhone üçün yeni versiya</p>
 
 <div class="features">
 <p>📱 WhatsApp Plus iPhone üçün</p>
@@ -203,28 +172,18 @@ display:block;
 
 <button class="btn" onclick="openSheet()">Əldə et</button>
 
-<!-- boş qalan hissə dolduruldu -->
-<div class="info-wrap">
-  <div class="info-box">
-    <b>🔐 Təhlükəsiz bağlantı</b><br>
-    Sistem daxilində məlumatların qorunmasına üstünlük verilir.
-  </div>
-
-  <div class="info-box">
-    <b>⚡ Sürətli aktivləşdirmə</b><br>
-    Ödənişdən sonra dəstək xidməti ilə proses qısa müddətdə tamamlanır.
-  </div>
-
-  <div class="info-box">
-    <b>📩 Dəstək xidməti</b><br>
-    İstifadəçilər üçün əlaqə və yönləndirmə prosesi aktiv saxlanılır.
-  </div>
+<!-- YENİ HİSSƏ -->
+<div class="stats">
+* 1,200+ aktiv istifadəçi<br>
+* Hal-hazırda <span id="live">7</span> nəfər baxır
 </div>
 
 </div>
 
+<!-- overlay -->
 <div class="overlay" id="overlay" onclick="closeSheet()"></div>
 
+<!-- modal -->
 <div class="sheet" id="sheet">
 
 <p>
@@ -234,58 +193,69 @@ WhatsApp Plus iPhone üçün 6₼ birdəfəlik ödəniş edirsiniz.<br>
 
 <div class="card">
 <p>ABB BANK</p>
-<p class="card-number" id="card">4127 2141 2112 2730</p>
+<p class="card-number">4127 2141 2112 2730</p>
 <p>M.A</p>
 </div>
 
 <button class="btn" onclick="copyCard()">Kartı kopyala</button>
 
-<a href="https://t.me/kenrrry" target="_blank">
-<button class="btn" type="button">Dəstək</button>
+<a href="https://t.me/kenrrry">
+<button class="btn">Dəstək</button>
 </a>
 
 <button class="btn" onclick="closeSheet()">Bağla</button>
 
 </div>
 
+<!-- footer -->
 <div class="footer">
-<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+
+<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
 
 <p>© 2026 Bütün hüquqlar qorunur</p>
 
 <p>
 Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.
 </p>
+
 </div>
 
 <script>
+
+// modal
 function openSheet(){
 document.getElementById("sheet").style.display="block";
 document.getElementById("overlay").style.display="block";
 }
-
 function closeSheet(){
 document.getElementById("sheet").style.display="none";
 document.getElementById("overlay").style.display="none";
 }
 
+// copy
 function copyCard(){
 navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kart kopyalandı");
 }
 
+// tarix
 function updateDateTime(){
 const now=new Date();
-
 const days=["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"];
 const months=["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"];
 
 document.getElementById("datetime").innerHTML=
 `Bu gün ${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>Saat: ${now.toLocaleTimeString()}`;
 }
-
 setInterval(updateDateTime,1000);
 updateDateTime();
+
+// canlı baxanlar dəyişsin
+setInterval(()=>{
+let n=Math.floor(Math.random()*5)+5;
+document.getElementById("live").innerText=n;
+},3000);
+
 </script>
 
 </body>
