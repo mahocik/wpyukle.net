@@ -37,7 +37,6 @@ margin:auto;
 padding:30px 20px;
 }
 
-/* başlıq */
 h1{
 color:#00ff88;
 text-shadow:0 0 20px #00ff88;
@@ -63,7 +62,6 @@ padding:15px;
 border-radius:20px;
 border:1px solid #00ff88;
 color:#00ff88;
-animation:glow 1.5s infinite alternate;
 }
 
 /* düymə */
@@ -80,7 +78,7 @@ animation:pulse 1.5s infinite;
 }
 @keyframes pulse{
 0%{box-shadow:0 0 10px #00ff88;}
-50%{box-shadow:0 0 35px #00ff88;}
+50%{box-shadow:0 0 30px #00ff88;}
 100%{box-shadow:0 0 10px #00ff88;}
 }
 
@@ -88,10 +86,9 @@ animation:pulse 1.5s infinite;
 #datetime{
 color:#00ff88;
 margin-top:10px;
-font-size:14px;
 }
 
-/* modal ortada */
+/* modal */
 .sheet{
 display:none;
 position:fixed;
@@ -99,14 +96,13 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 width:90%;
-max-width:380px;
+max-width:360px;
 background:#111;
 padding:20px;
 border-radius:20px;
 z-index:1000;
 }
 
-/* overlay */
 .overlay{
 display:none;
 position:fixed;
@@ -136,6 +132,14 @@ margin-top:40px;
 padding:20px;
 color:#888;
 font-size:13px;
+line-height:1.6;
+}
+
+/* mastercard */
+.mastercard{
+width:45px;
+margin-top:10px;
+opacity:0.9;
 }
 </style>
 </head>
@@ -195,15 +199,12 @@ WhatsApp Plus iPhone üçün 6₼ birdəfəlik ödəniş edirsiniz.<br>
 <!-- FOOTER -->
 <div class="footer">
 
-<div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" width="60">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" width="60">
-</div>
+<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
 
 <p>© 2026 Bütün hüquqlar qorunur</p>
 
 <p>
-Saytın rəhbəri <b style="color:#00ff88;">MaXo</b> tərəfindən qurulmuşdur
+Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.
 </p>
 
 </div>
