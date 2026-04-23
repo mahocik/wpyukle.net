@@ -26,23 +26,29 @@ color:#00ff88;
 text-shadow:0 0 20px #00ff88;
 }
 
-/* YANIB SÖNƏN BLOK (BU MÜTLƏQ GÖRÜNƏCƏK) */
-.features{
-margin-top:20px;
-padding:20px;
-border-radius:20px;
-border:2px solid #00ff88;
-animation:blink 1s infinite alternate;
+/* IPHONE SEKIL */
+.iphone{
+width:200px;
+margin:20px auto;
+filter: drop-shadow(0 0 20px #00ff88);
 }
 
-@keyframes blink{
+/* YANIB SÖNƏN BLOK */
+.features{
+margin-top:15px;
+padding:15px;
+border-radius:15px;
+border:1px solid #00ff88;
+animation: glow 1.2s infinite alternate;
+}
+
+@keyframes glow{
 0%{box-shadow:0 0 5px #00ff88;}
 100%{box-shadow:0 0 30px #00ff88;}
 }
 
 .features p{
-margin:8px 0;
-font-size:15px;
+margin:6px 0;
 }
 
 /* QİYMƏT */
@@ -52,9 +58,10 @@ padding:15px;
 border-radius:20px;
 border:1px solid #00ff88;
 color:#00ff88;
+box-shadow:0 0 20px #00ff88;
 }
 
-/* DÜYMƏ */
+/* DÜYMƏ YANIB SÖNÜR */
 .btn{
 background:#00ff88;
 color:#000;
@@ -64,6 +71,13 @@ border-radius:30px;
 width:100%;
 margin-top:10px;
 font-weight:bold;
+animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 5px #00ff88;}
+50%{box-shadow:0 0 25px #00ff88;}
+100%{box-shadow:0 0 5px #00ff88;}
 }
 
 /* AÇILAN */
@@ -89,7 +103,6 @@ border-radius:15px;
 color:#00ff88;
 font-size:18px;
 }
-
 </style>
 </head>
 
@@ -100,10 +113,13 @@ font-size:18px;
 <h1>WhatsApp Plus 2026</h1>
 <p>iPhone üçün yeni versiya</p>
 
-<!-- BURDA MƏTN VAR -->
+<!-- IPHONE -->
+<img class="iphone" src="https://i.imgur.com/8Km9tLL.png">
+
+<!-- MƏTN -->
 <div class="features">
 <p>📱 WhatsApp Plus iPhone üçün</p>
-<p>Gizli funksiyalar və fərqli dizaynlarla daha rahat istifadə imkanı verir</p>
+<p>Gizli funksiyalar və fərqli dizayn</p>
 <p>🔒 Son görülmə gizli</p>
 <p>👀 Statuslara gizli baxış</p>
 <p>🎨 VIP görünüş</p>
@@ -115,14 +131,14 @@ font-size:18px;
 
 </div>
 
-<!-- AÇILAN KART -->
+<!-- AÇILAN -->
 <div class="sheet" id="sheet">
 
 <p>6₼ birdəfəlik ödəniş<br>3 il istifadə</p>
 
 <div class="card">
 <p>ABB BANK</p>
-<p class="card-number" id="card">4127 2141 2112 2730</p>
+<p class="card-number">4127 2141 2112 2730</p>
 <p>M.A</p>
 </div>
 
