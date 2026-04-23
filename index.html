@@ -20,54 +20,53 @@ margin:auto;
 padding:30px 20px;
 }
 
+/* BAŞLIQ */
 h1{
-font-size:28px;
 color:#00ff88;
-text-shadow:0 0 15px #00ff88;
+text-shadow:0 0 20px #00ff88;
 }
 
-/* YANIB SÖNƏN BLOK */
+/* YANIB SÖNƏN BLOK (BU MÜTLƏQ GÖRÜNƏCƏK) */
 .features{
-margin-top:15px;
-padding:15px;
-border-radius:15px;
-border:1px solid #00ff88;
-animation: glow 1.5s infinite alternate;
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+border:2px solid #00ff88;
+animation:blink 1s infinite alternate;
 }
 
-@keyframes glow{
+@keyframes blink{
 0%{box-shadow:0 0 5px #00ff88;}
-100%{box-shadow:0 0 25px #00ff88;}
+100%{box-shadow:0 0 30px #00ff88;}
 }
 
 .features p{
-margin:5px 0;
-font-size:14px;
+margin:8px 0;
+font-size:15px;
 }
 
-/* qiymət */
+/* QİYMƏT */
 .price{
 margin:20px 0;
 padding:15px;
 border-radius:20px;
 border:1px solid #00ff88;
 color:#00ff88;
-box-shadow:0 0 20px #00ff88;
 }
 
-/* düymə */
+/* DÜYMƏ */
 .btn{
 background:#00ff88;
 color:#000;
 padding:15px;
-border-radius:30px;
 border:none;
+border-radius:30px;
 width:100%;
 margin-top:10px;
 font-weight:bold;
 }
 
-/* kart gizli */
+/* AÇILAN */
 .sheet{
 display:none;
 position:fixed;
@@ -78,6 +77,7 @@ padding:20px;
 border-radius:20px 20px 0 0;
 }
 
+/* KART */
 .card{
 margin-top:10px;
 padding:15px;
@@ -90,13 +90,6 @@ color:#00ff88;
 font-size:18px;
 }
 
-.timer{
-color:red;
-}
-
-.counter{
-color:#00ff88;
-}
 </style>
 </head>
 
@@ -107,17 +100,14 @@ color:#00ff88;
 <h1>WhatsApp Plus 2026</h1>
 <p>iPhone üçün yeni versiya</p>
 
-<!-- SƏNİN MƏTN -->
+<!-- BURDA MƏTN VAR -->
 <div class="features">
 <p>📱 WhatsApp Plus iPhone üçün</p>
-<p>Gizli funksiyalar və fərqli dizaynlarla daha rahat istifadə imkanı verir.</p>
+<p>Gizli funksiyalar və fərqli dizaynlarla daha rahat istifadə imkanı verir</p>
 <p>🔒 Son görülmə gizli</p>
 <p>👀 Statuslara gizli baxış</p>
 <p>🎨 VIP görünüş</p>
 </div>
-
-<div class="counter">● 12 nəfər baxır</div>
-<div class="timer">Təklif bitir: <span id="time">05:00</span></div>
 
 <div class="price">6₼ · 3 il istifadə</div>
 
@@ -127,7 +117,8 @@ color:#00ff88;
 
 <!-- AÇILAN KART -->
 <div class="sheet" id="sheet">
-<p>6₼ birdəfəlik ödəniş.<br>3 il istifadə.</p>
+
+<p>6₼ birdəfəlik ödəniş<br>3 il istifadə</p>
 
 <div class="card">
 <p>ABB BANK</p>
@@ -158,18 +149,6 @@ function copyCard(){
 navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kopyalandı");
 }
-
-/* timer */
-let t=300;
-setInterval(()=>{
-if(t>0){
-t--;
-let m=Math.floor(t/60);
-let s=t%60;
-document.getElementById("time").innerText=
-(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
-}
-},1000);
 </script>
 
 </body>
