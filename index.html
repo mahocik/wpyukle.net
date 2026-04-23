@@ -14,7 +14,7 @@ color:#fff;
 text-align:center;
 }
 
-/* glow */
+/* glow background */
 body::before{
 content:"";
 position:fixed;
@@ -22,7 +22,13 @@ width:100%;
 height:100%;
 background:radial-gradient(circle,#00ff88 0%, transparent 70%);
 opacity:0.15;
+animation:bgGlow 3s infinite alternate;
 z-index:-1;
+}
+
+@keyframes bgGlow{
+0%{opacity:0.1;}
+100%{opacity:0.25;}
 }
 
 .container{
@@ -36,11 +42,18 @@ color:#00ff88;
 text-shadow:0 0 20px #00ff88;
 }
 
+/* 🔥 YANIB SÖNMƏ */
+@keyframes glow{
+0%{box-shadow:0 0 10px #00ff88;}
+100%{box-shadow:0 0 30px #00ff88;}
+}
+
 .features{
 padding:15px;
 border:1px solid #00ff88;
 border-radius:15px;
 margin-top:10px;
+animation:glow 1.5s infinite alternate;
 }
 
 .price{
@@ -49,6 +62,7 @@ padding:15px;
 border:1px solid #00ff88;
 border-radius:20px;
 color:#00ff88;
+animation:glow 1.5s infinite alternate;
 }
 
 .btn{
@@ -63,15 +77,16 @@ font-weight:bold;
 text-decoration:none;
 text-align:center;
 cursor:pointer;
+animation:glow 1.5s infinite alternate;
 }
 
-/* TARİX */
+/* tarix */
 #datetime{
 color:#00ff88;
 margin-top:15px;
 }
 
-/* LOADING */
+/* loading */
 .loading{
 display:none;
 position:fixed;
@@ -87,7 +102,7 @@ flex-direction:column;
 color:#00ff88;
 }
 
-/* ƏSAS FIX */
+/* overlay */
 .overlay{
 display:none;
 position:fixed;
@@ -100,7 +115,7 @@ opacity:0.98;
 z-index:999;
 }
 
-/* MODAL */
+/* modal */
 .sheet{
 display:none;
 position:fixed;
@@ -113,19 +128,21 @@ background:#111;
 padding:20px;
 border-radius:20px;
 z-index:1000;
+animation:glow 1.5s infinite alternate;
 }
 
 /* footer */
 .footer{
-margin-top:40px;
+margin-top:10px;
 color:#888;
 font-size:13px;
-padding-bottom:30px;
+padding-bottom:20px;
 }
 
 .mastercard{
 width:40px;
-margin-top:10px;
+margin-top:5px;
+animation:glow 1.5s infinite alternate;
 }
 </style>
 </head>
@@ -154,15 +171,14 @@ margin-top:10px;
 
 </div>
 
-<!-- LOADING -->
+<!-- loading -->
 <div class="loading" id="loading">
 ⏳ Sistem yoxlanılır...
 </div>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay"></div>
 
-<!-- MODAL -->
+<!-- modal -->
 <div class="sheet" id="sheet">
 
 <p><b>Ödəniş etdikdən sonra Dəstək xidmətinə göndərin</b></p>
@@ -180,7 +196,7 @@ Dəstək Xidməti
 
 </div>
 
-<!-- FOOTER -->
+<!-- footer -->
 <div class="footer">
 
 <img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
@@ -221,7 +237,7 @@ navigator.clipboard.writeText("4127 2141 2112 2730");
 alert("Kart kopyalandı");
 }
 
-// TARİX
+// tarix
 function updateDateTime(){
 const now=new Date();
 const days=["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"];
