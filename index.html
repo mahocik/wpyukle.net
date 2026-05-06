@@ -2,254 +2,83 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus</title>
-
+<title>Mobil Tətbiq Yüklə</title>
 <style>
-body{
-margin:0;
-font-family:-apple-system;
-background:#000;
-color:#fff;
-text-align:center;
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding-top: 80px;
 }
 
-/* glow background */
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:radial-gradient(circle,#00ff88 0%, transparent 70%);
-opacity:0.15;
-animation:bgGlow 3s infinite alternate;
-z-index:-1;
+.box {
+    background: #1e293b;
+    width: 320px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
-@keyframes bgGlow{
-0%{opacity:0.1;}
-100%{opacity:0.25;}
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.container{
-max-width:420px;
-margin:auto;
-padding:30px 20px;
+.ios { background: #2563eb; color: white; }
+.android { background: #22c55e; color: white; }
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
 }
 
-h1{
-color:#00ff88;
-text-shadow:0 0 20px #00ff88;
-}
-
-/* 🔥 YANIB SÖNMƏ */
-@keyframes glow{
-0%{box-shadow:0 0 10px #00ff88;}
-100%{box-shadow:0 0 30px #00ff88;}
-}
-
-.features{
-padding:15px;
-border:1px solid #00ff88;
-border-radius:15px;
-margin-top:10px;
-animation:glow 1.5s infinite alternate;
-}
-
-.price{
-margin:20px 0;
-padding:15px;
-border:1px solid #00ff88;
-border-radius:20px;
-color:#00ff88;
-animation:glow 1.5s infinite alternate;
-}
-
-.btn{
-display:block;
-background:#00ff88;
-color:#000;
-padding:15px;
-border-radius:30px;
-width:78%;
-margin:10px auto;
-font-weight:bold;
-text-decoration:none;
-text-align:center;
-cursor:pointer;
-animation:glow 1.5s infinite alternate;
-}
-
-/* tarix */
-#datetime{
-color:#00ff88;
-margin-top:15px;
-}
-
-/* loading */
-.loading{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-z-index:2000;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-color:#00ff88;
-}
-
-/* overlay */
-.overlay{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-opacity:0.98;
-z-index:999;
-}
-
-/* modal */
-.sheet{
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:90%;
-max-width:360px;
-background:#111;
-padding:20px;
-border-radius:20px;
-z-index:1000;
-animation:glow 1.5s infinite alternate;
-}
-
-/* footer */
-.footer{
-margin-top:10px;
-color:#888;
-font-size:13px;
-padding-bottom:20px;
-}
-
-.mastercard{
-width:40px;
-margin-top:5px;
-animation:glow 1.5s infinite alternate;
+.popup-content {
+    background: white;
+    color: black;
+    width: 300px;
+    margin: 20% auto;
+    padding: 20px;
+    border-radius: 12px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="box">
+    <h2>Mobil Tətbiq Yüklə</h2>
+    <p>Platformanı seç</p>
 
-<h1>WhatsApp Plus 2026</h1>
-<p>iPhone üçün yeni versiya</p>
-
-<div class="features">
-<p>📱 WhatsApp Plus iPhone üçün</p>
-<p>🔒 Son görülmə gizli</p>
-<p>👀 Statuslara gizli baxış</p>
-<p>🎨 VIP görünüş</p>
+    <button class="ios" onclick="openPopup()">iOS Yüklə</button>
+    <button class="android" onclick="openPopup()">Android Yüklə</button>
 </div>
 
-<div id="datetime"></div>
-
-<div class="price">
-6₼ · 3 il istifadə
-</div>
-
-<a class="btn" onclick="startLoading()">Əldə et</a>
-
-</div>
-
-<!-- loading -->
-<div class="loading" id="loading">
-⏳ Sistem yoxlanılır...
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-<!-- modal -->
-<div class="sheet" id="sheet">
-
-<p><b>Ödəniş etdikdən sonra Dəstək xidmətinə göndərin</b></p>
-
-<p>ABB BANK</p>
-<p style="color:#00ff88;">4127 2141 2112 2730</p>
-
-<a class="btn" onclick="copyCard()">Kartı kopyala</a>
-
-<a href="https://t.me/kenrrry?text=Salam%20mən%20ödəniş%20etdim%20qəbzi%20göndərirəm" class="btn">
-Dəstək Xidməti
-</a>
-
-<a class="btn" onclick="closeSheet()">Bağla</a>
-
-</div>
-
-<!-- footer -->
-<div class="footer">
-
-<img class="mastercard" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
-
-<p>© 2026 Bütün hüquqlar qorunur</p>
-
-<p>
-Platforma müasir texnologiyalar əsasında hazırlanmışdır və istifadəçilərə təhlükəsiz xidmət təqdim edir.
-</p>
-
+<div id="popup">
+    <div class="popup-content">
+        <h3>Telefonu generator ele</h3>
+        <p>Yükləmə hazırlanır...</p>
+        <button onclick="closePopup()">Bağla</button>
+    </div>
 </div>
 
 <script>
-
-// loading
-function startLoading(){
-document.getElementById("loading").style.display="flex";
-setTimeout(()=>{
-document.getElementById("loading").style.display="none";
-openSheet();
-},2000);
+function openPopup(){
+    document.getElementById("popup").style.display = "block";
 }
 
-// modal
-function openSheet(){
-document.getElementById("sheet").style.display="block";
-document.getElementById("overlay").style.display="block";
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
 }
-
-function closeSheet(){
-document.getElementById("sheet").style.display="none";
-document.getElementById("overlay").style.display="none";
-}
-
-// copy
-function copyCard(){
-navigator.clipboard.writeText("4127 2141 2112 2730");
-alert("Kart kopyalandı");
-}
-
-// tarix
-function updateDateTime(){
-const now=new Date();
-const days=["Bazar","Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə"];
-const months=["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"];
-
-document.getElementById("datetime").innerHTML=
-`Bu gün ${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}<br>Saat: ${now.toLocaleTimeString()}`;
-}
-
-setInterval(updateDateTime,1000);
-updateDateTime();
-
 </script>
 
 </body>
