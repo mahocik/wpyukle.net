@@ -3,93 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Giriş Sistemi</title>
+<title>PRO Giriş Sistemi</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
 }
 
-body {
-    font-family: Arial;
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* LOGIN BOX */
+.box{
+width:92%;
+max-width:420px;
+background:#111827;
+padding:25px;
+border-radius:16px;
+box-shadow:0 0 25px rgba(0,0,0,0.6);
+text-align:center;
 }
 
-/* CARD */
-.box {
-    width: 90%;
-    max-width: 420px;
-    background: #111827;
-    color: white;
-    padding: 25px;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+h2{margin-bottom:10px;}
+p{font-size:13px;opacity:0.8;margin-bottom:10px;}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+text-align:center;
+font-size:15px;
+outline:none;
 }
 
-h2 {
-    margin-bottom: 10px;
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:15px;
 }
 
-p {
-    font-size: 14px;
-    opacity: 0.8;
-    margin-bottom: 10px;
-}
+.loginBtn{background:#22c55e;color:white;}
+.adminBtn{background:#f59e0b;color:black;}
 
-input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    text-align: center;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #22c55e;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #16a34a;
-}
-
-/* ERROR */
-.error {
-    margin-top: 10px;
-    color: #f87171;
-    font-size: 14px;
-    display: none;
-}
+.error{color:#f87171;font-size:13px;margin-top:10px;display:none;}
+.success{color:#34d399;font-size:13px;margin-top:10px;display:none;}
 
 /* SUPPORT */
-.support {
-    margin-top: 15px;
-    font-size: 13px;
-    opacity: 0.9;
+.support{
+margin-top:15px;
+font-size:13px;
+opacity:0.9;
+}
+.support a{
+color:#38bdf8;
+text-decoration:none;
+font-weight:bold;
 }
 
-.support a {
-    color: #38bdf8;
-    text-decoration: none;
-    font-weight: bold;
+/* ADMIN PANEL */
+#adminPanel{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+justify-content:center;
+align-items:center;
+}
+
+.panel{
+background:white;
+color:black;
+width:90%;
+max-width:360px;
+padding:20px;
+border-radius:12px;
+text-align:center;
+}
+
+.panel input{
+border:1px solid #ddd;
+margin-bottom:8px;
+}
+
+.small{
+font-size:12px;
+opacity:0.7;
 }
 </style>
 </head>
@@ -97,45 +106,119 @@ button:hover {
 <body>
 
 <div class="box">
-    <h2>🔐 Giriş Sistemi</h2>
+    <h2>🔐 PRO Giriş Sistemi</h2>
+    <p>Kod varsa daxil ol</p>
 
-    <p>Əgər sizə kod verilibsə, aşağıya yazın və daxil olun</p>
+    <input type="text" id="code" placeholder="Giriş kodu">
 
-    <input type="text" id="code" placeholder="Giriş kodunu yaz...">
+    <button class="loginBtn" onclick="login()">Daxil ol</button>
+    <button class="adminBtn" onclick="openAdmin()">Admin Panel</button>
 
-    <button onclick="login()">Daxil ol</button>
-
-    <div class="error" id="error">
-        ❌ Kod səhvdir! Zəhmət olmasa dəstəyə yazın.
-    </div>
+    <div class="error" id="error">❌ Kod səhvdir! Dəstəyə yazın.</div>
+    <div class="success" id="success">✔ Giriş uğurludur</div>
 
     <div class="support">
-        📞 Dəstək: 
-        <a href="https://wa.me/212649276900" target="_blank">
-            WhatsApp yaz
-        </a>
+        📞 Dəstək:
+        <a href="https://wa.me/212649276900" target="_blank">WhatsApp yaz</a>
+    </div>
+</div>
+
+<!-- ADMIN -->
+<div id="adminPanel">
+    <div class="panel">
+        <h3>⚙️ Admin Panel</h3>
+
+        <p class="small">Yeni kod yarat</p>
+        <input id="newCode" placeholder="Kod yaz">
+        <input id="expire" placeholder="Müddət (dəqiqə)">
+
+        <button onclick="createCode()">Yarat</button>
+        <button onclick="closeAdmin()" style="background:#ef4444;color:white;margin-top:8px;">Bağla</button>
+
+        <p class="small" id="codeList"></p>
     </div>
 </div>
 
 <script>
 
-// 👉 BURADA İCAZƏ VERİLƏN KODLAR
-let validCodes = [
-    "1234",
-    "vip2026",
-    "wpplus",
-    "admin"
-];
+// ================= STORAGE =================
+let codes = JSON.parse(localStorage.getItem("codes")) || {};
+
+// ================= LOGIN =================
+let attempts = 0;
 
 function login(){
     let code = document.getElementById("code").value;
     let error = document.getElementById("error");
+    let success = document.getElementById("success");
 
-    if(validCodes.includes(code)){
-        localStorage.setItem("logged", "true");
-        window.location.href = "home.html"; // giriş sonrası səhifə
-    } else {
+    error.style.display = "none";
+    success.style.display = "none";
+
+    if(attempts >= 5){
+        error.innerText = "⛔ Çox cəhd etdin! Sonra yoxla.";
         error.style.display = "block";
+        return;
+    }
+
+    let data = codes[code];
+
+    if(data){
+        let now = Date.now();
+
+        if(now > data.expire){
+            error.innerText = "⛔ Kodun vaxtı bitib!";
+            error.style.display = "block";
+            return;
+        }
+
+        success.style.display = "block";
+        localStorage.setItem("logged", "true");
+
+        setTimeout(()=>{
+            window.location.href = "home.html";
+        },1000);
+
+    } else {
+        attempts++;
+        error.style.display = "block";
+    }
+}
+
+// ================= ADMIN =================
+function openAdmin(){
+    document.getElementById("adminPanel").style.display = "flex";
+    showCodes();
+}
+
+function closeAdmin(){
+    document.getElementById("adminPanel").style.display = "none";
+}
+
+function createCode(){
+    let code = document.getElementById("newCode").value;
+    let expireMin = document.getElementById("expire").value;
+
+    if(!code || !expireMin) return;
+
+    let expireTime = Date.now() + (expireMin * 60000);
+
+    codes[code] = {
+        expire: expireTime
+    };
+
+    localStorage.setItem("codes", JSON.stringify(codes));
+
+    alert("Kod yaradıldı!");
+    showCodes();
+}
+
+function showCodes(){
+    let list = document.getElementById("codeList");
+    list.innerHTML = "<b>Aktiv kodlar:</b><br>";
+
+    for(let c in codes){
+        list.innerHTML += "🔑 " + c + "<br>";
     }
 }
 
