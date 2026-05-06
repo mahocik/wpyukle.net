@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>App Download Center</title>
+<title>Giriş Sistemi</title>
 
 <style>
 * {
@@ -16,26 +16,22 @@
 body {
     font-family: Arial;
     background: linear-gradient(135deg,#0f172a,#1e293b);
-    color: white;
-
-    /* ⭐ MƏRKƏZLƏMƏ FIX */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
 }
 
 /* CARD */
-.container {
+.box {
     width: 90%;
     max-width: 420px;
     background: #111827;
+    color: white;
     padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    border-radius: 16px;
     text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
 }
 
 h2 {
@@ -43,175 +39,106 @@ h2 {
 }
 
 p {
+    font-size: 14px;
+    opacity: 0.8;
     margin-bottom: 10px;
-    opacity: 0.9;
-}
-
-button {
-    width: 100%;
-    padding: 13px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.ios { background: #3b82f6; color: white; }
-.android { background: #22c55e; color: white; }
-.admin { background: #f59e0b; color: black; }
-
-/* POPUP */
-#popup, #adminPanel {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-box {
-    background: white;
-    color: black;
-    width: 90%;
-    max-width: 320px;
-    padding: 20px;
-    border-radius: 14px;
-    text-align: center;
-}
-
-/* LOADER */
-.loader {
-    width: 100%;
-    height: 10px;
-    background: #ddd;
-    border-radius: 20px;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-.bar {
-    width: 0%;
-    height: 100%;
-    background: #22c55e;
-    transition: 0.2s;
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+/* ERROR */
+.error {
+    margin-top: 10px;
+    color: #f87171;
+    font-size: 14px;
+    display: none;
+}
+
+/* SUPPORT */
+.support {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.support a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h2>📱 App Download Center</h2>
-    <p id="count">: </p>
+<div class="box">
+    <h2>🔐 Giriş Sistemi</h2>
 
-    <button class="ios" onclick="openPopup('ios')">🍏 iOS Yüklə</button>
-    <button class="android" onclick="openPopup('android')">🤖 Android Yüklə</button>
+    <p>Əgər sizə kod verilibsə, aşağıya yazın və daxil olun</p>
 
-    <button class="admin" onclick="openAdmin()">⚙️ Admin Panel</button>
-</div>
+    <input type="text" id="code" placeholder="Giriş kodunu yaz...">
 
-<!-- POPUP -->
-<div id="popup">
-    <div class="popup-box">
-        <h3>Yüklənir...</h3>
-        <div class="loader">
-            <div class="bar" id="bar"></div>
-        </div>
-        <p id="status">Hazırlanır...</p>
-        <button onclick="closePopup()">Bağla</button>
+    <button onclick="login()">Daxil ol</button>
+
+    <div class="error" id="error">
+        ❌ Kod səhvdir! Zəhmət olmasa dəstəyə yazın.
     </div>
-</div>
 
-<!-- ADMIN -->
-<div id="adminPanel">
-    <div class="popup-box">
-        <h3>Admin Panel</h3>
-
-        <input id="iosLink" placeholder="iOS link">
-        <input id="androidLink" placeholder="Android link">
-
-        <button onclick="saveLinks()">Yadda saxla</button>
-        <button onclick="closeAdmin()">Bağla</button>
+    <div class="support">
+        📞 Dəstək: 
+        <a href="https://wa.me/212649276900" target="_blank">
+            WhatsApp yaz
+        </a>
     </div>
 </div>
 
 <script>
-// COUNTER
-let users = localStorage.getItem("users") || 0;
-users++;
-localStorage.setItem("users", users);
-document.getElementById("count").innerText = "İstifadəçilər: " + users;
 
-// LINKS
-let iosLink = localStorage.getItem("iosLink") || "#";
-let androidLink = localStorage.getItem("androidLink") || "#";
+// 👉 BURADA İCAZƏ VERİLƏN KODLAR
+let validCodes = [
+    "1234",
+    "vip2026",
+    "wpplus",
+    "admin"
+];
 
-// POPUP
-function openPopup(type){
-    document.getElementById("popup").style.display = "flex";
+function login(){
+    let code = document.getElementById("code").value;
+    let error = document.getElementById("error");
 
-    let bar = document.getElementById("bar");
-    let status = document.getElementById("status");
-
-    let progress = 0;
-    bar.style.width = "0%";
-    status.innerText = "Yüklənir...";
-
-    let interval = setInterval(() => {
-        progress += 5;
-        bar.style.width = progress + "%";
-
-        if(progress >= 100){
-            clearInterval(interval);
-            status.innerText = "Hazırdır!";
-
-            setTimeout(() => {
-                if(type === "ios"){
-                    window.location.href = iosLink;
-                } else {
-                    window.location.href = androidLink;
-                }
-            }, 700);
-        }
-    }, 80);
+    if(validCodes.includes(code)){
+        localStorage.setItem("logged", "true");
+        window.location.href = "home.html"; // giriş sonrası səhifə
+    } else {
+        error.style.display = "block";
+    }
 }
 
-function closePopup(){
-    document.getElementById("popup").style.display = "none";
-}
-
-// ADMIN
-function openAdmin(){
-    document.getElementById("adminPanel").style.display = "flex";
-    document.getElementById("iosLink").value = iosLink;
-    document.getElementById("androidLink").value = androidLink;
-}
-
-function closeAdmin(){
-    document.getElementById("adminPanel").style.display = "none";
-}
-
-function saveLinks(){
-    iosLink = document.getElementById("iosLink").value;
-    androidLink = document.getElementById("androidLink").value;
-
-    localStorage.setItem("iosLink", iosLink);
-    localStorage.setItem("androidLink", androidLink);
-
-    alert("Yadda saxlanıldı!");
-    closeAdmin();
-}
 </script>
 
 </body>
