@@ -2,36 +2,58 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>App Download Center</title>
 
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial;
     background: linear-gradient(135deg,#0f172a,#1e293b);
     color: white;
-    text-align: center;
+
+    /* ⭐ MƏRKƏZLƏMƏ FIX */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-/* Card */
+/* CARD */
 .container {
-    width: 340px;
-    margin: 80px auto;
+    width: 90%;
+    max-width: 420px;
     background: #111827;
     padding: 25px;
     border-radius: 18px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    text-align: center;
 }
 
-h2 { margin-bottom: 5px; }
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
 
 button {
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     margin-top: 10px;
     border: none;
     border-radius: 12px;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -39,25 +61,28 @@ button {
 .android { background: #22c55e; color: white; }
 .admin { background: #f59e0b; color: black; }
 
-/* Popup */
+/* POPUP */
 #popup, #adminPanel {
     display: none;
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7);
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+
+    justify-content: center;
+    align-items: center;
 }
 
 .popup-box {
     background: white;
     color: black;
-    width: 300px;
-    margin: 20% auto;
+    width: 90%;
+    max-width: 320px;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 14px;
+    text-align: center;
 }
 
-/* Loader */
+/* LOADER */
 .loader {
     width: 100%;
     height: 10px;
@@ -71,6 +96,15 @@ button {
     width: 0%;
     height: 100%;
     background: #22c55e;
+    transition: 0.2s;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 </style>
 </head>
@@ -81,32 +115,31 @@ button {
     <h2>📱 App Download Center</h2>
     <p id="count">İstifadəçilər: 0</p>
 
-    <button class="ios" onclick="openPopup('ios')">iOS Yüklə</button>
-    <button class="android" onclick="openPopup('android')">Android Yüklə</button>
+    <button class="ios" onclick="openPopup('ios')">🍏 iOS Yüklə</button>
+    <button class="android" onclick="openPopup('android')">🤖 Android Yüklə</button>
 
-    <button class="admin" onclick="openAdmin()">Admin Panel</button>
+    <button class="admin" onclick="openAdmin()">⚙️ Admin Panel</button>
 </div>
 
-<!-- DOWNLOAD POPUP -->
+<!-- POPUP -->
 <div id="popup">
     <div class="popup-box">
         <h3>Yüklənir...</h3>
-        <div class="loader"><div class="bar" id="bar"></div></div>
+        <div class="loader">
+            <div class="bar" id="bar"></div>
+        </div>
         <p id="status">Hazırlanır...</p>
         <button onclick="closePopup()">Bağla</button>
     </div>
 </div>
 
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 <div id="adminPanel">
     <div class="popup-box">
         <h3>Admin Panel</h3>
 
-        <p>iOS link:</p>
-        <input id="iosLink" placeholder="iOS download link" style="width:100%">
-
-        <p>Android link:</p>
-        <input id="androidLink" placeholder="Android download link" style="width:100%">
+        <input id="iosLink" placeholder="iOS link">
+        <input id="androidLink" placeholder="Android link">
 
         <button onclick="saveLinks()">Yadda saxla</button>
         <button onclick="closeAdmin()">Bağla</button>
@@ -114,19 +147,20 @@ button {
 </div>
 
 <script>
-// ---- COUNTER ----
+// COUNTER
 let users = localStorage.getItem("users") || 0;
 users++;
 localStorage.setItem("users", users);
 document.getElementById("count").innerText = "İstifadəçilər: " + users;
 
-// ---- LINKS ----
+// LINKS
 let iosLink = localStorage.getItem("iosLink") || "#";
 let androidLink = localStorage.getItem("androidLink") || "#";
 
-// ---- POPUP ----
+// POPUP
 function openPopup(type){
-    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup").style.display = "flex";
+
     let bar = document.getElementById("bar");
     let status = document.getElementById("status");
 
@@ -148,18 +182,18 @@ function openPopup(type){
                 } else {
                     window.location.href = androidLink;
                 }
-            }, 800);
+            }, 700);
         }
-    }, 100);
+    }, 80);
 }
 
 function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-// ---- ADMIN ----
+// ADMIN
 function openAdmin(){
-    document.getElementById("adminPanel").style.display = "block";
+    document.getElementById("adminPanel").style.display = "flex";
     document.getElementById("iosLink").value = iosLink;
     document.getElementById("androidLink").value = androidLink;
 }
@@ -175,7 +209,7 @@ function saveLinks(){
     localStorage.setItem("iosLink", iosLink);
     localStorage.setItem("androidLink", androidLink);
 
-    alert("Linklər yadda saxlanıldı!");
+    alert("Yadda saxlanıldı!");
     closeAdmin();
 }
 </script>
