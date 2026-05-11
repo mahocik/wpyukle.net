@@ -8,119 +8,117 @@
 <style>
 body{
     margin:0;
-    font-family:Arial;
-    background:#0f0f0f;
-    color:white;
+    font-family:Arial, sans-serif;
+    background:#050805;
+    color:#00ff66;
 }
 
+/* HEADER */
 header{
     text-align:center;
     padding:60px 20px;
-    background:linear-gradient(135deg,#00c853,#003b1f);
+    border-bottom:1px solid #00ff66;
 }
 
-header h1{
-    font-size:45px;
-    margin:0;
+h1{
+    font-size:40px;
+    text-shadow:0 0 15px #00ff66;
 }
 
-header p{
-    opacity:0.8;
-    margin-top:10px;
+p{
+    color:#bfffd6;
 }
 
-.download-btn{
+/* FEATURES */
+.features{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:20px;
+    max-width:500px;
+    margin:auto;
+}
+
+.feature{
+    background:#0c1a12;
+    padding:12px;
+    border:1px solid #00ff66;
+    border-radius:10px;
+}
+
+/* PAYMENT BOX */
+.pay-box{
+    text-align:center;
+    margin:40px auto;
+    padding:30px;
+    max-width:500px;
+    border:1px solid #00ff66;
+    border-radius:15px;
+    background:#0a140f;
+    box-shadow:0 0 20px #00ff66;
+}
+
+.price{
+    font-size:28px;
+    margin:10px 0;
+}
+
+/* BUTTON */
+.btn{
     display:inline-block;
-    margin-top:25px;
-    padding:15px 35px;
-    background:#00e676;
+    padding:15px 30px;
+    background:#00ff66;
     color:black;
-    text-decoration:none;
-    border-radius:12px;
     font-weight:bold;
+    text-decoration:none;
+    border-radius:10px;
+    margin-top:15px;
+    box-shadow:0 0 15px #00ff66;
     transition:0.3s;
 }
 
-.download-btn:hover{
+.btn:hover{
     transform:scale(1.05);
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:40px 20px;
-}
-
-.card{
-    background:#1a1a1a;
-    padding:25px;
-    border-radius:15px;
-    border:1px solid #00e67630;
-}
-
-.card h3{
-    color:#00e676;
-}
-
-.contact{
-    text-align:center;
-    padding:40px 20px;
-    background:#111;
-    margin-top:20px;
-}
-
-.contact h2{
-    color:#00e676;
-}
-
+/* FOOTER */
 footer{
     text-align:center;
     padding:20px;
-    opacity:0.6;
+    color:#66ff99;
+    font-size:14px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <header>
     <h1>WhatsApp Plus 2026</h1>
-    <p>Ən son versiyanı indi yüklə</p>
-
-    <a href="#" class="download-btn">
-        APK Yüklə
-    </a>
+    <p>Reklamsız • Sürətli • Premium Funksiyalar</p>
 </header>
 
-<section class="features">
-
-<div class="card">
-    <h3>Anti Ban</h3>
-    <p>Təhlükəsiz istifadə sistemi.</p>
+<div class="features">
+    <div class="feature">✔ Reklamsız istifadə</div>
+    <div class="feature">✔ Status yükləmə funksiyası</div>
+    <div class="feature">✔ Online gizlətmə</div>
+    <div class="feature">✔ Anti-ban qoruma sistemi</div>
+    <div class="feature">✔ 2026 yeni versiya</div>
 </div>
 
-<div class="card">
-    <h3>Yeni Temalar</h3>
-    <p>1000+ premium tema dəstəyi.</p>
+<div class="pay-box">
+    <h2>Premium Versiya</h2>
+    <div class="price">Cəmi 3 AZN</div>
+    <p>2 il limitsiz istifadə</p>
+
+    <a class="btn" 
+       href="https://epoint.az/az/inv/p/pC9nr6ymzy118189">
+       İndi ödə və yüklə
+    </a>
 </div>
-
-<div class="card">
-    <h3>Gizlilik</h3>
-    <p>Online və yazır statusunu gizlət.</p>
-</div>
-
-</section>
-
-<!-- WHATSAPP KONTAKT BÖLMƏSİ -->
-<section class="contact">
-    <h2>WhatsApp Dəstək</h2>
-    <p>Bizimlə əlaqə saxlayın:</p>
-    <p><b>+212 649-276900</b></p>
-</section>
 
 <footer>
-© 2026 WhatsApp Plus
+    © 2026 WhatsApp Plus Store
 </footer>
 
 </body>
