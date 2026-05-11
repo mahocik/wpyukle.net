@@ -13,9 +13,13 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:Arial, sans-serif;
-    background:#0d0d0d;
+    font-family:Arial,sans-serif;
+    background:#0b0b0b;
     color:white;
     overflow-x:hidden;
 }
@@ -23,117 +27,197 @@ body{
 /* HEADER */
 
 header{
-    height:100vh;
-    background:linear-gradient(135deg,#00c853,#0091ea);
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+    linear-gradient(135deg,#00c853,#0091ea);
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:20px;
+    padding:25px;
+    position:relative;
+}
+
+.header-box{
+    max-width:850px;
+}
+
+.logo{
+    display:inline-block;
+    background:#ffffff15;
+    border:1px solid #ffffff20;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:18px;
+    backdrop-filter:blur(10px);
 }
 
 header h1{
-    font-size:42px;
-    margin-bottom:15px;
+    font-size:55px;
+    line-height:1.1;
+    margin-bottom:18px;
+    font-weight:bold;
 }
 
 header p{
-    max-width:700px;
     font-size:18px;
-    opacity:0.95;
-    line-height:1.6;
+    line-height:1.7;
+    opacity:.93;
+    max-width:700px;
+    margin:auto;
 }
 
 .main-btn{
     margin-top:30px;
-    padding:16px 35px;
+    padding:16px 38px;
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     background:white;
     color:#111;
     font-size:18px;
-    cursor:pointer;
     font-weight:bold;
-    transition:0.3s;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 25px rgba(255,255,255,.2);
 }
 
 .main-btn:hover{
-    transform:scale(1.05);
+    transform:translateY(-4px) scale(1.03);
 }
 
 /* SECTION */
 
 .section{
-    padding:70px 20px;
-    max-width:1100px;
+    padding:75px 20px;
+    max-width:1150px;
     margin:auto;
 }
 
 .title{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:45px;
 }
 
 .title h2{
-    font-size:34px;
-    margin-bottom:10px;
+    font-size:38px;
+    margin-bottom:12px;
 }
+
+.title p{
+    opacity:.75;
+    font-size:16px;
+}
+
+/* CARDS */
 
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    gap:22px;
 }
 
 .card{
-    background:#1b1b1b;
-    padding:25px;
-    border-radius:18px;
-    transition:0.3s;
+    background:#171717;
+    padding:28px;
+    border-radius:22px;
+    border:1px solid #232323;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,#00c853,#0091ea);
 }
 
 .card:hover{
     transform:translateY(-8px);
-    background:#242424;
+    background:#1d1d1d;
 }
 
 .card h3{
+    margin-bottom:14px;
+    color:#00e676;
+    font-size:22px;
+}
+
+.card p{
+    line-height:1.7;
+    opacity:.88;
+    font-size:15px;
+}
+
+/* INFO BOX */
+
+.info-box{
+    margin-top:35px;
+    background:#151515;
+    border:1px solid #222;
+    border-radius:24px;
+    padding:35px;
+    line-height:1.9;
+}
+
+.info-box h3{
     margin-bottom:15px;
     color:#00e676;
+    font-size:28px;
 }
 
 /* DOWNLOAD */
 
 .download-box{
-    background:#151515;
-    padding:40px;
-    border-radius:20px;
+    background:linear-gradient(135deg,#121212,#1b1b1b);
+    padding:45px 25px;
+    border-radius:28px;
     text-align:center;
+    border:1px solid #232323;
+}
+
+.download-box h2{
+    font-size:38px;
+}
+
+.download-box p{
+    margin-top:14px;
+    opacity:.85;
+    line-height:1.7;
 }
 
 .download-btn{
-    margin-top:25px;
-    background:#00c853;
+    margin-top:28px;
+    background:linear-gradient(135deg,#00c853,#00e676);
     color:white;
     border:none;
-    padding:16px 30px;
-    border-radius:12px;
+    padding:17px 34px;
+    border-radius:14px;
     font-size:18px;
     cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .download-btn:hover{
-    background:#00e676;
+    transform:scale(1.04);
 }
 
 /* FOOTER */
 
 footer{
     text-align:center;
-    padding:30px;
-    background:#111;
-    opacity:0.8;
+    padding:28px;
+    background:#101010;
+    border-top:1px solid #1d1d1d;
+    opacity:.75;
+    font-size:14px;
 }
 
 /* POPUP */
@@ -144,7 +228,7 @@ footer{
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.85);
+    background:rgba(0,0,0,.88);
     display:none;
     justify-content:center;
     align-items:center;
@@ -153,13 +237,15 @@ footer{
 }
 
 .popup-box{
-    background:#1d1d1d;
+    background:#191919;
     width:100%;
-    max-width:420px;
-    border-radius:20px;
-    padding:30px;
+    max-width:430px;
+    border-radius:24px;
+    padding:34px 28px;
     text-align:center;
-    animation:show .3s ease;
+    border:1px solid #2a2a2a;
+    animation:show .25s ease;
+    position:relative;
 }
 
 @keyframes show{
@@ -174,29 +260,41 @@ footer{
 }
 
 .popup-box h2{
+    font-size:30px;
     margin-bottom:15px;
 }
 
+.popup-box p{
+    line-height:1.8;
+    opacity:.9;
+}
+
 .price{
-    font-size:45px;
+    font-size:55px;
     color:#00e676;
-    margin:20px 0;
+    margin:25px 0;
     font-weight:bold;
 }
 
 .popup-btn{
     width:100%;
-    margin-top:15px;
+    margin-top:14px;
     padding:15px;
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     cursor:pointer;
     font-size:17px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .continue{
-    background:#00c853;
+    background:linear-gradient(135deg,#00c853,#00e676);
     color:white;
+}
+
+.continue:hover{
+    transform:scale(1.02);
 }
 
 .close{
@@ -204,10 +302,37 @@ footer{
     color:white;
 }
 
+.close:hover{
+    transform:scale(1.02);
+}
+
 .demo{
-    margin-top:15px;
-    color:orange;
+    margin-top:18px;
+    color:#ffb300;
     font-size:13px;
+    letter-spacing:1px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    font-size:16px;
+}
+
+.title h2{
+    font-size:30px;
+}
+
+.download-box h2{
+    font-size:30px;
+}
+
 }
 
 </style>
@@ -219,18 +344,28 @@ footer{
 
 <header>
 
-<h1>WhatsApp Plus 2026</h1>
+<div class="header-box">
+
+<div class="logo">
+⚡ Premium WhatsApp Plus 2026
+</div>
+
+<h1>
+WhatsApp Plus 2026
+</h1>
 
 <p>
-Yeni nəsil WhatsApp Plus təcrübəsi.
-Daha sürətli mesajlaşma, xüsusi temalar,
-online gizlətmə, status izləmə və premium görünüş.
-2026 versiyası ilə daha stabil və rahat istifadə edin.
+Yeni nəsil WhatsApp Plus təcrübəsini indi istifadə edin.
+Premium temalar, online gizlətmə, status izləmə,
+sürətli mesajlaşma və daha stabil sistem ilə
+2026 versiyası artıq istifadədədir.
 </p>
 
 <button class="main-btn" onclick="openPopup()">
 WhatsApp APK 2026 Yüklə
 </button>
+
+</div>
 
 </header>
 
@@ -240,7 +375,9 @@ WhatsApp APK 2026 Yüklə
 
 <div class="title">
 <h2>Xüsusiyyətlər</h2>
-<p>WhatsApp Plus 2026 imkanları</p>
+<p>
+WhatsApp Plus 2026 premium imkanları
+</p>
 </div>
 
 <div class="cards">
@@ -248,30 +385,44 @@ WhatsApp APK 2026 Yüklə
 <div class="card">
 <h3>Online Gizlətmə</h3>
 <p>
-İstifadə zamanı online olduğunuz görünməsin.
+İstifadə zamanı online statusunuzu gizlədin və rahat istifadə edin.
 </p>
 </div>
 
 <div class="card">
 <h3>Xüsusi Temalar</h3>
 <p>
-Fərqli premium dizaynlar və tema seçimləri.
+Yeni premium görünüşlər və fərqli tema seçimləri ilə tətbiqi dəyişdirin.
 </p>
 </div>
 
 <div class="card">
 <h3>Sürətli İşləmə</h3>
 <p>
-Daha stabil və rahat mesajlaşma sistemi.
+2026 optimizasiya sistemi ilə daha sürətli və stabil mesajlaşma təcrübəsi.
 </p>
 </div>
 
 <div class="card">
 <h3>Status İzləmə</h3>
 <p>
-Statuslara gizli baxış funksiyası.
+Statuslara gizli baxış funksiyası və əlavə məxfilik imkanları.
 </p>
 </div>
+
+</div>
+
+<div class="info-box">
+
+<h3>WhatsApp Plus Haqqında</h3>
+
+<p>
+WhatsApp Plus 2026 istifadəçilərə daha rahat mesajlaşma,
+premium dizayn və əlavə gizlilik funksiyaları təqdim edən
+alternativ tətbiq təcrübəsidir.
+Yeni versiyada daha stabil işləmə sistemi,
+gücləndirilmiş görünüş və fərqli istifadə imkanları əlavə olunub.
+</p>
 
 </div>
 
@@ -283,10 +434,12 @@ Statuslara gizli baxış funksiyası.
 
 <div class="download-box">
 
-<h2>WhatsApp Plus APK 2026</h2>
+<h2>
+WhatsApp Plus APK 2026
+</h2>
 
-<p style="margin-top:15px;opacity:.9;">
-Yeni versiyanı yükləmək üçün aşağıdakı düyməyə klik edin.
+<p>
+Yeni versiyanı istifadə etmək və premium funksiyaları aktiv etmək üçün aşağıdakı düyməyə klik edin.
 </p>
 
 <button class="download-btn" onclick="openPopup()">
@@ -300,16 +453,18 @@ APK Yüklə
 <!-- FOOTER -->
 
 <footer>
-
+WPYUKLE.NET • WhatsApp Plus 2026 Demo Dizayn
 </footer>
 
-<!-- POPUP -->
+<!-- POPUP 1 -->
 
 <div class="popup" id="popup">
 
 <div class="popup-box">
 
-<h2>Ödəniş tələb olunur</h2>
+<h2>
+Ödəniş tələb olunur
+</h2>
 
 <p>
 WhatsApp Plus 2026 yükləmək üçün
@@ -343,10 +498,12 @@ Bağla
 
 <div class="popup-box">
 
-<h2>Ödəniş üçün Bizə Yazın</h2>
+<h2>
+Ödəniş üçün Bizə Yazın
+</h2>
 
-<p style="margin-top:15px;">
-Davam etmək üçün bizimlə WhatsApp üzərindən əlaqə saxlayın.
+<p style="margin-top:12px;">
+Davam etmək üçün WhatsApp üzərindən bizimlə əlaqə saxlayın.
 </p>
 
 <button class="popup-btn continue" onclick="goWhatsapp()">
