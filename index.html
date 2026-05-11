@@ -17,7 +17,47 @@ body{
     font-family:Arial,sans-serif;
     background:#050505;
     color:white;
-    overflow-x:hidden;
+    overflow:hidden;
+}
+
+/* LOADING SCREEN */
+
+#loadingScreen{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#050505;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#loadingScreen h1{
+    font-size:40px;
+    color:#00ff88;
+    text-shadow:0 0 25px #00ff88;
+}
+
+.bar{
+    width:280px;
+    height:12px;
+    background:#111;
+    border-radius:20px;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+.fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#00ff88,#00b0ff);
+}
+
+.percent{
+    margin-top:15px;
+    font-size:18px;
 }
 
 /* BACKGROUND */
@@ -48,6 +88,7 @@ body{
     margin:auto;
     padding:40px 20px;
     text-align:center;
+    display:none;
 }
 
 h1{
@@ -58,63 +99,12 @@ h1{
 p{
     opacity:.9;
     line-height:1.7;
-    max-width:700px;
-    margin:auto;
 }
 
-.btn{
-    margin-top:25px;
-    padding:15px 30px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(135deg,#00ff88,#00b0ff);
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(0,255,136,.25);
-}
-
-/* SCREENSHOTS */
-
-.slider{
-    margin-top:35px;
-    max-width:320px;
-    margin-left:auto;
-    margin-right:auto;
-    position:relative;
-}
-
-.slider img{
-    width:100%;
-    border-radius:25px;
-    border:2px solid #222;
-    display:none;
-    box-shadow:0 0 25px rgba(0,255,136,.2);
-}
-
-.slider img.active{
-    display:block;
-}
-
-.controls{
-    margin-top:12px;
-}
-
-.controls button{
-    background:#111;
-    color:white;
-    border:1px solid #333;
-    padding:10px 14px;
-    border-radius:10px;
-    cursor:pointer;
-    margin:0 5px;
-}
-
-/* FEATURES MINI */
+/* INFO */
 
 .info{
-    margin-top:30px;
+    margin-top:25px;
     display:flex;
     justify-content:center;
     gap:10px;
@@ -127,6 +117,20 @@ p{
     border:1px solid rgba(255,255,255,.1);
     border-radius:12px;
     font-size:13px;
+}
+
+/* BUTTON */
+
+.btn{
+    margin-top:25px;
+    padding:15px 30px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#00ff88,#00b0ff);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* POPUP */
@@ -150,7 +154,6 @@ p{
     padding:30px;
     border-radius:20px;
     text-align:center;
-    border:1px solid #222;
 }
 
 .price{
@@ -177,12 +180,28 @@ p{
 
 <body>
 
+<!-- LOADING -->
+
+<div id="loadingScreen">
+    <h1>WPYUKLE.NET</h1>
+
+    <div class="bar">
+        <div class="fill" id="fill"></div>
+    </div>
+
+    <div class="percent" id="percent">0%</div>
+</div>
+
+<!-- BACKGROUND -->
+
 <div class="bg">
 <div class="circle c1"></div>
 <div class="circle c2"></div>
 </div>
 
-<div class="main">
+<!-- MAIN SITE -->
+
+<div class="main" id="site">
 
 <h1>WhatsApp Plus 2026</h1>
 
@@ -200,21 +219,6 @@ Yeni nəsil WhatsApp Plus təcrübəsi. Premium temalar, sürətli mesajlaşma v
 <button class="btn" onclick="openPopup()">
 WhatsApp APK 2026 Yüklə
 </button>
-
-<!-- SCREENSHOTS -->
-
-<div class="slider">
-
-<img src="https://via.placeholder.com/300x600/000000/00ff88?text=Screenshot+1" class="active">
-<img src="https://via.placeholder.com/300x600/000000/00b0ff?text=Screenshot+2">
-<img src="https://via.placeholder.com/300x600/000000/ffffff?text=Screenshot+3">
-
-<div class="controls">
-<button onclick="prev()">◀</button>
-<button onclick="next()">▶</button>
-</div>
-
-</div>
 
 </div>
 
@@ -246,25 +250,26 @@ Bağla
 
 <script>
 
-let index = 0;
-let imgs = document.querySelectorAll(".slider img");
+let progress = 0;
 
-function show(){
-    imgs.forEach(i=>i.classList.remove("active"));
-    imgs[index].classList.add("active");
+let load = setInterval(()=>{
+
+progress++;
+
+document.getElementById("fill").style.width = progress + "%";
+document.getElementById("percent").innerText = progress + "%";
+
+if(progress >= 100){
+    clearInterval(load);
+
+    setTimeout(()=>{
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("site").style.display = "block";
+        document.body.style.overflow = "auto";
+    },500);
 }
 
-function next(){
-    index++;
-    if(index>=imgs.length) index=0;
-    show();
-}
-
-function prev(){
-    index--;
-    if(index<0) index=imgs.length-1;
-    show();
-}
+},30);
 
 function openPopup(){
     document.getElementById("popup").style.display="flex";
