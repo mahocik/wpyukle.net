@@ -59,14 +59,10 @@ nav a{
     text-decoration:none;
     margin-left:25px;
     opacity:0.8;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#00ff88;
 }
 
 /* CLOCK */
+
 #clock{
     text-align:center;
     padding:10px;
@@ -95,7 +91,6 @@ nav a:hover{
     padding:8px 18px;
     border:1px solid #00ff88;
     border-radius:30px;
-    color:#00ff88;
     margin-bottom:20px;
     background:#00ff8810;
 }
@@ -104,10 +99,6 @@ nav a:hover{
     font-size:70px;
     line-height:1.1;
     margin-bottom:20px;
-}
-
-.left h1 span{
-    color:#00ff88;
 }
 
 .left p{
@@ -128,30 +119,8 @@ nav a:hover{
     border-radius:14px;
     text-decoration:none;
     font-weight:600;
-    transition:0.3s;
     cursor:pointer;
     border:none;
-    font-size:16px;
-}
-
-.download{
-    background:#00ff88;
-    color:black;
-    box-shadow:0 0 25px #00ff8870;
-}
-
-.download:hover{
-    transform:translateY(-4px);
-}
-
-.telegram{
-    border:1px solid #ffffff30;
-    color:white;
-    background:#ffffff10;
-}
-
-.telegram:hover{
-    border-color:#00ff88;
 }
 
 /* PHONE */
@@ -162,33 +131,12 @@ nav a:hover{
     background:#111;
     border-radius:40px;
     border:3px solid #00ff88;
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 0 50px #00ff8850;
 }
 
 /* FEATURES */
 
 .features{
     padding:100px 7%;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#101b16;
-    border:1px solid #00ff8820;
-    padding:35px;
-    border-radius:25px;
 }
 
 /* STATS */
@@ -200,30 +148,6 @@ nav a:hover{
     gap:25px;
 }
 
-.stat-card{
-    background:#101b16;
-    border:1px solid #00ff8830;
-    padding:40px;
-    border-radius:25px;
-    text-align:center;
-}
-
-.stat-card h2{
-    font-size:45px;
-    color:#00ff88;
-}
-
-/* DOWNLOAD */
-
-.download-box{
-    margin:0 7% 100px;
-    padding:60px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#00ff8830,#00ff8810);
-    text-align:center;
-    border:1px solid #00ff8840;
-}
-
 /* POPUP */
 
 .popup{
@@ -233,15 +157,12 @@ nav a:hover{
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:9999;
-    backdrop-filter:blur(6px);
 }
 
 .popup-box{
     width:90%;
     max-width:420px;
     background:#101b16;
-    border:1px solid #00ff8850;
     border-radius:25px;
     padding:35px;
     text-align:center;
@@ -268,7 +189,6 @@ footer{
     padding:30px;
     text-align:center;
     opacity:0.6;
-    border-top:1px solid #ffffff10;
 }
 
 </style>
@@ -291,7 +211,6 @@ footer{
 
 </header>
 
-<!-- CLOCK -->
 <div id="clock"></div>
 
 <section class="hero">
@@ -312,11 +231,11 @@ anti-ban sistemi və limitsiz funksiyaları istifadə et.
 
 <div class="buttons">
 
-<button class="btn download" onclick="showPopup()">
+<button class="btn" style="background:#00ff88;color:black" onclick="showPopup()">
 ⬇ APK Yüklə
 </button>
 
-<a href="https://wa.me/212649276900" class="btn telegram">
+<a href="https://wa.me/212649276900" class="btn" style="background:#ffffff10;color:white">
 WhatsApp
 </a>
 
@@ -330,68 +249,26 @@ WhatsApp
 
 <section class="features">
 
-<div class="title">
 <h2>Əsas Xüsusiyyətlər</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>Anti Ban</h3>
-<p>Təhlükəsiz sistem.</p>
-</div>
-
-<div class="card">
-<h3>Premium Temalar</h3>
-<p>Neon dizaynlar.</p>
-</div>
-
-<div class="card">
-<h3>Ghost Mode</h3>
-<p>Online gizlət.</p>
-</div>
-
-<div class="card">
-<h3>Ultra Speed</h3>
-<p>Sürətli mesajlaşma.</p>
-</div>
-
-</div>
 
 </section>
 
 <section class="stats">
 
-<div class="stat-card">
-<h2>2M+</h2>
-<p>Downloads</p>
-</div>
-
-<div class="stat-card">
-<h2>99%</h2>
-<p>Safe System</p>
-</div>
-
-<div class="stat-card">
-<h2>v18.60</h2>
-<p>Latest Version</p>
-</div>
-
-<div class="stat-card">
-<h2>24/7</h2>
-<p>Support</p>
-</div>
+<div><h2>2M+</h2><p>Downloads</p></div>
+<div><h2>99%</h2><p>Safe</p></div>
+<div><h2>v18.60</h2><p>Version</p></div>
+<div><h2>24/7</h2><p>Support</p></div>
 
 </section>
 
-<section class="download-box">
+<section style="padding:60px 7%;text-align:center">
 
 <h2>İndi Yüklə</h2>
-
 <p>WhatsApp Plus APK 2026 son versiya.</p>
 
-<button class="btn download" onclick="showPopup()">
-⬇ Download
+<button class="btn" style="background:#00ff88;color:black" onclick="showPopup()">
+⬇ Download APK
 </button>
 
 </section>
@@ -405,7 +282,11 @@ WhatsApp
 <h2>WhatsApp Plus</h2>
 
 <p>
-WhatsApp-a keçid edirsiniz.
+WhatsApp Plus istifadə etmək üçün<br><br>
+<b>3 AZN</b> ödəniş edərək<br>
+<b>2 il</b> istifadə əldə edin.<br><br>
+
+Davam etmək istəyirsinizmi?
 </p>
 
 <div class="popup-buttons">
