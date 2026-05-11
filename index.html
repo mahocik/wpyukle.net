@@ -15,39 +15,86 @@
 
 body{
     font-family:Arial,sans-serif;
-    height:100vh;
-    overflow:hidden;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* LOADING SCREEN */
+
+.loader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     background:#050505;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:white;
-    position:relative;
+    flex-direction:column;
+    z-index:99999;
 }
 
-/* NEON BACKGROUND */
+.loader h1{
+    font-size:40px;
+    color:#00ff88;
+    text-shadow:0 0 25px #00ff88;
+}
+
+.loader p{
+    margin-top:10px;
+    opacity:.8;
+}
+
+.loader-bar{
+    width:260px;
+    height:12px;
+    background:#111;
+    border-radius:20px;
+    margin-top:25px;
+    overflow:hidden;
+}
+
+.loader-fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#00ff88,#00b0ff);
+    animation:loading 3s linear forwards;
+}
+
+@keyframes loading{
+    from{
+        width:0%;
+    }
+    to{
+        width:100%;
+    }
+}
+
+/* BACKGROUND */
 
 .bg{
-    position:absolute;
+    position:fixed;
     width:100%;
     height:100%;
     overflow:hidden;
+    z-index:-1;
 }
 
 .circle{
     position:absolute;
     border-radius:50%;
-    filter:blur(90px);
-    opacity:.5;
-    animation:move 10s infinite alternate;
+    filter:blur(100px);
+    opacity:.45;
 }
 
 .c1{
     width:350px;
     height:350px;
     background:#00ff88;
-    top:-100px;
-    left:-100px;
+    top:-120px;
+    left:-120px;
 }
 
 .c2{
@@ -55,101 +102,100 @@ body{
     height:350px;
     background:#0091ea;
     bottom:-120px;
-    right:-100px;
+    right:-120px;
 }
 
-@keyframes move{
-    from{
-        transform:translateY(0px);
-    }
-    to{
-        transform:translateY(40px);
-    }
-}
-
-/* PARTICLES */
-
-.particles span{
-    position:absolute;
-    width:4px;
-    height:4px;
-    background:white;
-    border-radius:50%;
-    opacity:.4;
-    animation:float 8s linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-    }
-    to{
-        transform:translateY(-100vh);
-    }
-}
-
-/* MAIN CARD */
+/* MAIN */
 
 .main{
-    width:92%;
-    max-width:850px;
-    padding:45px 35px;
-    border-radius:35px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
-    backdrop-filter:blur(18px);
-    text-align:center;
-    position:relative;
-    z-index:2;
-    box-shadow:0 0 50px rgba(0,255,136,.18);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
 }
 
-/* BADGE */
+.card{
+    width:100%;
+    max-width:900px;
+    padding:45px 30px;
+    border-radius:35px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,255,136,.18);
+}
+
+/* BADGES */
+
+.badges{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
 
 .badge{
-    display:inline-block;
-    padding:8px 18px;
+    padding:10px 18px;
     border-radius:30px;
     background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.1);
     font-size:14px;
-    margin-bottom:20px;
-    letter-spacing:1px;
+}
+
+.verified{
+    color:#00ff88;
+    font-weight:bold;
 }
 
 /* TITLE */
 
 h1{
     font-size:60px;
-    line-height:1.1;
     margin-bottom:20px;
     text-shadow:0 0 25px rgba(0,255,136,.4);
 }
 
-p{
-    font-size:18px;
-    line-height:1.8;
-    opacity:.92;
-    max-width:700px;
+.desc{
+    max-width:720px;
     margin:auto;
+    line-height:1.9;
+    font-size:18px;
+    opacity:.92;
 }
 
-/* APP INFO */
+/* LIVE USERS */
 
-.info{
-    margin-top:30px;
+.live{
+    margin-top:25px;
+    color:#00ff88;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* SCREENSHOTS */
+
+.slider{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+    overflow:auto;
+    padding-bottom:10px;
+}
+
+.slide{
+    min-width:220px;
+    height:420px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#0f0f0f,#1d1d1d);
+    border:1px solid #222;
     display:flex;
     justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.info div{
-    padding:12px 18px;
-    border-radius:14px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.08);
-    font-size:14px;
+    align-items:center;
+    font-size:18px;
+    opacity:.9;
 }
 
 /* BUTTON */
@@ -164,15 +210,29 @@ p{
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
-    transition:.3s;
-    box-shadow:0 0 30px rgba(0,255,136,.35);
+    box-shadow:0 0 25px rgba(0,255,136,.3);
 }
 
-.btn:hover{
-    transform:translateY(-4px) scale(1.03);
+/* COMMENTS */
+
+.comments{
+    margin-top:35px;
+    text-align:left;
 }
 
-/* POPUP */
+.comment{
+    margin-top:15px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.07);
+}
+
+.comment b{
+    color:#00ff88;
+}
+
+/* POPUPS */
 
 .popup{
     position:fixed;
@@ -180,12 +240,12 @@ p{
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.8);
     display:none;
     justify-content:center;
     align-items:center;
-    z-index:999;
     padding:20px;
+    z-index:999;
 }
 
 .popup-box{
@@ -195,41 +255,24 @@ p{
     border-radius:28px;
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.1);
     text-align:center;
-    animation:show .25s ease;
-    box-shadow:0 0 40px rgba(0,255,136,.2);
-}
-
-@keyframes show{
-    from{
-        transform:scale(.7);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
 }
 
 .popup-box h2{
     font-size:30px;
-    margin-bottom:15px;
 }
 
 .popup-box p{
+    margin-top:15px;
     line-height:1.8;
 }
 
 .price{
-    font-size:58px;
-    margin:25px 0;
+    font-size:55px;
     color:#00ff88;
-    text-shadow:0 0 25px rgba(0,255,136,.45);
-    font-weight:bold;
+    margin:25px 0;
 }
-
-/* BUTTONS */
 
 .popup-btn{
     width:100%;
@@ -252,44 +295,24 @@ p{
     color:white;
 }
 
-/* LOADING */
+/* INSTALL STEPS */
 
-.loading{
+.install{
     display:none;
     margin-top:20px;
+    text-align:left;
 }
 
-.bar{
-    width:100%;
-    height:14px;
-    background:#222;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.fill{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#00ff88,#00b0ff);
-    animation:load 3s linear forwards;
-}
-
-@keyframes load{
-    from{
-        width:0%;
-    }
-    to{
-        width:100%;
-    }
-}
-
-.loading-text{
+.step{
     margin-top:12px;
-    font-size:14px;
-    opacity:.8;
+    padding:12px;
+    border-radius:12px;
+    background:#111;
 }
 
-/* MOBILE */
+.active{
+    border-left:4px solid #00ff88;
+}
 
 @media(max-width:700px){
 
@@ -297,12 +320,13 @@ h1{
     font-size:42px;
 }
 
-p{
+.desc{
     font-size:16px;
 }
 
-.main{
-    padding:35px 22px;
+.slide{
+    min-width:180px;
+    height:360px;
 }
 
 }
@@ -312,66 +336,94 @@ p{
 
 <body>
 
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+<h1>WPYUKLE.NET</h1>
+<p>Loading Premium APK...</p>
+
+<div class="loader-bar">
+<div class="loader-fill"></div>
+</div>
+</div>
+
 <!-- BACKGROUND -->
 
 <div class="bg">
-    <div class="circle c1"></div>
-    <div class="circle c2"></div>
-</div>
-
-<!-- PARTICLES -->
-
-<div class="particles">
-<span style="left:10%;animation-duration:8s;"></span>
-<span style="left:20%;animation-duration:10s;"></span>
-<span style="left:35%;animation-duration:7s;"></span>
-<span style="left:50%;animation-duration:11s;"></span>
-<span style="left:65%;animation-duration:9s;"></span>
-<span style="left:80%;animation-duration:13s;"></span>
-<span style="left:90%;animation-duration:8s;"></span>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
 </div>
 
 <!-- MAIN -->
 
 <div class="main">
 
-<div class="badge">
-⚡ Premium WhatsApp Plus 2026
+<div class="card">
+
+<div class="badges">
+<div class="badge">⚡ Premium WhatsApp Plus 2026</div>
+<div class="badge verified">✔ Verified Secure APK</div>
 </div>
 
-<h1>
-WhatsApp Plus 2026
-</h1>
+<h1>WhatsApp Plus 2026</h1>
 
-<p>
+<p class="desc">
 Yeni nəsil WhatsApp Plus təcrübəsini indi istifadə edin.
 Premium temalar, online gizlətmə, status izləmə,
 sürətli mesajlaşma və daha stabil sistem ilə
 2026 versiyası artıq istifadədədir.
 </p>
 
-<div class="info">
-<div>📦 APK 2026</div>
-<div>🛡 Secure Download</div>
-<div>⚡ Fast Install</div>
-<div>📱 Android</div>
+<div class="live">
+🔥 Hazırda 2,431 nəfər istifadə edir
+</div>
+
+<!-- SCREENSHOTS -->
+
+<div class="slider">
+
+<div class="slide">📱 Screenshot 1</div>
+<div class="slide">⚡ Screenshot 2</div>
+<div class="slide">🛡 Screenshot 3</div>
+
 </div>
 
 <button class="btn" onclick="openPopup()">
 WhatsApp APK 2026 Yüklə
 </button>
 
+<!-- COMMENTS -->
+
+<div class="comments">
+
+<div class="comment">
+<b>Orxan:</b><br>
+Çox sürətli işləyir 🔥
 </div>
 
-<!-- POPUP 1 -->
+<div class="comment">
+<b>Murad:</b><br>
+Temalar əladır, donma yoxdur.
+</div>
+
+<div class="comment">
+<b>Elvin:</b><br>
+2026 versiyası əvvəlkilərdən daha stabildir.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- POPUP -->
 
 <div class="popup" id="popup">
 
 <div class="popup-box">
 
-<h2>
-Ödəniş tələb olunur
-</h2>
+<h2>Ödəniş tələb olunur</h2>
 
 <p>
 WhatsApp Plus 2026 yükləmək üçün
@@ -383,7 +435,7 @@ WhatsApp Plus 2026 yükləmək üçün
 3 AZN
 </div>
 
-<button class="popup-btn continue" onclick="startLoading()">
+<button class="popup-btn continue" onclick="showInstall()">
 Davam et
 </button>
 
@@ -391,14 +443,18 @@ Davam et
 Bağla
 </button>
 
-<div class="loading" id="loading">
+<div class="install" id="install">
 
-<div class="bar">
-<div class="fill"></div>
+<div class="step active">
+⬇ Downloading APK...
 </div>
 
-<div class="loading-text">
-Sistem hazırlanır...
+<div class="step active">
+🛡 Verifying Secure Package...
+</div>
+
+<div class="step active">
+⚡ Preparing Installation...
 </div>
 
 </div>
@@ -413,11 +469,9 @@ Sistem hazırlanır...
 
 <div class="popup-box">
 
-<h2>
-Ödəniş üçün Bizə Yazın
-</h2>
+<h2>Ödəniş üçün Bizə Yazın</h2>
 
-<p style="margin-top:12px;">
+<p>
 Davam etmək üçün WhatsApp üzərindən bizimlə əlaqə saxlayın.
 </p>
 
@@ -435,34 +489,36 @@ Bağla
 
 <script>
 
+setTimeout(function(){
+document.getElementById("loader").style.display="none";
+},3000);
+
 function openPopup(){
-    document.getElementById("popup").style.display="flex";
+document.getElementById("popup").style.display="flex";
 }
 
 function closePopup(){
-    document.getElementById("popup").style.display="none";
+document.getElementById("popup").style.display="none";
 }
 
-function startLoading(){
+function showInstall(){
 
-document.getElementById("loading").style.display="block";
+document.getElementById("install").style.display="block";
 
 setTimeout(function(){
-
 document.getElementById("popup").style.display="none";
 document.getElementById("popup2").style.display="flex";
-
 },3000);
 
 }
 
 function closeAll(){
-    document.getElementById("popup").style.display="none";
-    document.getElementById("popup2").style.display="none";
+document.getElementById("popup").style.display="none";
+document.getElementById("popup2").style.display="none";
 }
 
 function goWhatsapp(){
-    window.location.href="https://wa.me/212649276900";
+window.location.href="https://wa.me/212649276900";
 }
 
 </script>
