@@ -3,167 +3,555 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secure Login System</title>
+
+<title>WhatsApp Plus 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-font-family:Arial;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
+    font-family:'Poppins',sans-serif;
+    background:#07110d;
+    color:white;
+    overflow-x:hidden;
 }
 
-.box{
-width:92%;
-max-width:420px;
-background:#111827;
-padding:25px;
-border-radius:16px;
-text-align:center;
-box-shadow:0 0 25px rgba(0,0,0,0.6);
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:
+    radial-gradient(circle at top,#00ff8860 0%,transparent 40%),
+    radial-gradient(circle at bottom,#00ff5540 0%,transparent 40%),
+    #07110d;
+    z-index:-1;
 }
 
-h2{margin-bottom:10px;}
-p{font-size:13px;opacity:0.8;margin-bottom:10px;}
+/* HEADER */
 
-input{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-text-align:center;
-margin-top:10px;
-font-size:15px;
-outline:none;
+header{
+    padding:30px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-button{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-size:15px;
-background:#22c55e;
-color:white;
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#00ff88;
 }
 
-.error{
-margin-top:10px;
-font-size:13px;
-color:#f87171;
-display:none;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    opacity:0.8;
+    transition:0.3s;
 }
 
-.success{
-margin-top:10px;
-font-size:13px;
-color:#34d399;
-display:none;
+nav a:hover{
+    color:#00ff88;
 }
 
-.small{
-font-size:12px;
-opacity:0.7;
-margin-top:10px;
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    flex-wrap:wrap;
 }
+
+.left{
+    max-width:600px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid #00ff88;
+    border-radius:30px;
+    color:#00ff88;
+    margin-bottom:20px;
+    background:#00ff8810;
+}
+
+.left h1{
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.left h1 span{
+    color:#00ff88;
+}
+
+.left p{
+    font-size:18px;
+    opacity:0.8;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 35px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    cursor:pointer;
+    border:none;
+    font-size:16px;
+}
+
+.download{
+    background:#00ff88;
+    color:black;
+    box-shadow:0 0 25px #00ff8870;
+}
+
+.download:hover{
+    transform:translateY(-4px);
+}
+
+.telegram{
+    border:1px solid #ffffff30;
+    color:white;
+    background:#ffffff10;
+}
+
+.telegram:hover{
+    border-color:#00ff88;
+}
+
+/* PHONE */
+
+.phone{
+    width:340px;
+    height:680px;
+    background:#111;
+    border-radius:40px;
+    border:3px solid #00ff88;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 50px #00ff8850;
+}
+
+.phone::before{
+    content:'';
+    position:absolute;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:120px;
+    height:20px;
+    background:#000;
+    border-radius:20px;
+}
+
+.screen{
+    padding:90px 20px 20px;
+}
+
+.chat{
+    background:#1b1b1b;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+    border-left:4px solid #00ff88;
+}
+
+.chat h4{
+    color:#00ff88;
+    margin-bottom:6px;
+}
+
+/* FEATURES */
+
+.features{
+    padding:100px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.title h2{
+    font-size:45px;
+}
+
+.title p{
+    opacity:0.7;
+    margin-top:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#101b16;
+    border:1px solid #00ff8820;
+    padding:35px;
+    border-radius:25px;
+    transition:0.4s;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#00ff88;
+    box-shadow:0 0 30px #00ff8830;
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:#00ff88;
+}
+
+.card p{
+    opacity:0.75;
+    line-height:1.7;
+}
+
+/* DOWNLOAD */
+
+.download-box{
+    margin:100px 7%;
+    padding:60px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#00ff8830,#00ff8810);
+    text-align:center;
+    border:1px solid #00ff8840;
+}
+
+.download-box h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.download-box p{
+    opacity:0.8;
+    margin-bottom:30px;
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:#00000090;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    backdrop-filter:blur(6px);
+}
+
+.popup-box{
+    width:90%;
+    max-width:420px;
+    background:#101b16;
+    border:1px solid #00ff8850;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    animation:popup 0.3s ease;
+    box-shadow:0 0 40px #00ff8830;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(0.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup-box h2{
+    color:#00ff88;
+    margin-bottom:15px;
+    font-size:32px;
+}
+
+.popup-box p{
+    line-height:1.8;
+    opacity:0.9;
+    margin-bottom:30px;
+    font-size:17px;
+}
+
+.popup-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.popup-buttons button{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.continue{
+    background:#00ff88;
+    color:black;
+}
+
+.cancel{
+    background:#ffffff10;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px;
+    text-align:center;
+    opacity:0.6;
+    border-top:1px solid #ffffff10;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+.hero{
+    justify-content:center;
+    gap:60px;
+    text-align:center;
+    padding-top:50px;
+}
+
+.left h1{
+    font-size:50px;
+}
+
+.phone{
+    width:300px;
+    height:620px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h2>🔐 Secure Giriş</h2>
+<div class="bg"></div>
 
-    <p>Kod varsa daxil ol</p>
+<header>
 
-    <input type="text" id="code" placeholder="Giriş kodu">
-
-    <button onclick="login()">Daxil ol</button>
-
-    <div class="error" id="error"></div>
-    <div class="success" id="success">✔ Giriş uğurludur</div>
-
-    <p class="small">⚠ 1 kod yalnız 1 cihazda işləyir</p>
+<div class="logo">
+WhatsApp Plus
 </div>
+
+<nav>
+<a href="#">Ana səhifə</a>
+<a href="#">Xüsusiyyətlər</a>
+<a href="#">APK</a>
+<a href="#">Yeniliklər</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="left">
+
+<div class="badge">
+🔥 2026 Latest Version
+</div>
+
+<h1>
+WhatsApp <span>Plus</span><br>
+Premium APK
+</h1>
+
+<p>
+Yeni nəsil WhatsApp Plus ilə gizlilik, premium temalar,
+anti-ban sistemi və limitsiz funksiyaları istifadə et.
+</p>
+
+<div class="buttons">
+
+<button class="btn download" onclick="showPopup()">
+⬇ APK Yüklə
+</button>
+
+<a href="https://t.me/maxoios" class="btn telegram">
+Telegram Kanalı
+</a>
+
+</div>
+
+</div>
+
+<div class="phone">
+
+<div class="screen">
+
+<div class="chat">
+<h4>Anti Ban</h4>
+<p>Yeni təhlükəsizlik sistemi aktivdir.</p>
+</div>
+
+<div class="chat">
+<h4>Ghost Mode</h4>
+<p>Online statusunu gizlət.</p>
+</div>
+
+<div class="chat">
+<h4>Premium Themes</h4>
+<p>1000+ neon və dark tema.</p>
+</div>
+
+<div class="chat">
+<h4>HD Media</h4>
+<p>Şəkilləri keyfiyyət itirmədən göndər.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="title">
+<h2>Əsas Xüsusiyyətlər</h2>
+<p>WhatsApp Plus 2026 imkanları</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🛡</div>
+<h3>Anti Ban</h3>
+<p>Yeni qoruma sistemi ilə hesab təhlükəsizliyi artırılıb.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎨</div>
+<h3>Premium Temalar</h3>
+<p>Dark mode və neon dizaynlar.</p>
+</div>
+
+<div class="card">
+<div class="icon">👁</div>
+<h3>Ghost Mode</h3>
+<p>Online və seen statuslarını gizlət.</p>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Ultra Speed</h3>
+<p>Daha sürətli mesajlaşma sistemi.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="download-box">
+
+<h2>İndi Yüklə</h2>
+
+<p>
+WhatsApp Plus APK 2026 son versiya.
+</p>
+
+<button class="btn download" onclick="showPopup()">
+⬇ Download APK
+</button>
+
+</section>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h2>WhatsApp Plus</h2>
+
+<p>
+WhatsApp Plus istifadə etmək üçün
+<b>3 AZN</b> ödəniş edərək
+<b>2 il</b> istifadə əldə edin.<br><br>
+Davam etmək istəyirsinizmi?
+</p>
+
+<div class="popup-buttons">
+
+<button onclick="goTelegram()" class="continue">
+Davam Et
+</button>
+
+<button onclick="closePopup()" class="cancel">
+Bağla
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 WhatsApp Plus
+</footer>
 
 <script>
 
-// ================= DEVICE ID =================
-function getDeviceId(){
-    let id = localStorage.getItem("device_id");
-    if(!id){
-        id = 'dev-' + Math.random().toString(36).substring(2) + Date.now();
-        localStorage.setItem("device_id", id);
-    }
-    return id;
+function showPopup(){
+    document.getElementById("popup").style.display="flex";
 }
 
-let deviceId = getDeviceId();
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
 
-// ================= CODES =================
-let codes = {
-    "iphone-m": {device:null},
-    "ios-17ty": {device:null},
-    "ki-73ja": {device:null},
-    "uaqo-72": {device:null}
-};
-
-// saved binding load
-let saved = JSON.parse(localStorage.getItem("code_bindings")) || {};
-codes = {...codes, ...saved};
-
-// ================= LOGIN =================
-function login(){
-    let code = document.getElementById("code").value.trim();
-    let error = document.getElementById("error");
-    let success = document.getElementById("success");
-
-    error.style.display = "none";
-    success.style.display = "none";
-
-    if(!codes[code]){
-        error.innerText = "❌ Kod səhvdir!";
-        error.style.display = "block";
-        return;
-    }
-
-    let data = codes[code];
-
-    // FIRST TIME BIND
-    if(!data.device){
-        data.device = deviceId;
-        codes[code] = data;
-        localStorage.setItem("code_bindings", JSON.stringify(codes));
-
-        success.style.display = "block";
-
-        setTimeout(()=>{
-            window.location.href = "home.html";
-        },800);
-
-        return;
-    }
-
-    // ALREADY USED ON ANOTHER DEVICE
-    if(data.device !== deviceId){
-        error.innerText = "⛔ HƏQİQƏTƏN SİZİN IP ADRESİNİZ BLOKLANDI! 1 koda 1 dəfə giriş olar.";
-        error.style.display = "block";
-        return;
-    }
-
-    // SAME DEVICE LOGIN
-    success.style.display = "block";
-
-    setTimeout(()=>{
-        window.location.href = "home.html";
-    },800);
+function goTelegram(){
+    window.location.href="https://t.me/maxoios";
 }
 
 </script>
