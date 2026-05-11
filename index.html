@@ -24,13 +24,13 @@ body{
     overflow-x:hidden;
 }
 
-/* RAINBOW ANIMATION */
+/* RAINBOW TEXT */
 .rainbow{
+    animation:rainbow 6s linear infinite;
     background:linear-gradient(90deg,red,orange,yellow,green,cyan,blue,violet);
     background-size:400%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:rainbow 6s linear infinite;
 }
 
 @keyframes rainbow{
@@ -73,6 +73,7 @@ header{
 .logo{
     font-size:28px;
     font-weight:700;
+    color:#00ff88;
 }
 
 nav a{
@@ -100,9 +101,10 @@ nav a{
 .badge{
     display:inline-block;
     padding:8px 18px;
+    border:1px solid #00ff88;
     border-radius:30px;
     margin-bottom:20px;
-    border:1px solid #00ff88;
+    background:#00ff8810;
 }
 
 .left h1{
@@ -163,6 +165,17 @@ nav a{
     gap:25px;
 }
 
+/* DOWNLOAD BOX */
+
+.download-box{
+    margin:0 7% 100px;
+    padding:60px;
+    text-align:center;
+    border-radius:30px;
+    background:#00ff8810;
+    border:1px solid #00ff8840;
+}
+
 /* POPUP */
 
 .popup{
@@ -178,8 +191,8 @@ nav a{
     width:90%;
     max-width:420px;
     background:#101b16;
-    border-radius:25px;
     padding:35px;
+    border-radius:25px;
     text-align:center;
 }
 
@@ -198,6 +211,8 @@ nav a{
     color:white;
 }
 
+/* FOOTER */
+
 footer{
     padding:30px;
     text-align:center;
@@ -212,7 +227,8 @@ footer{
 <div class="bg"></div>
 
 <header>
-<div class="logo rainbow">WhatsApp Plus</div>
+
+<div class="logo">WhatsApp Plus</div>
 
 <nav>
 <a href="#">Ana Səhifə</a>
@@ -220,24 +236,23 @@ footer{
 <a href="#">Xüsusiyyətlər</a>
 <a href="#">Yeniliklər</a>
 </nav>
+
 </header>
 
+<!-- CLOCK -->
 <div id="clock" class="rainbow"></div>
 
 <section class="hero">
 
 <div class="left">
 
-<div class="badge rainbow">
-🔥 2026 Latest Version
-</div>
+<div class="badge rainbow">🔥 2026 Latest Version</div>
 
 <h1 class="rainbow">
-WhatsApp Plus<br>
-Premium APK
+WhatsApp Plus<br>Premium APK
 </h1>
 
-<p class="rainbow">
+<p>
 Yeni nəsil WhatsApp Plus ilə gizlilik, premium temalar,
 anti-ban sistemi və limitsiz funksiyaları istifadə et.
 </p>
@@ -277,14 +292,30 @@ WhatsApp
 
 </section>
 
+<section class="download-box">
+
+<h2 class="rainbow">İndi Yüklə</h2>
+
+<p>
+WhatsApp Plus APK 2026 son versiyanı indi əldə et.
+</p>
+
+<button class="btn rainbow" onclick="showPopup()">
+⬇ Download APK
+</button>
+
+</section>
+
+<!-- POPUP -->
+
 <div class="popup" id="popup">
 
 <div class="popup-box">
 
 <h2 class="rainbow">WhatsApp Plus</h2>
 
-<p class="rainbow">
-İstifadə etmək üçün WhatsApp-a keçid edirsiniz.
+<p>
+WhatsApp-a keçid edirsiniz.
 </p>
 
 <div class="popup-buttons">
@@ -327,7 +358,7 @@ function closePopup(){
     document.getElementById("popup").style.display="none";
 }
 
-// WHATSAPP REDIRECT
+// WHATSAPP
 function goWhatsApp(){
     window.location.href="https://wa.me/212649276900";
 }
