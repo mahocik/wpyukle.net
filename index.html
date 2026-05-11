@@ -1,414 +1,21 @@
-<!DOCTYPE html>
-<html lang="az">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WhatsApp Plus 2026</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#07110d;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* BACKGROUND */
-
-.bg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background:
-    radial-gradient(circle at top,#00ff8860 0%,transparent 40%),
-    radial-gradient(circle at bottom,#00ff5540 0%,transparent 40%),
-    #07110d;
-    z-index:-1;
-}
-
-/* HEADER */
-
-header{
-    padding:30px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:700;
-    color:#00ff88;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    opacity:0.8;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#00ff88;
-}
-
-/* HERO */
-
-.hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    flex-wrap:wrap;
-}
-
-.left{
-    max-width:600px;
-}
-
-.badge{
-    display:inline-block;
-    padding:8px 18px;
-    border:1px solid #00ff88;
-    border-radius:30px;
-    color:#00ff88;
-    margin-bottom:20px;
-    background:#00ff8810;
-}
-
-.left h1{
-    font-size:70px;
-    line-height:1.1;
-    margin-bottom:20px;
-}
-
-.left h1 span{
-    color:#00ff88;
-}
-
-.left p{
-    font-size:18px;
-    opacity:0.8;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:16px 35px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-    cursor:pointer;
-    border:none;
-    font-size:16px;
-}
-
-.download{
-    background:#00ff88;
-    color:black;
-    box-shadow:0 0 25px #00ff8870;
-}
-
-.download:hover{
-    transform:translateY(-4px);
-}
-
-.telegram{
-    border:1px solid #ffffff30;
-    color:white;
-    background:#ffffff10;
-}
-
-.telegram:hover{
-    border-color:#00ff88;
-}
-
-/* PHONE */
-
-.phone{
-    width:340px;
-    height:680px;
-    background:#111;
-    border-radius:40px;
-    border:3px solid #00ff88;
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 0 50px #00ff8850;
-}
-
-.phone::before{
-    content:'';
-    position:absolute;
-    top:15px;
-    left:50%;
-    transform:translateX(-50%);
-    width:120px;
-    height:20px;
-    background:#000;
-    border-radius:20px;
-}
-
-.screen{
-    padding:90px 20px 20px;
-}
-
-.chat{
-    background:#1b1b1b;
-    padding:15px;
-    border-radius:15px;
-    margin-bottom:15px;
-    border-left:4px solid #00ff88;
-}
-
-.chat h4{
-    color:#00ff88;
-    margin-bottom:6px;
-}
-
-/* FEATURES */
-
-.features{
-    padding:100px 7%;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.title h2{
-    font-size:45px;
-}
-
-.title p{
-    opacity:0.7;
-    margin-top:10px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#101b16;
-    border:1px solid #00ff8820;
-    padding:35px;
-    border-radius:25px;
-    transition:0.4s;
-    backdrop-filter:blur(10px);
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#00ff88;
-    box-shadow:0 0 30px #00ff8830;
-}
-
-.icon{
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-.card h3{
-    margin-bottom:12px;
-    color:#00ff88;
-}
-
-.card p{
-    opacity:0.75;
-    line-height:1.7;
-}
-
-/* DOWNLOAD */
-
-.download-box{
-    margin:100px 7%;
-    padding:60px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#00ff8830,#00ff8810);
-    text-align:center;
-    border:1px solid #00ff8840;
-}
-
-.download-box h2{
-    font-size:50px;
-    margin-bottom:15px;
-}
-
-.download-box p{
-    opacity:0.8;
-    margin-bottom:30px;
-}
-
-/* POPUP */
-
-.popup{
-    position:fixed;
-    inset:0;
-    background:#00000090;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    backdrop-filter:blur(6px);
-}
-
-.popup-box{
-    width:90%;
-    max-width:420px;
-    background:#101b16;
-    border:1px solid #00ff8850;
-    border-radius:25px;
-    padding:35px;
-    text-align:center;
-    animation:popup 0.3s ease;
-    box-shadow:0 0 40px #00ff8830;
-}
-
-@keyframes popup{
-    from{
-        transform:scale(0.8);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-}
-
-.popup-box h2{
-    color:#00ff88;
-    margin-bottom:15px;
-    font-size:32px;
-}
-
-.popup-box p{
-    line-height:1.8;
-    opacity:0.9;
-    margin-bottom:30px;
-    font-size:17px;
-}
-
-.popup-buttons{
-    display:flex;
-    gap:15px;
-}
-
-.popup-buttons button{
-    flex:1;
-    padding:14px;
-    border:none;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.continue{
-    background:#00ff88;
-    color:black;
-}
-
-.cancel{
-    background:#ffffff10;
-    color:white;
-}
-
-/* FOOTER */
-
-footer{
-    padding:30px;
-    text-align:center;
-    opacity:0.6;
-    border-top:1px solid #ffffff10;
-}
-
-/* MOBILE */
-
-@media(max-width:950px){
-
-.hero{
-    justify-content:center;
-    gap:60px;
-    text-align:center;
-    padding-top:50px;
-}
-
-.left h1{
-    font-size:50px;
-}
-
-.phone{
-    width:300px;
-    height:620px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<header>
-
-<div class="logo">
-WhatsApp Plus
-</div>
-
-<nav>
-<a href="#">Ana səhifə</a>
-<a href="#">Xüsusiyyətlər</a>
-<a href="#">APK</a>
-<a href="#">Yeniliklər</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="left">
+<!-- HERO TEXT -->
 
 <div class="badge">
-🔥 2026 Latest Version
+🔥 2026 Son Versiya
 </div>
 
 <h1>
 WhatsApp <span>Plus</span><br>
-Premium APK
+Premium APK Platforması
 </h1>
 
 <p>
 Yeni nəsil WhatsApp Plus ilə gizlilik, premium temalar,
 anti-ban sistemi və limitsiz funksiyaları istifadə et.
+Ən son stabil versiyanı indi yüklə.
 </p>
+
+<!-- BUTTONS -->
 
 <div class="buttons">
 
@@ -422,85 +29,128 @@ Telegram Kanalı
 
 </div>
 
-</div>
-
-<div class="phone">
-
-<div class="screen">
+<!-- PHONE CARDS -->
 
 <div class="chat">
-<h4>Anti Ban</h4>
+<h4>Anti Ban Qoruması</h4>
 <p>Yeni təhlükəsizlik sistemi aktivdir.</p>
 </div>
 
 <div class="chat">
-<h4>Ghost Mode</h4>
-<p>Online statusunu gizlət.</p>
+<h4>Gizli Rejim</h4>
+<p>Online statusunu tam gizlət.</p>
 </div>
 
 <div class="chat">
-<h4>Premium Themes</h4>
-<p>1000+ neon və dark tema.</p>
+<h4>Premium Temalar</h4>
+<p>1000+ neon və dark tema sistemi.</p>
 </div>
 
 <div class="chat">
-<h4>HD Media</h4>
+<h4>HD Media Göndərimi</h4>
 <p>Şəkilləri keyfiyyət itirmədən göndər.</p>
 </div>
 
-</div>
-
-</div>
-
-</section>
-
-<section class="features">
+<!-- FEATURES TITLE -->
 
 <div class="title">
-<h2>Əsas Xüsusiyyətlər</h2>
-<p>WhatsApp Plus 2026 imkanları</p>
+<h2>Əsas İmkanlar</h2>
+<p>WhatsApp Plus 2026 xüsusiyyətləri</p>
 </div>
+
+<!-- FEATURE CARDS -->
 
 <div class="grid">
 
 <div class="card">
 <div class="icon">🛡</div>
-<h3>Anti Ban</h3>
+<h3>Anti Ban Sistemi</h3>
 <p>Yeni qoruma sistemi ilə hesab təhlükəsizliyi artırılıb.</p>
 </div>
 
 <div class="card">
 <div class="icon">🎨</div>
 <h3>Premium Temalar</h3>
-<p>Dark mode və neon dizaynlar.</p>
+<p>Dark mode, neon və premium dizayn seçimləri.</p>
 </div>
 
 <div class="card">
 <div class="icon">👁</div>
-<h3>Ghost Mode</h3>
-<p>Online və seen statuslarını gizlət.</p>
+<h3>Gizli Online</h3>
+<p>Online, yazır və seen statuslarını gizlət.</p>
 </div>
 
 <div class="card">
 <div class="icon">⚡</div>
-<h3>Ultra Speed</h3>
-<p>Daha sürətli mesajlaşma sistemi.</p>
+<h3>Ultra Sürət</h3>
+<p>Daha sürətli mesajlaşma və media göndərmə sistemi.</p>
 </div>
 
+<div class="card">
+<div class="icon">🔒</div>
+<h3>Məxfi Mesajlaşma</h3>
+<p>Şifrəli və təhlükəsiz söhbət sistemi.</p>
+</div>
+
+<div class="card">
+<div class="icon">📥</div>
+<h3>Birbaşa Yükləmə</h3>
+<p>APK faylını sürətli və təhlükəsiz yüklə.</p>
+</div>
+
+<div class="card">
+<div class="icon">🌙</div>
+<h3>Neon Dark Mod</h3>
+<p>Göz yormayan premium qaranlıq dizayn.</p>
+</div>
+
+<div class="card">
+<div class="icon">🚀</div>
+<h3>Stabil Versiya</h3>
+<p>2026 son yenilənmiş stabil sistem.</p>
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat-card">
+<h2>2M+</h2>
+<p>Yüklənmə</p>
+</div>
+
+<div class="stat-card">
+<h2>99%</h2>
+<p>Təhlükəsiz Sistem</p>
+</div>
+
+<div class="stat-card">
+<h2>v18.60</h2>
+<p>Son Versiya</p>
+</div>
+
+<div class="stat-card">
+<h2>24/7</h2>
+<p>Telegram Dəstəyi</p>
 </div>
 
 </section>
+
+<!-- DOWNLOAD BOX -->
 
 <section class="download-box">
 
 <h2>İndi Yüklə</h2>
 
 <p>
-WhatsApp Plus APK 2026 son versiya.
+WhatsApp Plus APK 2026 son versiyanı indi əldə et.
+2 il premium istifadə üçün aktivasiya et.
 </p>
 
 <button class="btn download" onclick="showPopup()">
-⬇ Download APK
+⬇ İndi Yüklə
 </button>
 
 </section>
@@ -516,7 +166,8 @@ WhatsApp Plus APK 2026 son versiya.
 <p>
 WhatsApp Plus istifadə etmək üçün
 <b>3 AZN</b> ödəniş edərək
-<b>2 il</b> istifadə əldə edin.<br><br>
+<b>2 il</b> premium istifadə əldə edin.<br><br>
+
 Davam etmək istəyirsinizmi?
 </p>
 
@@ -536,25 +187,8 @@ Bağla
 
 </div>
 
+<!-- FOOTER -->
+
 <footer>
-© 2026 WhatsApp Plus
+© 2026 WhatsApp Plus — Bütün hüquqlar qorunur
 </footer>
-
-<script>
-
-function showPopup(){
-    document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-    document.getElementById("popup").style.display="none";
-}
-
-function goTelegram(){
-    window.location.href="https://t.me/maxoios";
-}
-
-</script>
-
-</body>
-</html>
