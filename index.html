@@ -3,92 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus Premium</title>
+<title>App Landing Page</title>
 
 <style>
 body{
     margin:0;
     font-family:Arial;
-    background:#8B0000;
+    background:#0a0a0a;
     color:white;
-    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-.header{
-    padding:20px;
-    font-size:28px;
-    font-weight:bold;
+.card{
+    width:90%;
+    max-width:400px;
+    background:#111;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 25px #ff004c;
+}
+
+.neon{
+    font-size:26px;
+    color:#ff004c;
+    text-shadow:0 0 10px #ff004c,0 0 20px #ff004c;
+}
+
+.desc{
+    font-size:13px;
+    opacity:0.8;
+    margin:10px 0;
 }
 
 .box{
-    background:rgba(0,0,0,0.3);
-    margin:20px;
-    padding:20px;
-    border-radius:15px;
-}
-
-.price{
-    font-size:22px;
-    margin:10px 0;
+    background:#1a1a1a;
+    padding:10px;
+    border-radius:10px;
+    margin:15px 0;
     font-weight:bold;
+    color:#00ffcc;
+    box-shadow:0 0 10px #00ffcc;
 }
 
 .btn{
-    display:inline-block;
-    padding:15px 25px;
-    margin:10px;
-    background:white;
-    color:#8B0000;
+    display:block;
+    padding:14px;
+    margin-top:10px;
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
 }
 
-.btn:hover{
-    background:#ffdddd;
+.apk{
+    background:#ff004c;
+    color:white;
+    box-shadow:0 0 10px #ff004c;
 }
 
-.icon{
-    font-size:50px;
-    margin:10px;
+.wp{
+    background:#25D366;
+    color:white;
+    box-shadow:0 0 10px #25D366;
 }
 
-.footer{
-    margin-top:20px;
-    font-size:14px;
-    opacity:0.8;
+.note{
+    font-size:11px;
+    opacity:0.6;
+    margin-top:10px;
 }
 </style>
 
 </head>
 <body>
 
-<div class="header">📱 WhatsApp Plus Premium</div>
+<div class="card">
 
-<div class="icon">☎️</div>
+    <div class="neon">📱 WhatsApp Plus Demo</div>
 
-<div class="box">
-    <p>WhatsApp Plus daha çox funksiya, gizlilik və əlavə imkanlar təqdim edir.</p>
-    <p>Mesaj gizlətmə, status yükləmə, tema dəyişmə və s.</p>
+    <div class="desc">
+        Bu səhifə tətbiqin təqdimatı üçündür.<br>
+        Neon stil interfeys + test versiya.
+    </div>
 
-    <div class="price">💰 3 AZN - 2 il istifadə edin</div>
+    <div class="box">
+        💡 3 AZN - 2 il istifadə (nümunə məlumat)
+    </div>
 
-    <!-- APK download button -->
-    <a class="btn" href="https://example.com/whatsapp-plus.apk" download>
+    <a class="btn apk" href="https://example.com/app.apk">
         📥 APK Yüklə
     </a>
 
-    <br>
-
-    <!-- WhatsApp redirect -->
-    <a class="btn" 
-       href="https://wa.me/212649276900?text=Salam%20WhatsApp%20Plus%20haqqinda%20melumat%20almaq%20isteyirem">
-        ▶ Davam et
+    <a class="btn wp" href="https://wa.me/212649276900?text=Salam%20melumat%20isteyirem">
+        ▶ Davam et (WhatsApp)
     </a>
-</div>
 
-<div class="footer">
-    © 2026 WhatsApp Plus Service | Rəsmi olmayan məlumat səhifəsi
+    <div class="note">
+        ⚠ Bu rəsmi tətbiq deyil, demo səhifədir
+    </div>
+
 </div>
 
 </body>
