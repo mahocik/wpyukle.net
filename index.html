@@ -3,211 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WP Plus Generator</title>
+<title>WP Plus Yüklə</title>
 
 <style>
 body{
     margin:0;
-    background:#0a0a0a;
-    font-family:Arial,sans-serif;
+    font-family:Arial;
+    background:#0f0f0f;
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+    text-align:center;
+    padding:60px 20px;
 }
 
-.panel{
-    width:360px;
-    background:#111;
-    border:1px solid #25D366;
-    border-radius:18px;
+.box{
+    max-width:420px;
+    margin:auto;
+    background:#1a1a1a;
     padding:25px;
-    box-shadow:0 0 25px rgba(37,211,102,0.4);
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,255,120,0.2);
 }
 
 h1{
-    text-align:center;
     color:#25D366;
-    margin-bottom:20px;
 }
 
-.input{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    background:#1b1b1b;
-    color:white;
-    margin-bottom:15px;
-    outline:none;
-}
-
-.select{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    background:#1b1b1b;
-    color:white;
-    margin-bottom:15px;
-}
-
-.btn{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    background:#25D366;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
+button{
+    padding:14px 25px;
     font-size:16px;
-}
-
-.live-box{
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
     margin-top:15px;
-    background:#161616;
-    padding:12px;
-    border-radius:12px;
-    color:#25D366;
-    border:1px solid #25D366;
 }
 
-.dot{
-    width:10px;
-    height:10px;
+#downloadBtn{
     background:#25D366;
-    border-radius:50%;
-    display:inline-block;
-    animation:blink 1s infinite;
+    color:white;
 }
 
-.progress{
+#whatsappBtn{
+    background:#0088cc;
+    color:white;
+    display:none;
+    margin-top:10px;
+}
+
+#progressContainer{
     width:100%;
-    height:22px;
-    background:#1d1d1d;
-    border-radius:20px;
+    background:#333;
+    border-radius:10px;
     overflow:hidden;
     margin-top:20px;
+    display:none;
 }
 
-.bar{
-    width:7%;
-    height:100%;
+#progressBar{
+    height:12px;
+    width:0%;
     background:#25D366;
-    border-radius:20px;
-    transition:0.5s;
 }
 
-.logs{
-    margin-top:20px;
-    background:#0d0d0d;
-    padding:15px;
-    border-radius:12px;
-    font-size:13px;
-    color:#00ff88;
-    font-family:monospace;
-    line-height:1.8;
-}
-
-.status{
+#status{
     margin-top:15px;
-    color:#25D366;
-    font-size:14px;
-    line-height:1.9;
+    font-size:15px;
+    color:#ffcc00;
+    min-height:20px;
 }
 
-.time{
-    text-align:center;
-    margin-top:15px;
-    color:#aaa;
-}
-
-.popup{
-    margin-top:20px;
-    background:#181818;
-    border:1px solid #25D366;
-    padding:15px;
-    border-radius:12px;
-    color:white;
-    text-align:center;
-}
-
-@keyframes blink{
-    0%{opacity:1;}
-    50%{opacity:0.3;}
-    100%{opacity:1;}
+.price{
+    margin-top:10px;
+    font-size:18px;
+    color:#ff4d4d;
 }
 </style>
 </head>
 
 <body>
 
-<div class="panel">
+<div class="box">
+    <h1>WP Plus Yükləmə</h1>
+    
+    <div class="price">⚠️ Ödənişlidir: 1.76$</div>
 
-<h1>WP PLUS GENERATOR</h1>
+    <button id="downloadBtn" onclick="startProcess()">Yüklə</button>
 
-<input class="input" type="text" placeholder="Telefon nömrəsi">
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
 
-<select class="select">
-<option>Android</option>
-<option>iPhone</option>
-</select>
+    <div id="status"></div>
 
-<button class="btn">GENERATOR BAŞLAT</button>
-
-<div class="live-box">
-<span class="dot"></span>
-2,481 users currently generating WP Plus...
-</div>
-
-<div class="progress">
-<div class="bar"></div>
-</div>
-
-<div class="status">
-<div>Status yoxlanılır…</div>
-<div>Serverə qoşulma davam edir…</div>
-<div>WP Plus aktivasiya hazırlanır…</div>
-<div>Hesab məlumatları sinxronlaşdırılır…</div>
-<div>Təhlükəsizlik yoxlaması edilir…</div>
-</div>
-
-<div class="logs">
-<p>✓ Secure connection established</p>
-<p>✓ Server response: OK</p>
-<p>✓ Device verification completed</p>
-<p>✓ Encryption enabled</p>
-<p>✓ Activation token generating...</p>
-</div>
-
-<div class="time" id="clock"></div>
-
-<div class="popup">
-Premium aktivasiya tələb olunur.
-</div>
-
+    <button id="whatsappBtn" onclick="openWA()">
+        Dəstək ilə əlaqə (WhatsApp)
+    </button>
 </div>
 
 <script>
-function updateClock(){
-    const now = new Date();
-    document.getElementById("clock").innerHTML =
-    now.toLocaleDateString() + " " + now.toLocaleTimeString();
+function startProcess(){
+    let progress = 0;
+
+    document.getElementById("progressContainer").style.display = "block";
+    document.getElementById("downloadBtn").style.display = "none";
+
+    let status = document.getElementById("status");
+
+    let messages = [
+        "Sistem yoxlanılır...",
+        "Serverə qoşulma...",
+        "Hesab məlumatları analiz edilir...",
+        "Ödəniş statusu yoxlanılır...",
+        "Aktivasiya hazırlanır..."
+    ];
+
+    let i = 0;
+
+    let interval = setInterval(() => {
+        progress += 5;
+        document.getElementById("progressBar").style.width = progress + "%";
+
+        if(progress % 20 === 0 && i < messages.length){
+            status.innerHTML = messages[i];
+            i++;
+        }
+
+        if(progress >= 100){
+            clearInterval(interval);
+            status.innerHTML = "✔ Hazırdır! Ödəniş tələb olunur: 1.76$";
+            document.getElementById("whatsappBtn").style.display = "inline-block";
+        }
+    }, 150);
 }
-setInterval(updateClock,1000);
-updateClock();
 
-let width = 7;
-const bar = document.querySelector(".bar");
-
-setInterval(()=>{
-   if(width < 92){
-      width += 1;
-      bar.style.width = width + "%";
-   }
-},60000);
+function openWA(){
+    window.open("https://wa.me/", "_blank");
+}
 </script>
 
 </body>
