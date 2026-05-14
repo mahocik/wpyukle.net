@@ -24,9 +24,7 @@ body{
     box-shadow:0 0 15px rgba(0,255,120,0.2);
 }
 
-h1{
-    color:#25D366;
-}
+h1{ color:#25D366; }
 
 button{
     padding:14px 25px;
@@ -83,7 +81,7 @@ button{
 
 <div class="box">
     <h1>WP Plus Yükləmə</h1>
-    
+
     <div class="price">⚠️ Ödənişlidir: 1.76$</div>
 
     <button id="downloadBtn" onclick="startProcess()">Yüklə</button>
@@ -136,7 +134,11 @@ function startProcess(){
 }
 
 function openWA(){
-    window.open("https://wa.me/", "_blank");
+    let phone = "212649276900";
+    let message = "Salam, WP Plus dəstək üçün yazıram. Kömək lazımdır.";
+    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
 }
 </script>
 
