@@ -3,198 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WP Plus 2026</title>
+<title>Mostbet Bonus</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:Arial;
-    background:#0f0f0f;
-    color:white;
-    text-align:center;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-/* TOP BOX */
-.box{
-    max-width:500px;
-    margin:30px auto;
-    background:#1a1a1a;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(0,255,120,0.2);
-}
-
-h1{ color:#25D366; }
-
-.price{
-    color:#ff4d4d;
-    font-size:18px;
-    margin-bottom:10px;
-}
-
-/* BUTTON */
-button{
-    padding:14px 20px;
-    font-size:16px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-#downloadBtn{
-    background:#25D366;
-    color:white;
-}
-
-/* PROGRESS */
-#progressContainer{
-    width:100%;
-    background:#333;
-    border-radius:10px;
+body{
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
     overflow:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:450px;
+}
+
+.box{
+    position:relative;
+    background:#fff;
+    color:#000;
+    padding:18px;
+    border-radius:20px;
+    margin:25px 0;
+    font-weight:bold;
+    font-size:17px;
+    animation:slide 1s ease;
+    box-shadow:0 0 20px rgba(0,255,0,0.4);
+}
+
+.box::before{
+    content:"✔";
+    position:absolute;
+    left:-45px;
+    top:50%;
+    transform:translateY(-50%);
+    width:35px;
+    height:35px;
+    background:#00c853;
+    border-radius:50%;
+    color:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.line{
+    width:4px;
+    height:30px;
+    background:#fff;
+    margin-left:-28px;
+    border-radius:20px;
+}
+
+.btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#00c853;
+    color:#000;
+    text-decoration:none;
+    padding:15px;
     margin-top:20px;
-    display:none;
-}
-
-#progressBar{
-    height:12px;
-    width:0%;
-    background:#25D366;
-}
-
-#status{
-    margin-top:15px;
-    color:#ffcc00;
-    min-height:20px;
-}
-
-/* WHATSAPP */
-#whatsappBtn{
-    background:#0088cc;
-    color:white;
-    display:none;
-}
-
-/* SECTIONS */
-.section{
-    max-width:500px;
-    margin:20px auto;
-    background:#151515;
-    padding:20px;
-    border-radius:12px;
-    text-align:left;
-}
-
-.section h2{
-    color:#25D366;
-}
-
-/* TIMER */
-#timer{
+    border-radius:15px;
+    font-weight:bold;
     font-size:18px;
-    color:#ffcc00;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.title{
+    text-align:center;
+    color:#00ff66;
+    font-size:28px;
+    margin-bottom:30px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #00ff66;
+    }
+    to{
+        text-shadow:0 0 25px #00ff66;
+    }
+}
+
+@keyframes slide{
+    from{
+        opacity:0;
+        transform:translateX(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- MAIN -->
+<div class="container">
+
+<div class="title">
+MOSTBET BONUS
+</div>
+
 <div class="box">
-    <h1>WP Plus Yükləmə</h1>
-    <div class="price">⚠️ Ödənişlidir: 1.76$</div>
-
-    <div id="timer">⏳ Təklif bitməsinə: 10:00</div>
-
-    <button id="downloadBtn" onclick="startProcess()">Yüklə</button>
-
-    <div id="progressContainer">
-        <div id="progressBar"></div>
-    </div>
-
-    <div id="status"></div>
-
-    <button id="whatsappBtn" onclick="openWA()">
-        Dəstək (WhatsApp)
-    </button>
+🎁 Yeni hesab aç qeydiyyatı tamamla
 </div>
 
-<!-- REVIEWS -->
-<div class="section">
-    <h2>⭐ İstifadəçi Rəyləri</h2>
-    <p>⭐⭐⭐⭐⭐ "Çox sürətli aktivasiya oldu!"</p>
-    <p>⭐⭐⭐⭐⭐ "Ödəniş etdim, dərhal açıldı."</p>
-    <p>⭐⭐⭐⭐⭐ "Əla sistemdir, problemsiz işlədi."</p>
+<div class="line"></div>
+
+<div class="box">
+💸 Sadəcə 10 AZN depozit et
 </div>
 
-<!-- FAQ -->
-<div class="section">
-    <h2>❓ Tez-tez Soruşulanlar</h2>
-    <p><b>Ödəniş necə edilir?</b> — WhatsApp dəstək ilə yönləndirilir.</p>
-    <p><b>Neçə dəqiqəyə aktiv olur?</b> — 1-5 dəqiqə ərzində.</p>
-    <p><b>Refund var?</b> — Xeyr, aktivasiya sonrası geri qaytarılmır.</p>
+<div class="line"></div>
+
+<div class="box">
+🔥 100 AZN hədiyyə bonus qazan
 </div>
 
-<script>
+<div class="line"></div>
 
-let time = 600; // 10 dəqiqə timer
+<div class="box">
+✅ Mostbet ilə qazanca indi başla
+</div>
 
-setInterval(()=>{
-    let m = Math.floor(time/60);
-    let s = time%60;
-    document.getElementById("timer").innerHTML =
-    "⏳ Təklif bitməsinə: " + m + ":" + (s<10?"0":"") + s;
-    if(time>0) time--;
-},1000);
+<a class="btn" href="https://66avrzh.com/MXKF">
+QEYDİYYATDAN KEÇ
+</a>
 
-/* PROCESS */
-function startProcess(){
+<a class="btn" href="https://edtwklmb.com/6L4F">
+MOSTBET APK YÜKLƏ
+</a>
 
-    let progress = 0;
-    let status = document.getElementById("status");
-
-    let messages = [
-        "Sistem yoxlanılır...",
-        "Serverə qoşulma...",
-        "Məlumatlar analiz edilir...",
-        "Ödəniş statusu yoxlanılır...",
-        "Aktivasiya hazırlanır..."
-    ];
-
-    let i = 0;
-
-    document.getElementById("downloadBtn").style.display="none";
-    document.getElementById("progressContainer").style.display="block";
-
-    let interval = setInterval(()=>{
-
-        progress += 4;
-        document.getElementById("progressBar").style.width = progress + "%";
-
-        if(progress % 20 === 0 && i < messages.length){
-            status.innerHTML = messages[i];
-            i++;
-        }
-
-        if(progress >= 100){
-            clearInterval(interval);
-            status.innerHTML = "✔ Hazırdır! Ödəniş: 1.76$ tələb olunur";
-            document.getElementById("whatsappBtn").style.display="inline-block";
-        }
-
-    },120);
-}
-
-/* WHATSAPP */
-function openWA(){
-    let phone = "212649276900";
-    let msg = "Salam, WP Plus almaq üçün dəstəyə ehtiyacım var.";
-    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
-    window.open(url, "_blank");
-}
-
-</script>
+</div>
 
 </body>
 </html>
