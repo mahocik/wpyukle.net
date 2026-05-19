@@ -10,110 +10,107 @@ body{
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top,#1a1a2e,#0f172a);
 
-  /* ORTALAMA */
   display:flex;
   justify-content:center;
   align-items:center;
 
   height:100vh;
-  overflow:hidden;
 }
 
-/* 107% YAXINLAŞDIRMA + MƏRKƏZ */
-.wrapper{
-  transform: scale(1.07);
-  transform-origin: center;
-}
-
+/* KART ARTIRILDI + YAXIN GÖRÜNÜŞ */
 .card{
-  width:360px;
+  width:92%;
+  max-width:420px;
   background:linear-gradient(135deg,#ffb400,#ff3c00);
-  border-radius:18px;
-  padding:20px;
+  border-radius:20px;
+  padding:28px;
   color:#000;
-  box-shadow:0 15px 40px rgba(0,0,0,0.5);
-  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
 }
 
+/* BAŞLIQ BÖYÜDÜLDÜ */
 h1{
-  font-size:18px;
-  margin-bottom:10px;
+  font-size:24px;
+  margin:10px 0 15px;
   text-align:center;
 }
 
+/* YAZILAR BÖYÜK */
 p{
-  font-size:14px;
-  margin:6px 0;
-  font-weight:600;
+  font-size:18px;
+  margin:8px 0;
+  font-weight:700;
 }
 
+/* BADGE */
 .badge{
   background:#000;
   color:#fff;
-  display:inline-block;
-  padding:5px 10px;
-  border-radius:8px;
-  font-size:12px;
-  margin-bottom:10px;
+  display:block;
+  text-align:center;
+  padding:8px;
+  border-radius:10px;
+  font-size:14px;
+  margin-bottom:12px;
 }
 
+/* SAYĞAC */
 .counter{
-  margin-top:15px;
-  background:rgba(255,255,255,0.3);
-  padding:10px;
-  border-radius:10px;
+  margin-top:18px;
+  background:rgba(255,255,255,0.35);
+  padding:14px;
+  border-radius:12px;
   text-align:center;
   font-weight:bold;
+  font-size:16px;
 }
 
+/* BUTTON */
 .btn{
   display:block;
-  margin-top:15px;
+  margin-top:14px;
   text-align:center;
-  padding:10px;
+  padding:14px;
   background:#000;
   color:#fff;
   text-decoration:none;
-  border-radius:10px;
+  border-radius:12px;
   font-weight:bold;
+  font-size:16px;
 }
 
 .small{
-  font-size:11px;
+  font-size:12px;
   opacity:0.8;
   text-align:center;
-  margin-top:8px;
+  margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-
 <div class="card">
 
   <div class="badge">🚀 BONUS KAMPANİYA</div>
 
-  <h1>MOSTBET YENİ İSTİFADƏÇİ BONUSU</h1>
+  <h1>MOSTBET BONUS</h1>
 
   <p>💸 Yeni hesab aç</p>
   <p>✔ 10 AZN depozit et</p>
-  <p>🎁 100 AZN bonus (şərtlər tətbiq olunur)</p>
+  <p>🎁 100 AZN bonus əldə et</p>
 
   <div class="counter">
-    👥 Canlı istifadəçilər (DEMO): <span id="users">6327</span>
+    👥 Canlı istifadəçilər: <span id="users">6327</span>
   </div>
 
   <a class="btn" href="https://edtwklmb.com/2wgs">Qeydiyyatdan keç</a>
 
-  <a class="btn" href="https://edtwklmb.com/6L4F" style="margin-top:8px;background:#222;">
+  <a class="btn" href="https://edtwklmb.com/6L4F" style="margin-top:10px;background:#222;">
     APK yüklə
   </a>
 
-  <div class="small">*Demo göstəricidir</div>
-
-</div>
+  <div class="small">*Demo statistikadır</div>
 
 </div>
 
@@ -121,7 +118,7 @@ p{
 let users = 6327;
 
 setInterval(() => {
-  users += Math.floor(Math.random() * 3);
+  users += Math.floor(Math.random() * 4);
   document.getElementById("users").innerText = users;
 }, 1000);
 </script>
