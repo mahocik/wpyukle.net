@@ -2,127 +2,101 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<title>Mostbet Bonus</title>
+<title>Bonus Kampaniya</title>
 
 <style>
 body{
   margin:0;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top,#0f172a,#000);
-  height:100vh;
-  overflow:hidden;
-}
 
-/* FULLSCREEN APP LAYOUT */
-.app{
-  width:100%;
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
 
-  transform: scale(1.25); /* 125% yaxın */
-  transform-origin:center;
-}
-
-/* CARD */
-.card{
-  width:90%;
-  max-width:450px;
-  background: linear-gradient(135deg,#ffcc00,#ff3c00);
-  border-radius:25px;
-  padding:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.7);
-  text-align:center;
-  position:relative;
   overflow:hidden;
 }
 
-/* ANİMASİYA PARILTISI */
-.card::before{
-  content:"";
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.25),
-    transparent
-  );
-  transform: rotate(25deg);
-  animation: shine 3s infinite;
+/* 125% YAXINLAŞDIRMA */
+.wrapper{
+  transform: scale(1.25);
+  transform-origin: center;
 }
 
-@keyframes shine{
-  0%{ transform:translateX(-100%) rotate(25deg); }
-  100%{ transform:translateX(100%) rotate(25deg); }
+/* KART */
+.card{
+  width:92%;
+  max-width:420px;
+  background: linear-gradient(135deg,#ffcc00,#ff3c00);
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
+/* BAŞLIQ */
 h1{
   font-size:26px;
-  margin-bottom:10px;
-  position:relative;
+  margin-bottom:12px;
 }
 
+/* MƏTN */
 p{
   font-size:18px;
   margin:8px 0;
-  font-weight:bold;
-  position:relative;
+  font-weight:800;
 }
 
+/* BADGE */
 .badge{
   background:#000;
   color:#fff;
+  padding:10px;
+  border-radius:12px;
+  font-size:14px;
+  margin-bottom:12px;
   display:inline-block;
-  padding:8px 14px;
-  border-radius:10px;
-  font-size:13px;
-  margin-bottom:15px;
-  position:relative;
 }
 
+/* SAYĞAC */
 .counter{
   margin-top:18px;
   background:rgba(255,255,255,0.35);
-  padding:12px;
+  padding:14px;
   border-radius:12px;
+  font-size:16px;
   font-weight:bold;
-  position:relative;
 }
 
+/* BUTTON */
 .btn{
   display:block;
-  margin-top:15px;
+  margin-top:14px;
   padding:14px;
   background:#000;
   color:#fff;
   text-decoration:none;
   border-radius:12px;
+  font-size:16px;
   font-weight:bold;
-  position:relative;
 }
 
 .btn.alt{
   background:#222;
-  margin-top:10px;
 }
 
 .small{
   font-size:12px;
   opacity:0.8;
   margin-top:10px;
-  position:relative;
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="wrapper">
 
 <div class="card">
 
@@ -132,14 +106,17 @@ p{
 
   <p>💸 Yeni hesab aç</p>
   <p>✔ 10 AZN depozit et</p>
-  <p>🎁 100 AZN bonus əldə et</p>
+  <p>🎁 100 AZN bonus</p>
 
   <div class="counter">
     👥 Canlı istifadəçilər: <span id="users">6327</span>
   </div>
 
   <a class="btn" href="https://edtwklmb.com/2wgs">Qeydiyyatdan keç</a>
-  <a class="btn alt" href="https://edtwklmb.com/6L4F">APK yüklə</a>
+
+  <a class="btn alt" href="https://edtwklmb.com/6L4F" style="margin-top:10px;">
+    APK yüklə
+  </a>
 
   <div class="small">*Demo göstəricidir</div>
 
