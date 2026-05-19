@@ -2,15 +2,16 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bonus Kampaniya</title>
 
 <style>
 body{
   margin:0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top,#0f172a,#000);
+  font-family:Arial,sans-serif;
+  background:radial-gradient(circle at top,#0f172a,#000);
+  min-height:100vh;
 
-  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -18,67 +19,82 @@ body{
   overflow:hidden;
 }
 
-/* 125% YAXINLAŞDIRMA */
 .wrapper{
-  transform: scale(1.25);
-  transform-origin: center;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  box-sizing:border-box;
 }
 
-/* KART */
 .card{
-  width:92%;
-  max-width:420px;
-  background: linear-gradient(135deg,#ffcc00,#ff3c00);
-  border-radius:22px;
-  padding:30px;
+  width:100%;
+  max-width:700px;
+
+  background:linear-gradient(135deg,#ffcc00,#ff3c00);
+  border-radius:35px;
+  padding:45px 35px;
+
   text-align:center;
+
   box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
-/* BAŞLIQ */
-h1{
-  font-size:26px;
-  margin-bottom:12px;
-}
-
-/* MƏTN */
-p{
-  font-size:18px;
-  margin:8px 0;
-  font-weight:800;
-}
-
-/* BADGE */
 .badge{
   background:#000;
   color:#fff;
-  padding:10px;
-  border-radius:12px;
-  font-size:14px;
-  margin-bottom:12px;
+
+  padding:16px 26px;
+  border-radius:18px;
+
+  font-size:28px;
+
+  margin-bottom:25px;
   display:inline-block;
 }
 
-/* SAYĞAC */
-.counter{
-  margin-top:18px;
-  background:rgba(255,255,255,0.35);
-  padding:14px;
-  border-radius:12px;
-  font-size:16px;
-  font-weight:bold;
+h1{
+  font-size:58px;
+  margin-bottom:30px;
+  color:#000;
 }
 
-/* BUTTON */
+p{
+  font-size:36px;
+  margin:18px 0;
+  font-weight:800;
+  color:#000;
+}
+
+.counter{
+  margin-top:30px;
+
+  background:rgba(255,255,255,0.35);
+
+  padding:24px;
+  border-radius:20px;
+
+  font-size:30px;
+  font-weight:bold;
+
+  color:#000;
+}
+
 .btn{
   display:block;
-  margin-top:14px;
-  padding:14px;
+
+  margin-top:22px;
+  padding:24px;
+
   background:#000;
   color:#fff;
+
   text-decoration:none;
-  border-radius:12px;
-  font-size:16px;
+
+  border-radius:20px;
+
+  font-size:32px;
   font-weight:bold;
 }
 
@@ -87,9 +103,44 @@ p{
 }
 
 .small{
-  font-size:12px;
+  font-size:22px;
   opacity:0.8;
-  margin-top:10px;
+  margin-top:18px;
+  color:#000;
+}
+
+/* TELEFON UYĞUNLUQ */
+@media(max-width:768px){
+
+  .card{
+    max-width:92%;
+    padding:35px 25px;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  p{
+    font-size:24px;
+  }
+
+  .badge{
+    font-size:18px;
+  }
+
+  .counter{
+    font-size:22px;
+  }
+
+  .btn{
+    font-size:24px;
+    padding:18px;
+  }
+
+  .small{
+    font-size:16px;
+  }
 }
 </style>
 </head>
@@ -100,37 +151,46 @@ p{
 
 <div class="card">
 
-  <div class="badge">🚀 BONUS KAMPANİYA</div>
-
-  <h1>MOSTBET BONUS</h1>
-
-  <p>💸 Yeni hesab aç</p>
-  <p>✔ 10 AZN depozit et</p>
-  <p>🎁 100 AZN bonus</p>
-
-  <div class="counter">
-    👥 Canlı istifadəçilər: <span id="users">6327</span>
-  </div>
-
-  <a class="btn" href="https://edtwklmb.com/2wgs">Qeydiyyatdan keç</a>
-
-  <a class="btn alt" href="https://edtwklmb.com/6L4F" style="margin-top:10px;">
-    APK yüklə
-  </a>
-
-  <div class="small">*Demo göstəricidir</div>
-
+<div class="badge">
+🚀 BONUS KAMPANİYA
 </div>
 
+<h1>MOSTBET BONUS</h1>
+
+<p>💸 Yeni hesab aç</p>
+<p>✔ 10 AZN depozit et</p>
+<p>🎁 100 AZN bonus</p>
+
+<div class="counter">
+👥 Canlı istifadəçilər:
+<span id="users">6327</span>
+</div>
+
+<a class="btn" href="https://edtwklmb.com/2wgs">
+Qeydiyyatdan keç
+</a>
+
+<a class="btn alt" href="https://edtwklmb.com/6L4F">
+APK yüklə
+</a>
+
+<div class="small">
+*Real göstəricidir
+</div>
+
+</div>
 </div>
 
 <script>
 let users = 6327;
 
 setInterval(() => {
-  users += Math.floor(Math.random() * 5);
-  document.getElementById("users").innerText = users;
-}, 1000);
+
+users += Math.floor(Math.random() * 5);
+
+document.getElementById("users").innerText = users;
+
+},1000);
 </script>
 
 </body>
