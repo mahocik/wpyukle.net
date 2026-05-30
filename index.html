@@ -1,214 +1,314 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bonus Kampaniya</title>
+<title>WhatsApp Plus Türkiye 2026</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:radial-gradient(circle at top,#0f172a,#000);
-  min-height:100vh;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  overflow:hidden;
+    background:#f8fbfd;
+    color:#111;
 }
 
-.wrapper{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-  box-sizing:border-box;
+header{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
-.card{
-  width:100%;
-  max-width:700px;
-
-  background:linear-gradient(135deg,#ffcc00,#ff3c00);
-  border-radius:35px;
-  padding:45px 35px;
-
-  text-align:center;
-
-  box-shadow:0 20px 60px rgba(0,0,0,0.7);
+.logo{
+    font-size:32px;
+    font-weight:bold;
 }
 
-.badge{
-  background:#000;
-  color:#fff;
-
-  padding:16px 26px;
-  border-radius:18px;
-
-  font-size:28px;
-
-  margin-bottom:18px;
-  display:inline-block;
+.logo span{
+    color:#11b8c9;
 }
 
-/* YENI METN */
-.subtext{
-  font-size:20px;
-  font-weight:bold;
-  color:#111;
-  line-height:1.5;
-  margin-bottom:28px;
-}
-
-h1{
-  font-size:58px;
-  margin-bottom:30px;
-  color:#000;
-}
-
-p{
-  font-size:36px;
-  margin:18px 0;
-  font-weight:800;
-  color:#000;
-}
-
-.counter{
-  margin-top:30px;
-
-  background:rgba(255,255,255,0.35);
-
-  padding:24px;
-  border-radius:20px;
-
-  font-size:30px;
-  font-weight:bold;
-
-  color:#000;
+nav a{
+    text-decoration:none;
+    color:#222;
+    margin:0 15px;
+    font-weight:600;
 }
 
 .btn{
-  display:block;
-
-  margin-top:22px;
-  padding:24px;
-
-  background:#000;
-  color:#fff;
-
-  text-decoration:none;
-
-  border-radius:20px;
-
-  font-size:32px;
-  font-weight:bold;
+    background:#11b8c9;
+    color:white;
+    padding:12px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.btn.alt{
-  background:#222;
+.hero{
+    width:100%;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 8%;
 }
 
-.small{
-  font-size:22px;
-  opacity:0.8;
-  margin-top:18px;
-  color:#000;
+.left{
+    width:50%;
 }
 
-/* TELEFON UYĞUNLUQ */
-@media(max-width:768px){
+.badge{
+    display:inline-block;
+    background:#dff8fb;
+    color:#11b8c9;
+    padding:10px 18px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
 
-  .card{
-    max-width:92%;
-    padding:35px 25px;
-  }
+h1{
+    font-size:75px;
+    line-height:1.1;
+}
 
-  h1{
-    font-size:34px;
-  }
+h1 span{
+    color:#11b8c9;
+}
 
-  p{
-    font-size:24px;
-  }
-
-  .badge{
-    font-size:18px;
-  }
-
-  .subtext{
-    font-size:15px;
-  }
-
-  .counter{
+.desc{
+    margin-top:20px;
     font-size:22px;
-  }
+    color:#555;
+}
 
-  .btn{
-    font-size:24px;
-    padding:18px;
-  }
+.buttons{
+    margin-top:30px;
+}
 
-  .small{
-    font-size:16px;
-  }
+.buttons a{
+    margin-right:15px;
+}
+
+.secondary{
+    background:white;
+    color:#11b8c9;
+    border:2px solid #11b8c9;
+}
+
+.right{
+    width:45%;
+    text-align:center;
+}
+
+.phone{
+    width:350px;
+    max-width:100%;
+    border-radius:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.features{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.card h3{
+    margin:15px 0;
+    color:#11b8c9;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    padding:50px 8%;
+}
+
+.stat{
+    background:white;
+    text-align:center;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.stat h2{
+    color:#11b8c9;
+    font-size:40px;
+}
+
+footer{
+    background:white;
+    text-align:center;
+    padding:30px;
+    margin-top:60px;
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.left,.right{
+width:100%;
+}
+
+h1{
+font-size:48px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<header>
 
-<div class="card">
+<div class="logo">
+WhatsApp <span>Plus</span>
+</div>
+
+<nav>
+<a href="#">Ana Sayfa</a>
+<a href="#">Özellikler</a>
+<a href="#">Nasıl Yüklenir?</a>
+<a href="#">SSS</a>
+<a href="#">İletişim</a>
+</nav>
+
+<a href="#" class="btn">İndir</a>
+
+</header>
+
+<section class="hero">
+
+<div class="left">
 
 <div class="badge">
-🚀 BONUS KAMPANİYA
+🇹🇷 Türkiye İçin Özel Sürüm
 </div>
 
-<div class="subtext">
-🎁 Sistem bonusu yalnız yeni istifadəçilərə təqdim edir, köhnə hesablara bonus verilmir
-</div>
+<h1>
+WhatsApp <span>Plus</span><br>
+2026
+</h1>
 
-<h1>MOSTBET BONUS</h1>
+<p class="desc">
+Mesajlaşma deneyiminizi geliştirin.
+Daha fazla özellik, daha fazla özgürlük.
+</p>
 
-<p>💸 Yeni hesab aç</p>
-<p>✔ 10 AZN depozit et</p>
-<p>🎁 100 AZN bonus</p>
-
-<div class="counter">
-👥 Canlı istifadəçilər:
-<span id="users">6327</span>
-</div>
-
-<a class="btn" href="https://edtwklmb.com/2wgs">
-Qeydiyyatdan keç
-</a>
-
-<a class="btn alt" href="https://edtwklmb.com/6L4F">
-APK yüklə
-</a>
-
-<div class="small">
-⚡ Platformada yerləşdirilən məlumatlar Mostbet istifadəçiləri üçün rəsmi şəkildə təqdim olunur
+<div class="buttons">
+<a href="#" class="btn">İndir ve Kullan</a>
+<a href="#" class="btn secondary">Nasıl Yüklenir?</a>
 </div>
 
 </div>
+
+<div class="right">
+
+<img class="phone"
+src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"
+alt="phone">
+
 </div>
 
-<script>
-let users = 6327;
+</section>
 
-setInterval(() => {
+<section class="features">
 
-users += Math.floor(Math.random() * 5);
+<h2 class="section-title">
+Öne Çıkan Özellikler
+</h2>
 
-document.getElementById("users").innerText = users;
+<div class="cards">
 
-},1000);
-</script>
+<div class="card">
+<h3>Gizlilik Kontrolü</h3>
+<p>Ekstra gizlilik seçenekleri.</p>
+</div>
+
+<div class="card">
+<h3>Özel Temalar</h3>
+<p>Görünümü dilediğiniz gibi değiştirin.</p>
+</div>
+
+<div class="card">
+<h3>Ekstra Özellikler</h3>
+<p>Standart sürümden daha fazla seçenek.</p>
+</div>
+
+<div class="card">
+<h3>Daha Hızlı</h3>
+<p>Akıcı ve modern kullanım deneyimi.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<h2>1M+</h2>
+<p>İndirme</p>
+</div>
+
+<div class="stat">
+<h2>500K+</h2>
+<p>Kullanıcı</p>
+</div>
+
+<div class="stat">
+<h2>4.8/5</h2>
+<p>Puan</p>
+</div>
+
+<div class="stat">
+<h2>%100</h2>
+<p>Memnuniyet</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 WhatsApp Plus Türkiye
+</footer>
 
 </body>
 </html>
