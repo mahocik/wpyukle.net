@@ -3,45 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus PRO 2026</title>
+<title>WhatsApp Plus Portal 2026</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
 body{
+margin:0;
+font-family:Arial;
 background:#050505;
 color:#00ff99;
-overflow-x:hidden;
-}
-
-/* BACKGROUND ANIMATION */
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-background: radial-gradient(circle at 20% 20%, #00ff9955, transparent 40%),
-            radial-gradient(circle at 80% 80%, #00ffaa33, transparent 40%);
-animation: moveBg 8s infinite alternate;
-}
-
-@keyframes moveBg{
-0%{transform:scale(1);}
-100%{transform:scale(1.2);}
 }
 
 /* HEADER */
 header{
 text-align:center;
-padding:20px;
+padding:25px;
 font-size:24px;
 font-weight:bold;
 text-shadow:0 0 15px #00ff99;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:center;
+gap:15px;
+padding:10px;
+position:sticky;
+top:0;
+background:#0a0a0a;
+border-bottom:1px solid #00ff9955;
+z-index:10;
+}
+
+nav a{
+color:#00ff99;
+text-decoration:none;
+font-size:14px;
 }
 
 /* LANG */
@@ -54,62 +51,45 @@ margin:10px;
 background:transparent;
 border:1px solid #00ff99;
 color:#00ff99;
-padding:8px 12px;
-margin:5px;
-border-radius:8px;
+padding:5px 10px;
+margin:3px;
 cursor:pointer;
-transition:0.3s;
 }
 
-.lang button:hover{
-background:#00ff99;
-color:#000;
-box-shadow:0 0 15px #00ff99;
-}
-
-/* CARD GLASS */
+/* CARD */
 .card{
-max-width:500px;
+max-width:800px;
 margin:20px auto;
 padding:20px;
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
 border:1px solid rgba(0,255,153,0.3);
 border-radius:15px;
-box-shadow:0 0 20px #00ff9955;
-animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
+box-shadow:0 0 20px #00ff9933;
 }
 
 /* BUTTON */
-.download-btn{
-display:inline-block;
-margin-top:20px;
-padding:15px 25px;
+.btn{
 background:#00ff99;
 color:#000;
-font-weight:bold;
+padding:12px 18px;
+display:inline-block;
 border-radius:10px;
-text-decoration:none;
-box-shadow:0 0 25px #00ff99;
-transition:0.3s;
 cursor:pointer;
-}
-
-.download-btn:hover{
-transform:scale(1.1);
-}
-
-/* COUNTER */
-.counter{
-text-align:center;
 margin-top:10px;
-font-size:14px;
-opacity:0.8;
+font-weight:bold;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+td,th{
+border:1px solid #00ff9955;
+padding:10px;
+text-align:center;
 }
 
 /* MODAL */
@@ -130,32 +110,34 @@ background:#0a0a0a;
 padding:20px;
 border-radius:15px;
 text-align:center;
-box-shadow:0 0 20px #00ff99;
+border:1px solid #00ff99;
 }
 
-.modal-content button{
-margin-top:10px;
-padding:10px 15px;
-background:#00ff99;
-border:none;
-cursor:pointer;
+/* LIST */
+ul{
+line-height:1.8;
 }
 
 /* FOOTER */
 footer{
 text-align:center;
-margin:30px;
-font-size:12px;
+padding:20px;
 opacity:0.5;
+font-size:12px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<header>⚡ WhatsApp Plus PORTAL 2026</header>
 
-<header>⚡ WhatsApp Plus PRO 2026</header>
+<nav>
+<a href="#versions">Versions</a>
+<a href="#features">Features</a>
+<a href="#compare">Compare</a>
+<a href="#faq">FAQ</a>
+</nav>
 
 <div class="lang">
 <button onclick="setLang('az')">AZ</button>
@@ -163,55 +145,100 @@ opacity:0.5;
 <button onclick="setLang('ru')">RU</button>
 </div>
 
-<div class="card">
-<h2 id="title">Xüsusiyyətlər</h2>
-<p id="features">
-🟢 Online gizlətmə<br>
-🟢 Status yükləmə<br>
-🟢 Mesajları silinsə də görmək<br>
-🟢 Reklamsız istifadə<br>
-🟢 Tema sistemi
-</p>
+<!-- VERSIONS -->
+<div class="card" id="versions">
+<h2 id="vTitle">Versiyalar</h2>
 
-<div class="counter">
-📥 Live downloads: <span id="count">12842</span>+
+<p>📦 v2026.1 - Stable</p>
+<div class="btn" onclick="openModal('v2026.1')">Download</div>
+
+<p>📦 v2026.2 - Beta</p>
+<div class="btn" onclick="openModal('v2026.2')">Download</div>
+
+<p>📦 v2025.9 - Legacy</p>
+<div class="btn" onclick="openModal('v2025.9')">Download</div>
 </div>
 
-<div class="download-btn" onclick="openModal()" id="downloadBtn">
-Yüklə
-</div>
-</div>
-
-<div class="card">
-<h3 id="installTitle">Quraşdırma</h3>
-<p id="install">
-1. APK yüklə<br>
-2. İcazə ver<br>
-3. Quraşdır və aç
-</p>
+<!-- FEATURES -->
+<div class="card" id="features">
+<h2>Features</h2>
+<ul>
+<li>🟢 Online gizlətmə</li>
+<li>🟢 Mesaj silinsə də görmək</li>
+<li>🟢 Status download</li>
+<li>🟢 Theme sistemi</li>
+<li>🟢 Anti-delete messages</li>
+</ul>
 </div>
 
-<footer>© 2026 WhatsApp Plus PRO</footer>
+<!-- COMPARE -->
+<div class="card" id="compare">
+<h2>WhatsApp vs WhatsApp Plus</h2>
+
+<table>
+<tr>
+<th>Feature</th>
+<th>WhatsApp</th>
+<th>WhatsApp Plus</th>
+</tr>
+
+<tr>
+<td>Online status hide</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+
+<tr>
+<td>Themes</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+
+<tr>
+<td>Delete messages view</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+
+<tr>
+<td>Status download</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</table>
+</div>
+
+<!-- FAQ -->
+<div class="card" id="faq">
+<h2>FAQ</h2>
+
+<p><b>Ban olur?</b><br>Bəzi hallarda risk ola bilər.</p>
+<p><b>Safe-dirmi?</b><br>Mod versiyadır, rəsmi deyil.</p>
+<p><b>Update necə gəlir?</b><br>Portal vasitəsilə yenilənir.</p>
+</div>
+
+<footer>
+© 2026 WhatsApp Plus Portal
+</footer>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content">
 <h3>Download Ready</h3>
-<p>Fayl hazırdır, indi yükləyə bilərsiniz</p>
-<button onclick="download()">Download</button>
-<button onclick="closeModal()">Bağla</button>
+<p id="file">File</p>
+<div class="btn" onclick="download()">Start Download</div>
+<br><br>
+<div class="btn" onclick="closeModal()">Close</div>
 </div>
 </div>
 
 <script>
 
-let count = 12842;
-setInterval(()=>{
-count += Math.floor(Math.random()*3);
-document.getElementById("count").innerText = count;
-},2000);
+let currentFile="";
 
-function openModal(){
+function openModal(v){
+currentFile=v;
+document.getElementById("file").innerText="Version: "+v;
 document.getElementById("modal").style.display="flex";
 }
 
@@ -220,41 +247,19 @@ document.getElementById("modal").style.display="none";
 }
 
 function download(){
-alert("Download başladı...");
+alert("Download started: "+currentFile);
 window.location.href="#";
 }
 
 /* LANG SYSTEM */
-const texts={
-az:{
-title:"Xüsusiyyətlər",
-features:`🟢 Online gizlətmə<br>🟢 Status yükləmə<br>🟢 Mesajları silinsə də görmək<br>🟢 Reklamsız istifadə<br>🟢 Tema sistemi`,
-download:"Yüklə",
-installTitle:"Quraşdırma",
-install:`1. APK yüklə<br>2. İcazə ver<br>3. Quraşdır və aç`
-},
-tr:{
-title:"Özellikler",
-features:`🟢 Çevrimiçi gizleme<br>🟢 Durum indirme<br>🟢 Silinen mesajları görme<br>🟢 Reklamsız kullanım<br>🟢 Tema sistemi`,
-download:"İndir",
-installTitle:"Kurulum",
-install:`1. APK indir<br>2. İzin ver<br>3. Kur ve aç`
-},
-ru:{
-title:"Функции",
-features:`🟢 Скрыть онлайн<br>🟢 Скачать статус<br>🟢 Удалённые сообщения<br>🟢 Без рекламы<br>🟢 Темы`,
-download:"Скачать",
-installTitle:"Установка",
-install:`1. Скачать APK<br>2. Разрешить<br>3. Установить`
-}
+const t={
+az:{v:"Versiyalar"},
+tr:{v:"Versiyonlar"},
+ru:{v:"Версии"}
 };
 
 function setLang(l){
-document.getElementById("title").innerHTML=texts[l].title;
-document.getElementById("features").innerHTML=texts[l].features;
-document.getElementById("downloadBtn").innerHTML=texts[l].download;
-document.getElementById("installTitle").innerHTML=texts[l].installTitle;
-document.getElementById("install").innerHTML=texts[l].install;
+document.getElementById("vTitle").innerText=t[l].v;
 }
 
 </script>
