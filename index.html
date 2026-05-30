@@ -3,44 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Türkiye 2026</title>
+<title>WhatsApp Plus Türkiye 2026</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 font-family:Arial,sans-serif;
 }
 
 body{
-background:#0b0f14;
-color:white;
+background:#050505;
+color:#fff;
 overflow-x:hidden;
 }
 
+body::before{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:#00ff66;
+filter:blur(250px);
+opacity:.15;
+top:-200px;
+left:-200px;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:#00ff66;
+filter:blur(250px);
+opacity:.10;
+bottom:-200px;
+right:-200px;
+z-index:-1;
+}
+
 header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
-z-index:100;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(15px);
+z-index:999;
+border-bottom:1px solid rgba(0,255,102,.15);
 }
 
 .logo{
-font-size:28px;
-font-weight:700;
-color:#25D366;
+font-size:30px;
+font-weight:bold;
+color:#00ff66;
+text-shadow:0 0 15px #00ff66;
 }
 
 nav a{
-color:white;
+color:#fff;
 text-decoration:none;
 margin-left:25px;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00ff66;
+}
+
+section{
+padding:120px 8%;
 }
 
 .hero{
@@ -48,69 +89,79 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:0 8%;
+gap:50px;
 }
 
-.left{
-width:50%;
+.hero-left{
+max-width:600px;
 }
 
 .flag{
 display:inline-block;
-background:#ffffff10;
-border:1px solid #ffffff20;
 padding:10px 18px;
+border:1px solid rgba(0,255,102,.3);
 border-radius:50px;
 margin-bottom:25px;
+background:rgba(255,255,255,.03);
 }
 
-h1{
-font-size:72px;
+.hero h1{
+font-size:75px;
 line-height:1.1;
 margin-bottom:20px;
 }
 
 .green{
-color:#25D366;
+color:#00ff66;
+text-shadow:0 0 25px #00ff66;
 }
 
-.desc{
+.hero p{
 font-size:20px;
-color:#cfcfcf;
+color:#ccc;
 line-height:1.7;
 margin-bottom:35px;
 }
 
 .btn{
 display:inline-block;
-padding:16px 35px;
-background:#25D366;
-color:black;
-font-weight:bold;
-border-radius:14px;
+padding:15px 35px;
+background:#00ff66;
+color:#000;
 text-decoration:none;
+font-weight:bold;
+border-radius:12px;
+margin-right:10px;
+transition:.3s;
 }
 
-.phone-box{
-width:380px;
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px #00ff66;
+}
+
+.btn2{
+background:transparent;
+color:#00ff66;
+border:2px solid #00ff66;
+}
+
+.phone{
+width:350px;
 height:700px;
-background:linear-gradient(180deg,#1f2937,#111827);
 border-radius:40px;
-border:3px solid #25D366;
-box-shadow:0 0 40px rgba(37,211,102,.4);
+background:linear-gradient(180deg,#161616,#0a0a0a);
+border:2px solid #00ff66;
+box-shadow:0 0 50px rgba(0,255,102,.5);
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:120px;
 }
 
-.features{
-padding:100px 8%;
-}
-
 .title{
 text-align:center;
-font-size:48px;
+font-size:50px;
 margin-bottom:60px;
 }
 
@@ -121,57 +172,79 @@ gap:25px;
 }
 
 .card{
-background:#131a22;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(0,255,102,.15);
 padding:30px;
 border-radius:20px;
-border:1px solid #1f2937;
 transition:.3s;
+backdrop-filter:blur(10px);
 }
 
 .card:hover{
-transform:translateY(-8px);
-border-color:#25D366;
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,255,102,.3);
 }
 
 .card h3{
-color:#25D366;
+color:#00ff66;
 margin-bottom:15px;
 }
 
-.stats{
-padding:80px 8%;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
+.faq{
+max-width:1000px;
+margin:auto;
 }
 
-.stat{
-background:#131a22;
-padding:35px;
-border-radius:20px;
-text-align:center;
-}
-
-.stat h2{
-font-size:42px;
-color:#25D366;
-}
-
-.cta{
-padding:120px 8%;
-text-align:center;
-}
-
-.cta h2{
-font-size:55px;
+.faq-item{
+background:rgba(255,255,255,.04);
+padding:25px;
+border-radius:15px;
 margin-bottom:20px;
+border:1px solid rgba(0,255,102,.15);
+}
+
+.faq-item h3{
+color:#00ff66;
+margin-bottom:10px;
+}
+
+.contact{
+max-width:700px;
+margin:auto;
+}
+
+input,
+textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+background:#111;
+border:1px solid rgba(0,255,102,.2);
+border-radius:12px;
+color:white;
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:16px;
+background:#00ff66;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
 }
 
 footer{
 padding:30px;
 text-align:center;
-border-top:1px solid #1f2937;
-color:#aaa;
+border-top:1px solid rgba(0,255,102,.1);
+color:#999;
 }
 
 @media(max-width:900px){
@@ -179,139 +252,161 @@ color:#aaa;
 .hero{
 flex-direction:column;
 text-align:center;
-padding-top:60px;
+padding-top:150px;
 }
 
-.left{
-width:100%;
+.hero h1{
+font-size:50px;
 }
 
-.phone-box{
-width:300px;
+.phone{
+width:280px;
 height:550px;
-margin-top:40px;
 }
 
-h1{
-font-size:46px;
-}
-
-.stats{
-grid-template-columns:repeat(2,1fr);
+nav{
+display:none;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div class="logo">WhatsApp Plus</div>
 
 <nav>
-<a href="#">Ana Sayfa</a>
-<a href="#">Özellikler</a>
-<a href="#">SSS</a>
-<a href="#">İletişim</a>
+<a href="#anasayfa">Ana Sayfa</a>
+<a href="#ozellikler">Özellikler</a>
+<a href="#sss">SSS</a>
+<a href="#iletisim">İletişim</a>
 </nav>
+
 </header>
 
-<section class="hero">
+<section class="hero" id="anasayfa">
 
-<div class="left">
+<div class="hero-left">
 
 <div class="flag">
 🇹🇷 Türkiye 2026
 </div>
 
 <h1>
-Yeni Nesil<br>
-<span class="green">Premium Tasarım</span>
+WhatsApp Plus
+<span class="green">Türkiye</span>
 </h1>
 
-<p class="desc">
-Modern arayüz, gelişmiş görünüm ve şık tasarım ile
+<p>
+Yeni nesil tasarım, modern görünüm ve premium deneyim.
 Türkiye kullanıcıları için hazırlanmış özel sayfa.
 </p>
 
-<a href="#" class="btn">Hemen Başla</a>
+<a href="#ozellikler" class="btn">Hemen Başla</a>
+<a href="#iletisim" class="btn btn2">İletişim</a>
 
 </div>
 
-<div class="phone-box">
+<div class="phone">
 📱
 </div>
 
 </section>
 
-<section class="features">
+<section id="ozellikler">
 
-<h2 class="title">Öne Çıkan Özellikler</h2>
+<h2 class="title">Özellikler</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>⚡ Hızlı</h3>
-<p>Modern ve akıcı kullanıcı deneyimi.</p>
-</div>
-
-<div class="card">
-<h3>🎨 Premium Tasarım</h3>
-<p>Şık ve göz alıcı görünüm.</p>
-</div>
-
-<div class="card">
 <h3>🔒 Gizlilik</h3>
-<p>Kontrol sizde.</p>
+<p>Gelişmiş gizlilik seçenekleri.</p>
 </div>
 
 <div class="card">
-<h3>🚀 Performans</h3>
-<p>Hızlı ve optimize edilmiş yapı.</p>
+<h3>🎨 Temalar</h3>
+<p>Özel görünüm seçenekleri.</p>
+</div>
+
+<div class="card">
+<h3>⚡ Performans</h3>
+<p>Akıcı ve hızlı kullanım deneyimi.</p>
+</div>
+
+<div class="card">
+<h3>🌙 Karanlık Mod</h3>
+<p>Şık ve modern görünüm.</p>
+</div>
+
+<div class="card">
+<h3>🚀 Hızlı Arayüz</h3>
+<p>Daha modern kullanıcı deneyimi.</p>
+</div>
+
+<div class="card">
+<h3>📱 Mobil Uyumlu</h3>
+<p>Tüm cihazlarda sorunsuz görünüm.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="stats">
+<section id="sss">
 
-<div class="stat">
-<h2>1M+</h2>
-<p>Ziyaretçi</p>
+<h2 class="title">Sık Sorulan Sorular</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+<h3>WhatsApp Plus nedir?</h3>
+<p>Ek özellikler ve özelleştirme seçenekleri sunan bir uygulama sürümüdür.</p>
 </div>
 
-<div class="stat">
-<h2>4.9</h2>
-<p>Puan</p>
+<div class="faq-item">
+<h3>Nasıl kurulur?</h3>
+<p>Kurulum adımları cihaz türüne göre değişebilir.</p>
 </div>
 
-<div class="stat">
-<h2>99%</h2>
-<p>Memnuniyet</p>
+<div class="faq-item">
+<h3>Güncellemeler var mı?</h3>
+<p>Yeni sürümler yayınlandıkça güncellemeler yapılabilir.</p>
 </div>
 
-<div class="stat">
-<h2>24/7</h2>
-<p>Destek</p>
+<div class="faq-item">
+<h3>Hangi cihazlarda çalışır?</h3>
+<p>Uyumluluk cihaza ve sürüme bağlıdır.</p>
+</div>
+
 </div>
 
 </section>
 
-<section class="cta">
+<section id="iletisim">
 
-<h2>Türkiye İçin Özel Tasarım</h2>
-<p style="color:#bbb;margin-bottom:30px;">
-Modern görünüm ve premium kullanıcı deneyimi.
-</p>
+<h2 class="title">İletişim</h2>
 
-<a href="#" class="btn">Detayları İncele</a>
+<div class="contact">
+
+<input type="text" placeholder="Ad Soyad">
+
+<input type="email" placeholder="E-posta">
+
+<textarea placeholder="Mesajınız"></textarea>
+
+<button>Gönder</button>
+
+</div>
 
 </section>
 
 <footer>
-© 2026 Türkiye Landing Page
+© 2026 WhatsApp Plus Türkiye
 </footer>
 
 </body>
