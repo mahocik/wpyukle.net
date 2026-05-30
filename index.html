@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus Portal 2026</title>
+<title>WhatsApp Plus Store 2026</title>
 
 <style>
 body{
@@ -17,105 +17,79 @@ color:#00ff99;
 header{
 text-align:center;
 padding:25px;
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 text-shadow:0 0 15px #00ff99;
 }
 
-/* NAV */
-nav{
-display:flex;
-justify-content:center;
-gap:15px;
-padding:10px;
-position:sticky;
-top:0;
-background:#0a0a0a;
-border-bottom:1px solid #00ff9955;
-z-index:10;
-}
-
-nav a{
-color:#00ff99;
-text-decoration:none;
-font-size:14px;
-}
-
-/* LANG */
-.lang{
-text-align:center;
-margin:10px;
-}
-
-.lang button{
-background:transparent;
-border:1px solid #00ff99;
-color:#00ff99;
-padding:5px 10px;
-margin:3px;
-cursor:pointer;
+/* STORE GRID */
+.store{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
+max-width:1000px;
+margin:auto;
 }
 
 /* CARD */
 .card{
-max-width:800px;
-margin:20px auto;
-padding:20px;
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(0,255,153,0.3);
 border-radius:15px;
-box-shadow:0 0 20px #00ff9933;
+padding:20px;
+box-shadow:0 0 20px #00ff9944;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px #00ff99aa;
+}
+
+/* TITLE */
+h3{
+margin:0 0 10px 0;
+}
+
+/* INFO */
+.info{
+font-size:14px;
+opacity:0.8;
+line-height:1.6;
 }
 
 /* BUTTON */
 .btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 15px;
 background:#00ff99;
 color:#000;
-padding:12px 18px;
-display:inline-block;
+font-weight:bold;
 border-radius:10px;
 cursor:pointer;
+text-align:center;
+width:100%;
+}
+
+/* PRICE */
+.price{
+font-size:18px;
 margin-top:10px;
 font-weight:bold;
+color:#00ffcc;
 }
 
-/* TABLE */
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:10px;
-}
-
-td,th{
-border:1px solid #00ff9955;
-padding:10px;
-text-align:center;
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-}
-
-.modal-content{
-background:#0a0a0a;
-padding:20px;
-border-radius:15px;
-text-align:center;
-border:1px solid #00ff99;
-}
-
-/* LIST */
-ul{
-line-height:1.8;
+/* BADGE */
+.badge{
+display:inline-block;
+padding:3px 8px;
+font-size:12px;
+background:#00ff99;
+color:#000;
+border-radius:5px;
+margin-bottom:10px;
 }
 
 /* FOOTER */
@@ -130,138 +104,60 @@ font-size:12px;
 
 <body>
 
-<header>⚡ WhatsApp Plus PORTAL 2026</header>
+<header>⚡ WhatsApp Plus STORE 2026</header>
 
-<nav>
-<a href="#versions">Versions</a>
-<a href="#features">Features</a>
-<a href="#compare">Compare</a>
-<a href="#faq">FAQ</a>
-</nav>
+<div class="store">
 
-<div class="lang">
-<button onclick="setLang('az')">AZ</button>
-<button onclick="setLang('tr')">TR</button>
-<button onclick="setLang('ru')">RU</button>
+<!-- CARD 1 -->
+<div class="card">
+<div class="badge">HOT</div>
+<h3>WhatsApp Plus Pro mvy.7a</h3>
+<div class="info">
+📦 Size: 146 MB<br>
+⚡ Version: Stable<br>
+🔥 Anti-ban lite
+</div>
+<div class="price">💰 12$</div>
+<div class="btn" onclick="buy('mvy.7a')">İndir</div>
 </div>
 
-<!-- VERSIONS -->
-<div class="card" id="versions">
-<h2 id="vTitle">Versiyalar</h2>
-
-<p>📦 v2026.1 - Stable</p>
-<div class="btn" onclick="openModal('v2026.1')">Download</div>
-
-<p>📦 v2026.2 - Beta</p>
-<div class="btn" onclick="openModal('v2026.2')">Download</div>
-
-<p>📦 v2025.9 - Legacy</p>
-<div class="btn" onclick="openModal('v2025.9')">Download</div>
+<!-- CARD 2 -->
+<div class="card">
+<div class="badge">POPULAR</div>
+<h3>WhatsApp Plus Pro my7.9h</h3>
+<div class="info">
+📦 Size: 179 MB<br>
+⚡ Version: Premium<br>
+🔥 Extra themes + hidden chat
+</div>
+<div class="price">💰 28$</div>
+<div class="btn" onclick="buy('my7.9h')">İndir</div>
 </div>
 
-<!-- FEATURES -->
-<div class="card" id="features">
-<h2>Features</h2>
-<ul>
-<li>🟢 Online gizlətmə</li>
-<li>🟢 Mesaj silinsə də görmək</li>
-<li>🟢 Status download</li>
-<li>🟢 Theme sistemi</li>
-<li>🟢 Anti-delete messages</li>
-</ul>
+<!-- CARD 3 -->
+<div class="card">
+<div class="badge">VIP</div>
+<h3>WhatsApp Plus Pro 72u.1e</h3>
+<div class="info">
+📦 Size: 372 MB<br>
+⚡ Version: Ultra Pro Max<br>
+🔥 Full unlock + VIP tools
+</div>
+<div class="price">💰 65$</div>
+<div class="btn" onclick="buy('72u.1e')">İndir</div>
 </div>
 
-<!-- COMPARE -->
-<div class="card" id="compare">
-<h2>WhatsApp vs WhatsApp Plus</h2>
-
-<table>
-<tr>
-<th>Feature</th>
-<th>WhatsApp</th>
-<th>WhatsApp Plus</th>
-</tr>
-
-<tr>
-<td>Online status hide</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-
-<tr>
-<td>Themes</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-
-<tr>
-<td>Delete messages view</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-
-<tr>
-<td>Status download</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</table>
-</div>
-
-<!-- FAQ -->
-<div class="card" id="faq">
-<h2>FAQ</h2>
-
-<p><b>Ban olur?</b><br>Bəzi hallarda risk ola bilər.</p>
-<p><b>Safe-dirmi?</b><br>Mod versiyadır, rəsmi deyil.</p>
-<p><b>Update necə gəlir?</b><br>Portal vasitəsilə yenilənir.</p>
 </div>
 
 <footer>
-© 2026 WhatsApp Plus Portal
+© 2026 WhatsApp Plus Store
 </footer>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<h3>Download Ready</h3>
-<p id="file">File</p>
-<div class="btn" onclick="download()">Start Download</div>
-<br><br>
-<div class="btn" onclick="closeModal()">Close</div>
-</div>
-</div>
-
 <script>
-
-let currentFile="";
-
-function openModal(v){
-currentFile=v;
-document.getElementById("file").innerText="Version: "+v;
-document.getElementById("modal").style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-function download(){
-alert("Download started: "+currentFile);
+function buy(v){
+alert("Seçilən version: " + v + "\nDownload hazırlanır...");
 window.location.href="#";
 }
-
-/* LANG SYSTEM */
-const t={
-az:{v:"Versiyalar"},
-tr:{v:"Versiyonlar"},
-ru:{v:"Версии"}
-};
-
-function setLang(l){
-document.getElementById("vTitle").innerText=t[l].v;
-}
-
 </script>
 
 </body>
