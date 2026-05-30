@@ -1,413 +1,263 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="az">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus Türkiye 2026</title>
+<title>WhatsApp Plus PRO 2026</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:Arial,sans-serif;
+font-family:Arial, sans-serif;
 }
 
 body{
 background:#050505;
-color:#fff;
+color:#00ff99;
 overflow-x:hidden;
 }
 
-body::before{
-content:'';
+/* BACKGROUND ANIMATION */
+.bg{
 position:fixed;
-width:600px;
-height:600px;
-background:#00ff66;
-filter:blur(250px);
-opacity:.15;
-top:-200px;
-left:-200px;
+width:100%;
+height:100%;
 z-index:-1;
+background: radial-gradient(circle at 20% 20%, #00ff9955, transparent 40%),
+            radial-gradient(circle at 80% 80%, #00ffaa33, transparent 40%);
+animation: moveBg 8s infinite alternate;
 }
 
-body::after{
-content:'';
-position:fixed;
-width:600px;
-height:600px;
-background:#00ff66;
-filter:blur(250px);
-opacity:.10;
-bottom:-200px;
-right:-200px;
-z-index:-1;
+@keyframes moveBg{
+0%{transform:scale(1);}
+100%{transform:scale(1.2);}
 }
 
+/* HEADER */
 header{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(15px);
-z-index:999;
-border-bottom:1px solid rgba(0,255,102,.15);
-}
-
-.logo{
-font-size:30px;
-font-weight:bold;
-color:#00ff66;
-text-shadow:0 0 15px #00ff66;
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-margin-left:25px;
-font-weight:600;
-transition:.3s;
-}
-
-nav a:hover{
-color:#00ff66;
-}
-
-section{
-padding:120px 8%;
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:50px;
-}
-
-.hero-left{
-max-width:600px;
-}
-
-.flag{
-display:inline-block;
-padding:10px 18px;
-border:1px solid rgba(0,255,102,.3);
-border-radius:50px;
-margin-bottom:25px;
-background:rgba(255,255,255,.03);
-}
-
-.hero h1{
-font-size:75px;
-line-height:1.1;
-margin-bottom:20px;
-}
-
-.green{
-color:#00ff66;
-text-shadow:0 0 25px #00ff66;
-}
-
-.hero p{
-font-size:20px;
-color:#ccc;
-line-height:1.7;
-margin-bottom:35px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#00ff66;
-color:#000;
-text-decoration:none;
-font-weight:bold;
-border-radius:12px;
-margin-right:10px;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-5px);
-box-shadow:0 0 30px #00ff66;
-}
-
-.btn2{
-background:transparent;
-color:#00ff66;
-border:2px solid #00ff66;
-}
-
-.phone{
-width:350px;
-height:700px;
-border-radius:40px;
-background:linear-gradient(180deg,#161616,#0a0a0a);
-border:2px solid #00ff66;
-box-shadow:0 0 50px rgba(0,255,102,.5);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:120px;
-}
-
-.title{
 text-align:center;
-font-size:50px;
-margin-bottom:60px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(0,255,102,.15);
-padding:30px;
-border-radius:20px;
-transition:.3s;
-backdrop-filter:blur(10px);
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(0,255,102,.3);
-}
-
-.card h3{
-color:#00ff66;
-margin-bottom:15px;
-}
-
-.faq{
-max-width:1000px;
-margin:auto;
-}
-
-.faq-item{
-background:rgba(255,255,255,.04);
-padding:25px;
-border-radius:15px;
-margin-bottom:20px;
-border:1px solid rgba(0,255,102,.15);
-}
-
-.faq-item h3{
-color:#00ff66;
-margin-bottom:10px;
-}
-
-.contact{
-max-width:700px;
-margin:auto;
-}
-
-input,
-textarea{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-background:#111;
-border:1px solid rgba(0,255,102,.2);
-border-radius:12px;
-color:white;
-}
-
-textarea{
-height:150px;
-resize:none;
-}
-
-button{
-width:100%;
-padding:16px;
-background:#00ff66;
-border:none;
-border-radius:12px;
-font-size:18px;
+padding:20px;
+font-size:24px;
 font-weight:bold;
+text-shadow:0 0 15px #00ff99;
+}
+
+/* LANG */
+.lang{
+text-align:center;
+margin:10px;
+}
+
+.lang button{
+background:transparent;
+border:1px solid #00ff99;
+color:#00ff99;
+padding:8px 12px;
+margin:5px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.lang button:hover{
+background:#00ff99;
+color:#000;
+box-shadow:0 0 15px #00ff99;
+}
+
+/* CARD GLASS */
+.card{
+max-width:500px;
+margin:20px auto;
+padding:20px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(0,255,153,0.3);
+border-radius:15px;
+box-shadow:0 0 20px #00ff9955;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* BUTTON */
+.download-btn{
+display:inline-block;
+margin-top:20px;
+padding:15px 25px;
+background:#00ff99;
+color:#000;
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+box-shadow:0 0 25px #00ff99;
+transition:0.3s;
 cursor:pointer;
 }
 
-footer{
-padding:30px;
+.download-btn:hover{
+transform:scale(1.1);
+}
+
+/* COUNTER */
+.counter{
 text-align:center;
-border-top:1px solid rgba(0,255,102,.1);
-color:#999;
+margin-top:10px;
+font-size:14px;
+opacity:0.8;
 }
 
-@media(max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
-padding-top:150px;
-}
-
-.hero h1{
-font-size:50px;
-}
-
-.phone{
-width:280px;
-height:550px;
-}
-
-nav{
+/* MODAL */
+.modal{
 display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
 }
 
+.modal-content{
+background:#0a0a0a;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 20px #00ff99;
 }
 
+.modal-content button{
+margin-top:10px;
+padding:10px 15px;
+background:#00ff99;
+border:none;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+margin:30px;
+font-size:12px;
+opacity:0.5;
+}
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="bg"></div>
 
-<div class="logo">WhatsApp Plus</div>
+<header>⚡ WhatsApp Plus PRO 2026</header>
 
-<nav>
-<a href="#anasayfa">Ana Sayfa</a>
-<a href="#ozellikler">Özellikler</a>
-<a href="#sss">SSS</a>
-<a href="#iletisim">İletişim</a>
-</nav>
-
-</header>
-
-<section class="hero" id="anasayfa">
-
-<div class="hero-left">
-
-<div class="flag">
-🇹🇷 Türkiye 2026
+<div class="lang">
+<button onclick="setLang('az')">AZ</button>
+<button onclick="setLang('tr')">TR</button>
+<button onclick="setLang('ru')">RU</button>
 </div>
 
-<h1>
-WhatsApp Plus
-<span class="green">Türkiye</span>
-</h1>
-
-<p>
-Yeni nesil tasarım, modern görünüm ve premium deneyim.
-Türkiye kullanıcıları için hazırlanmış özel sayfa.
+<div class="card">
+<h2 id="title">Xüsusiyyətlər</h2>
+<p id="features">
+🟢 Online gizlətmə<br>
+🟢 Status yükləmə<br>
+🟢 Mesajları silinsə də görmək<br>
+🟢 Reklamsız istifadə<br>
+🟢 Tema sistemi
 </p>
 
-<a href="#ozellikler" class="btn">Hemen Başla</a>
-<a href="#iletisim" class="btn btn2">İletişim</a>
-
+<div class="counter">
+📥 Live downloads: <span id="count">12842</span>+
 </div>
 
-<div class="phone">
-📱
+<div class="download-btn" onclick="openModal()" id="downloadBtn">
+Yüklə
 </div>
-
-</section>
-
-<section id="ozellikler">
-
-<h2 class="title">Özellikler</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🔒 Gizlilik</h3>
-<p>Gelişmiş gizlilik seçenekleri.</p>
 </div>
 
 <div class="card">
-<h3>🎨 Temalar</h3>
-<p>Özel görünüm seçenekleri.</p>
+<h3 id="installTitle">Quraşdırma</h3>
+<p id="install">
+1. APK yüklə<br>
+2. İcazə ver<br>
+3. Quraşdır və aç
+</p>
 </div>
 
-<div class="card">
-<h3>⚡ Performans</h3>
-<p>Akıcı ve hızlı kullanım deneyimi.</p>
+<footer>© 2026 WhatsApp Plus PRO</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<h3>Download Ready</h3>
+<p>Fayl hazırdır, indi yükləyə bilərsiniz</p>
+<button onclick="download()">Download</button>
+<button onclick="closeModal()">Bağla</button>
+</div>
 </div>
 
-<div class="card">
-<h3>🌙 Karanlık Mod</h3>
-<p>Şık ve modern görünüm.</p>
-</div>
+<script>
 
-<div class="card">
-<h3>🚀 Hızlı Arayüz</h3>
-<p>Daha modern kullanıcı deneyimi.</p>
-</div>
+let count = 12842;
+setInterval(()=>{
+count += Math.floor(Math.random()*3);
+document.getElementById("count").innerText = count;
+},2000);
 
-<div class="card">
-<h3>📱 Mobil Uyumlu</h3>
-<p>Tüm cihazlarda sorunsuz görünüm.</p>
-</div>
+function openModal(){
+document.getElementById("modal").style.display="flex";
+}
 
-</div>
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
 
-</section>
+function download(){
+alert("Download başladı...");
+window.location.href="#";
+}
 
-<section id="sss">
+/* LANG SYSTEM */
+const texts={
+az:{
+title:"Xüsusiyyətlər",
+features:`🟢 Online gizlətmə<br>🟢 Status yükləmə<br>🟢 Mesajları silinsə də görmək<br>🟢 Reklamsız istifadə<br>🟢 Tema sistemi`,
+download:"Yüklə",
+installTitle:"Quraşdırma",
+install:`1. APK yüklə<br>2. İcazə ver<br>3. Quraşdır və aç`
+},
+tr:{
+title:"Özellikler",
+features:`🟢 Çevrimiçi gizleme<br>🟢 Durum indirme<br>🟢 Silinen mesajları görme<br>🟢 Reklamsız kullanım<br>🟢 Tema sistemi`,
+download:"İndir",
+installTitle:"Kurulum",
+install:`1. APK indir<br>2. İzin ver<br>3. Kur ve aç`
+},
+ru:{
+title:"Функции",
+features:`🟢 Скрыть онлайн<br>🟢 Скачать статус<br>🟢 Удалённые сообщения<br>🟢 Без рекламы<br>🟢 Темы`,
+download:"Скачать",
+installTitle:"Установка",
+install:`1. Скачать APK<br>2. Разрешить<br>3. Установить`
+}
+};
 
-<h2 class="title">Sık Sorulan Sorular</h2>
+function setLang(l){
+document.getElementById("title").innerHTML=texts[l].title;
+document.getElementById("features").innerHTML=texts[l].features;
+document.getElementById("downloadBtn").innerHTML=texts[l].download;
+document.getElementById("installTitle").innerHTML=texts[l].installTitle;
+document.getElementById("install").innerHTML=texts[l].install;
+}
 
-<div class="faq">
-
-<div class="faq-item">
-<h3>WhatsApp Plus nedir?</h3>
-<p>Ek özellikler ve özelleştirme seçenekleri sunan bir uygulama sürümüdür.</p>
-</div>
-
-<div class="faq-item">
-<h3>Nasıl kurulur?</h3>
-<p>Kurulum adımları cihaz türüne göre değişebilir.</p>
-</div>
-
-<div class="faq-item">
-<h3>Güncellemeler var mı?</h3>
-<p>Yeni sürümler yayınlandıkça güncellemeler yapılabilir.</p>
-</div>
-
-<div class="faq-item">
-<h3>Hangi cihazlarda çalışır?</h3>
-<p>Uyumluluk cihaza ve sürüme bağlıdır.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="iletisim">
-
-<h2 class="title">İletişim</h2>
-
-<div class="contact">
-
-<input type="text" placeholder="Ad Soyad">
-
-<input type="email" placeholder="E-posta">
-
-<textarea placeholder="Mesajınız"></textarea>
-
-<button>Gönder</button>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 WhatsApp Plus Türkiye
-</footer>
+</script>
 
 </body>
 </html>
