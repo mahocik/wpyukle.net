@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,28 +19,35 @@ color:#fff;
 min-height:100vh;
 }
 
+@keyframes neonBlink{
+0%{
+opacity:1;
+text-shadow:0 0 5px #ffd700,0 0 15px #ffd700,0 0 30px #ffd700;
+}
+50%{
+opacity:.6;
+text-shadow:0 0 20px #ffd700,0 0 40px #ffd700,0 0 60px #ffd700;
+}
+100%{
+opacity:1;
+text-shadow:0 0 5px #ffd700,0 0 15px #ffd700,0 0 30px #ffd700;
+}
+}
+
 header{
 background:#111;
 padding:15px 25px;
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
 border-bottom:2px solid #ffd700;
 }
 
 .logo{
-font-size:24px;
+font-size:28px;
 font-weight:bold;
 color:#ffd700;
-text-shadow:0 0 15px #ffd700;
-}
-
-.lang{
-padding:10px;
-border:none;
-border-radius:10px;
-background:#222;
-color:white;
+animation:neonBlink 2s infinite;
 }
 
 .hero{
@@ -49,9 +56,9 @@ text-align:center;
 }
 
 .hero h1{
-font-size:42px;
+font-size:48px;
 color:#ffd700;
-text-shadow:0 0 20px #ffd700;
+animation:neonBlink 2s infinite;
 }
 
 .hero p{
@@ -71,10 +78,11 @@ font-weight:bold;
 font-size:18px;
 cursor:pointer;
 box-shadow:0 0 20px #ffd700;
+transition:.3s;
 }
 
 .download-btn:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 
 .features{
@@ -82,6 +90,8 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 padding:40px 20px;
+max-width:1200px;
+margin:auto;
 }
 
 .card{
@@ -96,6 +106,7 @@ transition:.3s;
 .card:hover{
 border-color:#ffd700;
 box-shadow:0 0 20px #ffd700;
+transform:translateY(-5px);
 }
 
 .card h3{
@@ -113,18 +124,18 @@ height:100%;
 background:rgba(0,0,0,.9);
 justify-content:center;
 align-items:center;
-z-index:999;
+z-index:9999;
 }
 
 .popup-box{
 background:#111;
 width:90%;
-max-width:450px;
+max-width:500px;
 padding:30px;
 border-radius:20px;
 border:2px solid #ffd700;
 text-align:center;
-box-shadow:0 0 30px #ffd700;
+box-shadow:0 0 40px #ffd700;
 }
 
 .popup-box h2{
@@ -138,10 +149,11 @@ color:#ddd;
 }
 
 .price{
-font-size:50px;
+font-size:55px;
 font-weight:bold;
 color:#00ff88;
 margin:15px 0;
+animation:neonBlink 1.5s infinite;
 }
 
 .whatsapp-btn{
@@ -153,6 +165,12 @@ color:white;
 text-decoration:none;
 border-radius:40px;
 font-weight:bold;
+font-size:18px;
+transition:.3s;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.08);
 }
 
 .close-btn{
@@ -178,21 +196,14 @@ color:#888;
 
 <header>
 <div class="logo">WhatsApp Plus 2026</div>
-
-<select class="lang">
-<option>AZ</option>
-<option>RUS</option>
-<option>TÜRK</option>
-<option>ENGLISH</option>
-</select>
 </header>
 
 <section class="hero">
 <h1>WhatsApp Plus 2026</h1>
-<p>Ən son Premium WhatsApp Plus versiyası</p>
+<p>En Son Premium WhatsApp Plus Sürümü</p>
 
 <button class="download-btn" onclick="openPopup()">
-📥 APK Yüklə
+📥 APK İndir
 </button>
 </section>
 
@@ -200,22 +211,22 @@ color:#888;
 
 <div class="card">
 <h3>🔒 Anti Ban</h3>
-<p>Təhlükəsiz istifadə sistemi.</p>
+<p>Güvenli kullanım sistemi.</p>
 </div>
 
 <div class="card">
 <h3>🎨 Premium Temalar</h3>
-<p>1000+ fərqli dizayn.</p>
+<p>1000+ farklı tasarım.</p>
 </div>
 
 <div class="card">
-<h3>📥 Status Endirmə</h3>
-<p>Bir kliklə status yüklə.</p>
+<h3>📥 Durum İndirme</h3>
+<p>Tek tıkla durum indir.</p>
 </div>
 
 <div class="card">
 <h3>👁 Gizlilik</h3>
-<p>Mavi tiki və son görülməni gizlət.</p>
+<p>Mavi tik ve son görülmeyi gizle.</p>
 </div>
 
 </section>
@@ -224,29 +235,29 @@ color:#888;
 
 <div class="popup-box">
 
-<h2>🔒 Premium Giriş Tələb Olunur</h2>
+<h2>🔒 Premium Giriş Gerekli</h2>
 
 <p>
-WhatsApp Plus 2026 APK artıq ödənişli versiyaya keçirilmişdir.
+WhatsApp Plus 2026 APK artık ücretli sürüme geçirilmiştir.
 </p>
 
 <div class="price">12$</div>
 
 <p>
-Premium versiyanı əldə etmək üçün WhatsApp üzərindən əlaqə saxlayın.
+Premium sürümü satın almak için WhatsApp üzerinden iletişime geçin.
 </p>
 
 <a
 class="whatsapp-btn"
-href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%202026%20almaq%20isteyirem"
+href="https://wa.me/258861450477?text=Merhaba%20WhatsApp%20Plus%202026%20satın%20almak%20istiyorum"
 target="_blank">
-💬 WhatsApp ilə Al
+💬 WhatsApp ile Satın Al
 </a>
 
 <br>
 
 <button class="close-btn" onclick="closePopup()">
-Bağla
+Kapat
 </button>
 
 </div>
@@ -254,7 +265,7 @@ Bağla
 </div>
 
 <footer>
-© 2026 WhatsApp Plus Store. Bütün hüquqlar qorunur.
+© 2026 WhatsApp Plus Store. Tüm Hakları Saklıdır.
 </footer>
 
 <script>
