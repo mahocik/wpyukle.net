@@ -3,160 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus Store 2026</title>
+<title>WhatsApp Plus 2026 Store</title>
 
 <style>
-body{
+*{
 margin:0;
-font-family:Arial;
-background:#050505;
-color:#00ff99;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-/* HEADER */
+body{
+background:#0a0a0a;
+color:#fff;
+min-height:100vh;
+}
+
 header{
-text-align:center;
-padding:25px;
-font-size:26px;
-font-weight:bold;
-text-shadow:0 0 15px #00ff99;
+background:#111;
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid #ffd700;
 }
 
-/* STORE GRID */
-.store{
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#ffd700;
+text-shadow:0 0 15px #ffd700;
+}
+
+.lang{
+padding:10px;
+border:none;
+border-radius:10px;
+background:#222;
+color:white;
+}
+
+.hero{
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+color:#ffd700;
+text-shadow:0 0 20px #ffd700;
+}
+
+.hero p{
+margin-top:15px;
+font-size:18px;
+color:#ccc;
+}
+
+.download-btn{
+margin-top:25px;
+padding:15px 40px;
+border:none;
+border-radius:40px;
+background:linear-gradient(45deg,#ffd700,#ffb300);
+color:black;
+font-weight:bold;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 20px #ffd700;
+}
+
+.download-btn:hover{
+transform:scale(1.05);
+}
+
+.features{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-padding:20px;
-max-width:1000px;
-margin:auto;
+padding:40px 20px;
 }
 
-/* CARD */
 .card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(0,255,153,0.3);
+background:#111;
+padding:25px;
 border-radius:15px;
-padding:20px;
-box-shadow:0 0 20px #00ff9944;
-transition:0.3s;
+border:1px solid #333;
+text-align:center;
+transition:.3s;
 }
 
 .card:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px #00ff99aa;
+border-color:#ffd700;
+box-shadow:0 0 20px #ffd700;
 }
 
-/* TITLE */
-h3{
-margin:0 0 10px 0;
-}
-
-/* INFO */
-.info{
-font-size:14px;
-opacity:0.8;
-line-height:1.6;
-}
-
-/* BUTTON */
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:10px 15px;
-background:#00ff99;
-color:#000;
-font-weight:bold;
-border-radius:10px;
-cursor:pointer;
-text-align:center;
-width:100%;
-}
-
-/* PRICE */
-.price{
-font-size:18px;
-margin-top:10px;
-font-weight:bold;
-color:#00ffcc;
-}
-
-/* BADGE */
-.badge{
-display:inline-block;
-padding:3px 8px;
-font-size:12px;
-background:#00ff99;
-color:#000;
-border-radius:5px;
+.card h3{
 margin-bottom:10px;
+color:#ffd700;
 }
 
-/* FOOTER */
-footer{
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.popup-box{
+background:#111;
+width:90%;
+max-width:450px;
+padding:30px;
+border-radius:20px;
+border:2px solid #ffd700;
 text-align:center;
+box-shadow:0 0 30px #ffd700;
+}
+
+.popup-box h2{
+color:#ffd700;
+margin-bottom:15px;
+}
+
+.popup-box p{
+line-height:1.7;
+color:#ddd;
+}
+
+.price{
+font-size:50px;
+font-weight:bold;
+color:#00ff88;
+margin:15px 0;
+}
+
+.whatsapp-btn{
+display:inline-block;
+margin-top:15px;
+padding:15px 35px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:bold;
+}
+
+.close-btn{
+margin-top:15px;
+padding:12px 25px;
+background:#333;
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+
+footer{
+margin-top:50px;
 padding:20px;
-opacity:0.5;
-font-size:12px;
+background:#111;
+text-align:center;
+color:#888;
 }
 </style>
 </head>
-
 <body>
 
-<header>⚡ WhatsApp Plus STORE 2026</header>
+<header>
+<div class="logo">WhatsApp Plus 2026</div>
 
-<div class="store">
+<select class="lang">
+<option>AZ</option>
+<option>RUS</option>
+<option>TÜRK</option>
+<option>ENGLISH</option>
+</select>
+</header>
 
-<!-- CARD 1 -->
+<section class="hero">
+<h1>WhatsApp Plus 2026</h1>
+<p>Ən son Premium WhatsApp Plus versiyası</p>
+
+<button class="download-btn" onclick="openPopup()">
+📥 APK Yüklə
+</button>
+</section>
+
+<section class="features">
+
 <div class="card">
-<div class="badge">HOT</div>
-<h3>WhatsApp Plus Pro mvy.7a</h3>
-<div class="info">
-📦 Size: 146 MB<br>
-⚡ Version: Stable<br>
-🔥 Anti-ban lite
-</div>
-<div class="price">💰 12$</div>
-<div class="btn" onclick="buy('mvy.7a')">İndir</div>
+<h3>🔒 Anti Ban</h3>
+<p>Təhlükəsiz istifadə sistemi.</p>
 </div>
 
-<!-- CARD 2 -->
 <div class="card">
-<div class="badge">POPULAR</div>
-<h3>WhatsApp Plus Pro my7.9h</h3>
-<div class="info">
-📦 Size: 179 MB<br>
-⚡ Version: Premium<br>
-🔥 Extra themes + hidden chat
-</div>
-<div class="price">💰 28$</div>
-<div class="btn" onclick="buy('my7.9h')">İndir</div>
+<h3>🎨 Premium Temalar</h3>
+<p>1000+ fərqli dizayn.</p>
 </div>
 
-<!-- CARD 3 -->
 <div class="card">
-<div class="badge">VIP</div>
-<h3>WhatsApp Plus Pro 72u.1e</h3>
-<div class="info">
-📦 Size: 372 MB<br>
-⚡ Version: Ultra Pro Max<br>
-🔥 Full unlock + VIP tools
+<h3>📥 Status Endirmə</h3>
+<p>Bir kliklə status yüklə.</p>
 </div>
-<div class="price">💰 65$</div>
-<div class="btn" onclick="buy('72u.1e')">İndir</div>
+
+<div class="card">
+<h3>👁 Gizlilik</h3>
+<p>Mavi tiki və son görülməni gizlət.</p>
+</div>
+
+</section>
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h2>🔒 Premium Giriş Tələb Olunur</h2>
+
+<p>
+WhatsApp Plus 2026 APK artıq ödənişli versiyaya keçirilmişdir.
+</p>
+
+<div class="price">12$</div>
+
+<p>
+Premium versiyanı əldə etmək üçün WhatsApp üzərindən əlaqə saxlayın.
+</p>
+
+<a
+class="whatsapp-btn"
+href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%202026%20almaq%20isteyirem"
+target="_blank">
+💬 WhatsApp ilə Al
+</a>
+
+<br>
+
+<button class="close-btn" onclick="closePopup()">
+Bağla
+</button>
+
 </div>
 
 </div>
 
 <footer>
-© 2026 WhatsApp Plus Store
+© 2026 WhatsApp Plus Store. Bütün hüquqlar qorunur.
 </footer>
 
 <script>
-function buy(v){
-alert("Seçilən version: " + v + "\nDownload hazırlanır...");
-window.location.href="#";
+function openPopup(){
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
 }
 </script>
 
