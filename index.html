@@ -1,282 +1,172 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="az">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus 2026 Store</title>
+<title>WhatsApp Plus 2026</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#0a0a0a;
-color:#fff;
-min-height:100vh;
-}
-
-@keyframes neonBlink{
-0%{
-opacity:1;
-text-shadow:0 0 5px #ffd700,0 0 15px #ffd700,0 0 30px #ffd700;
-}
-50%{
-opacity:.6;
-text-shadow:0 0 20px #ffd700,0 0 40px #ffd700,0 0 60px #ffd700;
-}
-100%{
-opacity:1;
-text-shadow:0 0 5px #ffd700,0 0 15px #ffd700,0 0 30px #ffd700;
-}
-}
-
-header{
-background:#111;
-padding:15px 25px;
-display:flex;
-justify-content:center;
-align-items:center;
-border-bottom:2px solid #ffd700;
-}
-
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#ffd700;
-animation:neonBlink 2s infinite;
+    background:#050505;
+    color:#fff;
 }
 
 .hero{
-padding:80px 20px;
-text-align:center;
+    text-align:center;
+    padding:60px 20px;
 }
 
 .hero h1{
-font-size:48px;
-color:#ffd700;
-animation:neonBlink 2s infinite;
+    color:#00ff88;
+    font-size:50px;
+    text-shadow:0 0 15px #00ff88;
 }
 
 .hero p{
-margin-top:15px;
-font-size:18px;
-color:#ccc;
+    color:#ccc;
+    margin-top:10px;
 }
 
-.download-btn{
-margin-top:25px;
-padding:15px 40px;
-border:none;
-border-radius:40px;
-background:linear-gradient(45deg,#ffd700,#ffb300);
-color:black;
-font-weight:bold;
-font-size:18px;
-cursor:pointer;
-box-shadow:0 0 20px #ffd700;
-transition:.3s;
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 35px;
+    background:#00ff88;
+    color:#000;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    box-shadow:0 0 20px #00ff88;
 }
 
-.download-btn:hover{
-transform:scale(1.08);
+.container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding-bottom:60px;
 }
 
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:40px 20px;
-max-width:1200px;
-margin:auto;
+.section-title{
+    text-align:center;
+    margin:30px 0;
+    color:#00d9ff;
+    text-shadow:0 0 10px #00d9ff;
 }
 
-.card{
-background:#111;
-padding:25px;
-border-radius:15px;
-border:1px solid #333;
-text-align:center;
-transition:.3s;
+details{
+    background:#111;
+    margin-bottom:15px;
+    border:1px solid #00ff88;
+    border-radius:10px;
+    padding:15px;
 }
 
-.card:hover{
-border-color:#ffd700;
-box-shadow:0 0 20px #ffd700;
-transform:translateY(-5px);
+summary{
+    cursor:pointer;
+    font-size:18px;
+    color:#00ff88;
+    font-weight:bold;
 }
 
-.card h3{
-margin-bottom:10px;
-color:#ffd700;
+details p{
+    margin-top:10px;
+    color:#ddd;
+    line-height:1.6;
 }
 
-.popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.9);
-justify-content:center;
-align-items:center;
-z-index:9999;
+.price-box{
+    background:#0d0d0d;
+    border:1px solid #00d9ff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    margin-top:40px;
 }
 
-.popup-box{
-background:#111;
-width:90%;
-max-width:500px;
-padding:30px;
-border-radius:20px;
-border:2px solid #ffd700;
-text-align:center;
-box-shadow:0 0 40px #ffd700;
+.price-box h2{
+    color:#00d9ff;
+    margin-bottom:10px;
 }
 
-.popup-box h2{
-color:#ffd700;
-margin-bottom:15px;
+.price-box p{
+    font-size:20px;
+    margin-bottom:20px;
 }
 
-.popup-box p{
-line-height:1.7;
-color:#ddd;
-}
-
-.price{
-font-size:55px;
-font-weight:bold;
-color:#00ff88;
-margin:15px 0;
-animation:neonBlink 1.5s infinite;
-}
-
-.whatsapp-btn{
-display:inline-block;
-margin-top:15px;
-padding:15px 35px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-font-size:18px;
-transition:.3s;
-}
-
-.whatsapp-btn:hover{
-transform:scale(1.08);
-}
-
-.close-btn{
-margin-top:15px;
-padding:12px 25px;
-background:#333;
-color:white;
-border:none;
-border-radius:30px;
-cursor:pointer;
-}
-
-footer{
-margin-top:50px;
-padding:20px;
-background:#111;
-text-align:center;
-color:#888;
+.footer{
+    text-align:center;
+    padding:25px;
+    border-top:1px solid #222;
+    color:#888;
 }
 </style>
 </head>
+
 <body>
 
-<header>
-<div class="logo">WhatsApp Plus 2026</div>
-</header>
+<div class="hero">
+    <h1>WHATSAPP PLUS 2026</h1>
+    <p>Yeni funksiyalar və quraşdırma xidməti</p>
 
-<section class="hero">
-<h1>WhatsApp Plus 2026</h1>
-<p>En Son Premium WhatsApp Plus Sürümü</p>
-
-<button class="download-btn" onclick="openPopup()">
-📥 APK İndir
-</button>
-</section>
-
-<section class="features">
-
-<div class="card">
-<h3>🔒 Anti Ban</h3>
-<p>Güvenli kullanım sistemi.</p>
+    <a class="btn" 
+       href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20quraşdırmaq%20istəyirəm"
+       target="_blank">
+       📲 WhatsApp Quraşdır
+    </a>
 </div>
 
-<div class="card">
-<h3>🎨 Premium Temalar</h3>
-<p>1000+ farklı tasarım.</p>
-</div>
+<div class="container">
 
-<div class="card">
-<h3>📥 Durum İndirme</h3>
-<p>Tek tıkla durum indir.</p>
-</div>
+<h2 class="section-title">Məlumat Bölməsi</h2>
 
-<div class="card">
-<h3>👁 Gizlilik</h3>
-<p>Mavi tik ve son görülmeyi gizle.</p>
-</div>
+<details>
+<summary>WhatsApp Plus nədir?</summary>
+<p>WhatsApp Plus rəsmi WhatsApp-ın dəyişdirilmiş versiyasıdır və əlavə dizayn və funksiyalar təqdim edir.</p>
+</details>
 
-</section>
+<details>
+<summary>Tema nədir?</summary>
+<p>Tema tətbiqin görünüşünü dəyişən dizayn sistemidir.</p>
+</details>
 
-<div class="popup" id="popup">
+<details>
+<summary>Status nədir?</summary>
+<p>Status 24 saat görünən paylaşım funksiyasıdır.</p>
+</details>
 
-<div class="popup-box">
+<details>
+<summary>İzləyici nədir?</summary>
+<p>İzləyici sizin profilinizi və paylaşımlarınızı izləyən istifadəçidir.</p>
+</details>
 
-<h2>🔒 Premium Giriş Gerekli</h2>
+<details>
+<summary>Quraşdırma necə edilir?</summary>
+<p>WhatsApp üzərindən bizimlə əlaqə saxlayırsınız və biz quraşdırmanı edirik.</p>
+</details>
 
-<p>
-WhatsApp Plus 2026 APK artık ücretli sürüme geçirilmiştir.
-</p>
+<div class="price-box">
+    <h2>WhatsApp Plus Quraşdırılması</h2>
+    <p><strong>Qiymət: 10 AZN</strong></p>
 
-<div class="price">12$</div>
-
-<p>
-Premium sürümü satın almak için WhatsApp üzerinden iletişime geçin.
-</p>
-
-<a
-class="whatsapp-btn"
-href="https://wa.me/258861450477?text=Merhaba%20WhatsApp%20Plus%202026%20satın%20almak%20istiyorum"
-target="_blank">
-💬 WhatsApp ile Satın Al
-</a>
-
-<br>
-
-<button class="close-btn" onclick="closePopup()">
-Kapat
-</button>
-
+    <a class="btn"
+       href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20quraşdırmaq%20istəyirəm"
+       target="_blank">
+       Sifariş Et
+    </a>
 </div>
 
 </div>
 
-<footer>
-© 2026 WhatsApp Plus Store. Tüm Hakları Saklıdır.
-</footer>
-
-<script>
-function openPopup(){
-document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-</script>
+<div class="footer">
+© 2026 WhatsApp Plus Xidmət Saytı
+</div>
 
 </body>
 </html>
