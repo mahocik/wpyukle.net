@@ -6,56 +6,114 @@
 <title>WhatsApp Plus 2026</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{
+    margin:0;
+    font-family:Arial;
+    background:#050505;
+    color:#fff;
+}
 
-body{background:#050505;color:#fff}
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#0b0b0b;
+    border-bottom:1px solid #00ff88;
+}
+nav h2{
+    color:#00ff88;
+}
+nav a{
+    color:#ccc;
+    margin:0 10px;
+    text-decoration:none;
+}
+nav a:hover{
+    color:#00ff88;
+}
 
 /* HERO */
 .hero{
-    text-align:center;
-    padding:50px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 10%;
 }
-.hero h1{
+
+.hero-text h1{
+    font-size:55px;
     color:#00ff88;
-    font-size:45px;
     text-shadow:0 0 15px #00ff88;
 }
-.hero p{color:#aaa}
 
-/* ORDER COUNTER */
-.counter{
-    text-align:center;
+.hero-text p{
+    color:#aaa;
     margin-top:10px;
-    color:#00d9ff;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    background:#00ff88;
+    color:#000;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 0 20px #00ff88;
+}
+
+/* MOCK PHONE */
+.phone{
+    width:250px;
+    height:500px;
+    border-radius:30px;
+    background:linear-gradient(145deg,#111,#000);
+    border:2px solid #00ff88;
+    box-shadow:0 0 25px #00ff88;
+}
+
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    padding:40px 10%;
+}
+
+.card{
+    background:#111;
+    padding:20px;
+    border:1px solid #00d9ff;
+    border-radius:15px;
+    text-align:center;
 }
 
 /* FORM */
-.form-box{
-    width:90%;
-    max-width:500px;
-    margin:30px auto;
-    background:#111;
-    border:1px solid #00d9ff;
-    padding:20px;
-    border-radius:15px;
-    animation:fadeIn 1s ease-in-out;
+.section{
+    padding:40px 10%;
 }
 
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
+.box{
+    background:#111;
+    border:1px solid #00ff88;
+    padding:20px;
+    border-radius:15px;
+    max-width:500px;
 }
 
 input{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border-radius:8px;
     border:none;
+    border-radius:8px;
     outline:none;
 }
 
-.btn{
+button{
     width:100%;
     padding:12px;
     background:#00ff88;
@@ -63,16 +121,12 @@ input{
     border-radius:25px;
     font-weight:bold;
     cursor:pointer;
-    box-shadow:0 0 15px #00ff88;
 }
 
 /* REVIEWS */
 .reviews{
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
+    padding:40px 10%;
 }
-
 .review{
     background:#111;
     padding:15px;
@@ -80,7 +134,7 @@ input{
     border-left:3px solid #00ff88;
 }
 
-/* CHAT BUBBLE */
+/* FLOAT BUTTON */
 .chat{
     position:fixed;
     bottom:20px;
@@ -89,75 +143,90 @@ input{
     color:#000;
     padding:15px;
     border-radius:50px;
+    text-decoration:none;
     font-weight:bold;
     box-shadow:0 0 20px #00ff88;
-    cursor:pointer;
-    text-decoration:none;
 }
 
-.footer{
-    text-align:center;
-    padding:20px;
-    color:#777;
-    margin-top:40px;
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero{flex-direction:column;text-align:center}
+.features{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+<h2>WhatsApp Plus 2026</h2>
+<div>
+<a href="#">Ana Səhifə</a>
+<a href="#">Xüsusiyyətlər</a>
+<a href="#">Sifariş</a>
+<a href="#">Əlaqə</a>
+</div>
+</nav>
+
+<!-- HERO -->
 <div class="hero">
-    <h1>WHATSAPP PLUS 2026</h1>
-    <p>Premium Quraşdırma Xidməti</p>
-    <div class="counter">📊 Bugünkü sifarişlər: <span id="count">37</span></div>
+    <div class="hero-text">
+        <h1>WhatsApp Plus 2026</h1>
+        <p>Neon dizayn + premium quraşdırma xidməti</p>
+
+        <a class="btn"
+        href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20sifarişi"
+        target="_blank">
+        İndi Sifariş Et
+        </a>
+    </div>
+
+    <div class="phone"></div>
 </div>
 
-<!-- FORM -->
-<div class="form-box">
-    <h2>Quraşdırma Sifarişi (10 AZN)</h2>
+<!-- FEATURES -->
+<div class="features">
+    <div class="card">⚡ Sürətli Quraşdırma</div>
+    <div class="card">🔒 Təhlükəsiz Sistem</div>
+    <div class="card">🎨 Neon Tema</div>
+</div>
 
-    <input type="text" id="ad" placeholder="Ad">
-    <input type="text" id="nomre" placeholder="Nömrə">
+<!-- ORDER -->
+<div class="section">
+<div class="box">
+<h2 style="color:#00ff88;text-align:center">Sifariş Paneli - 10 AZN</h2>
 
-    <button class="btn" onclick="send()">Sifariş Et</button>
+<input type="text" id="ad" placeholder="Ad">
+<input type="text" id="nomre" placeholder="Nömrə">
+
+<button onclick="send()">Sifariş Et</button>
+</div>
 </div>
 
 <!-- REVIEWS -->
 <div class="reviews">
-    <h2 style="text-align:center;color:#00d9ff">Rəylər</h2>
+<h2 style="color:#00d9ff;text-align:center">Rəylər</h2>
 
-    <div class="review">⭐⭐⭐⭐⭐ - Çox sürətli oldu! (Elvin)</div>
-    <div class="review">⭐⭐⭐⭐⭐ - 5 dəqiqəyə hazırdı (Aysel)</div>
-    <div class="review">⭐⭐⭐⭐⭐ - Super xidmət (Rəşad)</div>
+<div class="review">⭐⭐⭐⭐⭐ - Çox yaxşı işləyir</div>
+<div class="review">⭐⭐⭐⭐⭐ - 5 dəqiqəyə hazır oldu</div>
+<div class="review">⭐⭐⭐⭐⭐ - Super dizayn</div>
 </div>
 
 <!-- CHAT -->
 <a class="chat"
-href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20haqqında%20yazıram"
+href="https://wa.me/258861450477?text=Salam%20dəstək"
 target="_blank">
 💬 WhatsApp
 </a>
 
-<div class="footer">
-© 2026 WhatsApp Plus Service
-</div>
-
 <script>
-let counter = 37;
-setInterval(()=>{
-    counter++;
-    document.getElementById("count").innerText = counter;
-}, 8000);
-
 function send(){
-    var ad = document.getElementById("ad").value;
-    var nomre = document.getElementById("nomre").value;
+    var ad=document.getElementById("ad").value;
+    var nomre=document.getElementById("nomre").value;
 
-    var msg = "Salam, adım " + ad +
-    ", nömrəm " + nomre +
-    ". WhatsApp Plus 2026 sifariş etmək istəyirəm (10 AZN)";
+    var msg="Ad: "+ad+"\nNömrə: "+nomre+"\nSifariş: WhatsApp Plus 2026 (10 AZN)";
 
-    window.open("https://wa.me/258861450477?text=" + encodeURIComponent(msg), "_blank");
+    window.open("https://wa.me/258861450477?text="+encodeURIComponent(msg));
 }
 </script>
 
