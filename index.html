@@ -6,105 +6,100 @@
 <title>WhatsApp Plus 2026</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
-body{
-    background:#050505;
-    color:#fff;
-}
+body{background:#050505;color:#fff}
 
+/* HERO */
 .hero{
     text-align:center;
-    padding:60px 20px;
+    padding:50px 20px;
 }
-
 .hero h1{
     color:#00ff88;
-    font-size:50px;
+    font-size:45px;
     text-shadow:0 0 15px #00ff88;
 }
+.hero p{color:#aaa}
 
-.hero p{
-    color:#ccc;
+/* ORDER COUNTER */
+.counter{
+    text-align:center;
     margin-top:10px;
+    color:#00d9ff;
+}
+
+/* FORM */
+.form-box{
+    width:90%;
+    max-width:500px;
+    margin:30px auto;
+    background:#111;
+    border:1px solid #00d9ff;
+    padding:20px;
+    border-radius:15px;
+    animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:none;
+    outline:none;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:15px 35px;
+    width:100%;
+    padding:12px;
+    background:#00ff88;
+    border:none;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 15px #00ff88;
+}
+
+/* REVIEWS */
+.reviews{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+}
+
+.review{
+    background:#111;
+    padding:15px;
+    margin-bottom:10px;
+    border-left:3px solid #00ff88;
+}
+
+/* CHAT BUBBLE */
+.chat{
+    position:fixed;
+    bottom:20px;
+    right:20px;
     background:#00ff88;
     color:#000;
-    text-decoration:none;
-    border-radius:30px;
+    padding:15px;
+    border-radius:50px;
     font-weight:bold;
     box-shadow:0 0 20px #00ff88;
-}
-
-.container{
-    width:90%;
-    max-width:900px;
-    margin:auto;
-    padding-bottom:60px;
-}
-
-.section-title{
-    text-align:center;
-    margin:30px 0;
-    color:#00d9ff;
-    text-shadow:0 0 10px #00d9ff;
-}
-
-details{
-    background:#111;
-    margin-bottom:15px;
-    border:1px solid #00ff88;
-    border-radius:10px;
-    padding:15px;
-}
-
-summary{
     cursor:pointer;
-    font-size:18px;
-    color:#00ff88;
-    font-weight:bold;
-}
-
-details p{
-    margin-top:10px;
-    color:#ddd;
-    line-height:1.6;
-}
-
-.price-box{
-    background:#0d0d0d;
-    border:1px solid #00d9ff;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    margin-top:40px;
-}
-
-.price-box h2{
-    color:#00d9ff;
-    margin-bottom:10px;
-}
-
-.price-box p{
-    font-size:20px;
-    margin-bottom:20px;
+    text-decoration:none;
 }
 
 .footer{
     text-align:center;
-    padding:25px;
-    border-top:1px solid #222;
-    color:#888;
+    padding:20px;
+    color:#777;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -113,60 +108,58 @@ details p{
 
 <div class="hero">
     <h1>WHATSAPP PLUS 2026</h1>
-    <p>Yeni funksiyalar və quraşdırma xidməti</p>
-
-    <a class="btn" 
-       href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20quraşdırmaq%20istəyirəm"
-       target="_blank">
-       📲 WhatsApp Quraşdır
-    </a>
+    <p>Premium Quraşdırma Xidməti</p>
+    <div class="counter">📊 Bugünkü sifarişlər: <span id="count">37</span></div>
 </div>
 
-<div class="container">
+<!-- FORM -->
+<div class="form-box">
+    <h2>Quraşdırma Sifarişi (10 AZN)</h2>
 
-<h2 class="section-title">Məlumat Bölməsi</h2>
+    <input type="text" id="ad" placeholder="Ad">
+    <input type="text" id="nomre" placeholder="Nömrə">
 
-<details>
-<summary>WhatsApp Plus nədir?</summary>
-<p>WhatsApp Plus rəsmi WhatsApp-ın dəyişdirilmiş versiyasıdır və əlavə dizayn və funksiyalar təqdim edir.</p>
-</details>
-
-<details>
-<summary>Tema nədir?</summary>
-<p>Tema tətbiqin görünüşünü dəyişən dizayn sistemidir.</p>
-</details>
-
-<details>
-<summary>Status nədir?</summary>
-<p>Status 24 saat görünən paylaşım funksiyasıdır.</p>
-</details>
-
-<details>
-<summary>İzləyici nədir?</summary>
-<p>İzləyici sizin profilinizi və paylaşımlarınızı izləyən istifadəçidir.</p>
-</details>
-
-<details>
-<summary>Quraşdırma necə edilir?</summary>
-<p>WhatsApp üzərindən bizimlə əlaqə saxlayırsınız və biz quraşdırmanı edirik.</p>
-</details>
-
-<div class="price-box">
-    <h2>WhatsApp Plus Quraşdırılması</h2>
-    <p><strong>Qiymət: 10 AZN</strong></p>
-
-    <a class="btn"
-       href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20quraşdırmaq%20istəyirəm"
-       target="_blank">
-       Sifariş Et
-    </a>
+    <button class="btn" onclick="send()">Sifariş Et</button>
 </div>
 
+<!-- REVIEWS -->
+<div class="reviews">
+    <h2 style="text-align:center;color:#00d9ff">Rəylər</h2>
+
+    <div class="review">⭐⭐⭐⭐⭐ - Çox sürətli oldu! (Elvin)</div>
+    <div class="review">⭐⭐⭐⭐⭐ - 5 dəqiqəyə hazırdı (Aysel)</div>
+    <div class="review">⭐⭐⭐⭐⭐ - Super xidmət (Rəşad)</div>
 </div>
+
+<!-- CHAT -->
+<a class="chat"
+href="https://wa.me/258861450477?text=Salam%20WhatsApp%20Plus%20haqqında%20yazıram"
+target="_blank">
+💬 WhatsApp
+</a>
 
 <div class="footer">
-© 2026 WhatsApp Plus Xidmət Saytı
+© 2026 WhatsApp Plus Service
 </div>
+
+<script>
+let counter = 37;
+setInterval(()=>{
+    counter++;
+    document.getElementById("count").innerText = counter;
+}, 8000);
+
+function send(){
+    var ad = document.getElementById("ad").value;
+    var nomre = document.getElementById("nomre").value;
+
+    var msg = "Salam, adım " + ad +
+    ", nömrəm " + nomre +
+    ". WhatsApp Plus 2026 sifariş etmək istəyirəm (10 AZN)";
+
+    window.open("https://wa.me/258861450477?text=" + encodeURIComponent(msg), "_blank");
+}
+</script>
 
 </body>
 </html>
