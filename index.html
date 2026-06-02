@@ -9,16 +9,26 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f172a;
+    background: black;
     color: white;
+    overflow-x: hidden;
+}
+
+/* neon animation */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #22c55e; }
+    50% { box-shadow: 0 0 25px #22c55e, 0 0 40px #0ea5e9; }
+    100% { box-shadow: 0 0 10px #22c55e; }
 }
 
 header {
-    background: #22c55e;
-    padding: 20px;
     text-align: center;
-    font-size: 22px;
+    padding: 25px;
+    font-size: 26px;
     font-weight: bold;
+    color: #22c55e;
+    border-bottom: 1px solid #22c55e;
+    animation: glow 2s infinite;
 }
 
 .container {
@@ -26,43 +36,67 @@ header {
 }
 
 .card {
-    background: #1e293b;
+    background: #0f172a;
+    margin: 15px 0;
     padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 1px solid #22c55e;
+    animation: glow 3s infinite;
 }
 
 h2 {
     color: #22c55e;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
+.bad {
+    color: red;
+    font-weight: bold;
+}
+
+.good {
+    color: #22c55e;
+    font-weight: bold;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background: #22c55e;
+    margin-top: 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    background: linear-gradient(90deg, #22c55e, #0ea5e9);
+    color: black;
 }
 
 button:hover {
-    background: #16a34a;
+    transform: scale(1.03);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.telegram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.telegram img {
+    width: 35px;
 }
 
 small {
-    color: #cbd5e1;
+    color: #94a3b8;
 }
 </style>
 
@@ -71,44 +105,49 @@ small {
 <body>
 
 <header>
-WhatsApp Plus 2026
+⚡ WhatsApp Plus 2026 Download
 </header>
 
 <div class="container">
 
 <div class="card">
-<h2>📱 Mobil cihazlar</h2>
-<p>WhatsApp Plus bütün Android və iOS cihazlarda işləyə bilər (mod versiyalara görə dəyişir).</p>
+<h2>📱 WhatsApp Plus 2026</h2>
+<p class="bad">İşləmə müddəti azdır ❌</p>
+<p>Alternativ versiya kimi təqdim olunur.</p>
 </div>
 
 <div class="card">
-<h2>📞 Əlaqə nömrəsi</h2>
-<input type="text" placeholder="Nömrənizi yazın">
+<h2>💰 Paket məlumatı</h2>
+<p class="good">Pullu versiya: 10 AZN / 3 illik paket</p>
+<p>Qeyd: Xidmət şərtlərinə uyğun istifadə tövsiyə olunur.</p>
 </div>
 
 <div class="card">
-<h2>📧 Email</h2>
-<input type="email" placeholder="Emailinizi yazın">
-</div>
-
-<div class="card">
-<h2>ℹ️ Məlumat</h2>
-<p>
-WhatsApp Plus 2026 haqqında internetdə müxtəlif versiyalar mövcuddur. 
-Qeyd: Naməlum saytlardan yükləmə etmək risklidir və hesab bloklanmasına səbəb ola bilər.
-</p>
-
-<p>
-<small>
-Vacib: Rəsmi WhatsApp yalnız rəsmi tətbiq mağazalarından yüklənməlidir.
-</small>
-</p>
-</div>
-
-<div class="card">
-<h2>📩 Qeydiyyat / Mesaj</h2>
-<textarea rows="4" placeholder="Mesajınızı yazın..."></textarea>
+<h2>📩 Sifariş</h2>
+<p>Daxil olun, dəstək xidmətinə yazın 👇</p>
+<input type="text" placeholder="Adınızı yazın">
+<input type="text" placeholder="Nömrə">
+<textarea rows="3" placeholder="Mesaj"></textarea>
 <button>Göndər</button>
+</div>
+
+<div class="card">
+<h2>📞 Bizimlə Əlaqə</h2>
+<div class="telegram">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+</div>
+
+<a href="https://t.me/Watusu" target="_blank">
+<button>Telegram-a yaz</button>
+</a>
+
+<p><small>Basdıqda Telegram açılır və yazışma başlayır</small></p>
+</div>
+
+<div class="card">
+<h2>ℹ️ Sayt haqqında</h2>
+<p>Saytımız 2025-ci ildən fəaliyyət göstərir.</p>
+<p>Yeni istifadəçilər üçün dəstək mövcuddur.</p>
 </div>
 
 </div>
