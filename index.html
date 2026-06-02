@@ -9,25 +9,17 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: black;
+    background: #000;
     color: white;
-    overflow-x: hidden;
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 0 10px #22c55e; }
-    50% { box-shadow: 0 0 25px #22c55e, 0 0 40px #0ea5e9; }
-    100% { box-shadow: 0 0 10px #22c55e; }
 }
 
 header {
     text-align: center;
-    padding: 25px;
-    font-size: 26px;
+    padding: 20px;
+    font-size: 24px;
     font-weight: bold;
     color: #22c55e;
     border-bottom: 1px solid #22c55e;
-    animation: glow 2s infinite;
 }
 
 .container {
@@ -36,20 +28,28 @@ header {
 
 .card {
     background: #0f172a;
-    margin: 15px 0;
     padding: 15px;
+    margin-bottom: 15px;
     border-radius: 12px;
     border: 1px solid #22c55e;
-    animation: glow 3s infinite;
 }
 
 h2 {
     color: #22c55e;
 }
 
-.good {
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.price {
     color: #22c55e;
     font-weight: bold;
+    font-size: 18px;
 }
 
 button {
@@ -58,36 +58,27 @@ button {
     margin-top: 10px;
     border: none;
     border-radius: 10px;
+    background: #22c55e;
+    color: black;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    background: linear-gradient(90deg, #22c55e, #0ea5e9);
-    color: black;
 }
 
 button:hover {
     transform: scale(1.03);
 }
 
-/* LOGO BÖLMƏSİ */
-.payments {
+.whatsapp {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-top: 10px;
 }
 
-.payments img {
-    width: 70px;
-    background: white;
-    padding: 5px;
-    border-radius: 8px;
+.whatsapp img {
+    width: 50px;
 }
-
-.telegram img {
-    width: 35px;
-}
-
 </style>
 
 </head>
@@ -95,46 +86,46 @@ button:hover {
 <body>
 
 <header>
-⚡ WhatsApp Plus 2026 Download
+WhatsApp Plus 2026 Yükləmə
 </header>
 
 <div class="container">
 
 <div class="card">
-<h2>📱 WhatsApp Plus 2026</h2>
-<p class="good">Premium məlumat sistemi mövcuddur</p>
-</div>
-
-<div class="card">
-<h2>💰 Ödəniş məlumatı</h2>
-<p class="good">
-WhatsAp Plus 2026 proqrami qosulmaq ucun 10 AZN odenis etmelisiz ✅
+<h2>📱 Qısa məlumat</h2>
+<p>
+WhatsApp Plus 2026 əlavə funksiyalar və fərqli dizayn imkanları olan alternativ mesajlaşma versiyasıdır.
 </p>
-
-<!-- PAYMENT LOGOS -->
-<div class="payments">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/M10_logo.png">
-</div>
-
 </div>
 
 <div class="card">
-<h2>📞 Bizimlə Əlaqə</h2>
-
-<div class="telegram">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+<h2>📲 Cihazınızın adı</h2>
+<select>
+<option>Seçin</option>
+<option>iPhone</option>
+<option>Android</option>
+<option>Avto telefon (digər)</option>
+</select>
 </div>
 
-<a href="https://t.me/Watusu" target="_blank">
-<button>Telegram-a yaz</button>
+<div class="card">
+<h2>💳 Ödəniş məlumatı</h2>
+<p class="price">
+WhatsApp Plus 2026 proqramının quraşdırılması 10 AZN-dir
+</p>
+</div>
+
+<div class="card">
+<h2>📞 Bizə yaz</h2>
+
+<div class="whatsapp">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</div>
+
+<a href="https://wa.me/+258861450477?text=Wp%20Plus%20206%20yuklemek%20ucun" target="_blank">
+<button>WhatsApp ilə yaz</button>
 </a>
-</div>
 
-<div class="card">
-<h2>ℹ️ Sayt haqqında</h2>
-<p>Saytımız 2025-ci ildən fəaliyyət göstərir.</p>
 </div>
 
 </div>
