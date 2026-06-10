@@ -3,30 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN-Free APK 2026</title>
+<title>VPN Free Apps 2026</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-min-height:100vh;
+margin:0;
+font-family:Arial;
 background:linear-gradient(
-180deg,
-#ffffff 0%,
-#ffffff 33%,
-#0039a6 33%,
-#0039a6 66%,
-#d52b1e 66%,
-#d52b1e 100%
-);
+180deg,#ffffff 0%,#ffffff 33%,
+#0039a6 33%,#0039a6 66%,
+#d52b1e 66%,#d52b1e 100%);
 display:flex;
 justify-content:center;
 align-items:center;
+min-height:100vh;
 padding:20px;
 }
 
@@ -34,33 +24,30 @@ padding:20px;
 width:100%;
 max-width:600px;
 background:rgba(0,0,0,0.75);
-backdrop-filter:blur(10px);
-border-radius:25px;
-padding:30px;
-text-align:center;
+padding:25px;
+border-radius:20px;
 color:white;
-box-shadow:0 0 30px rgba(0,0,0,0.4);
+text-align:center;
+backdrop-filter:blur(10px);
 }
 
-.logo{
-font-size:34px;
-font-weight:bold;
-margin-bottom:10px;
+h1{
+font-size:28px;
+margin-bottom:5px;
 }
 
-.subtitle{
-font-size:16px;
-margin-bottom:25px;
-opacity:0.9;
+p{
+opacity:0.8;
+margin-bottom:20px;
 }
 
-.app-btn{
+.btn{
 width:100%;
-padding:18px;
+padding:16px;
 margin:10px 0;
 border:none;
-border-radius:15px;
-font-size:18px;
+border-radius:12px;
+font-size:16px;
 font-weight:bold;
 cursor:pointer;
 background:linear-gradient(45deg,#0039a6,#d52b1e);
@@ -68,7 +55,7 @@ color:white;
 transition:0.3s;
 }
 
-.app-btn:hover{
+.btn:hover{
 transform:scale(1.03);
 }
 
@@ -84,99 +71,52 @@ justify-content:center;
 align-items:center;
 }
 
-.modal-content{
+.box{
 background:white;
 color:black;
-padding:25px;
-border-radius:20px;
+padding:20px;
+border-radius:15px;
 width:90%;
 max-width:400px;
 text-align:center;
 }
 
-.modal-content h2{
-margin-bottom:15px;
-}
-
-.modal-content p{
-margin-bottom:20px;
-font-size:18px;
-}
-
-.modal-buttons{
-display:flex;
-gap:10px;
-}
-
-.modal-buttons button{
-flex:1;
-padding:12px;
+.box button{
+padding:10px;
+margin:5px;
+width:45%;
 border:none;
 border-radius:10px;
-font-size:16px;
+font-weight:bold;
 cursor:pointer;
 }
 
-.continue{
-background:#28a745;
-color:white;
-}
-
-.cancel{
-background:#dc3545;
-color:white;
-}
+.ok{background:#28a745;color:white;}
+.no{background:#dc3545;color:white;}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-<div class="logo">🇷🇺 VPN-Free APK 2026</div>
-<div class="subtitle">
-Лучшие приложения без VPN для России
-</div>
+<h1>🇷🇺 VPN Free Apps 2026</h1>
+<p>Лучшие приложения без ограничений</p>
 
-<button class="app-btn" onclick="openModal()">
-WhatsApp Plus без VPN 2026 APK
-</button>
-
-<button class="app-btn" onclick="openModal()">
-Telegram без VPN 2026 APK
-</button>
-
-<button class="app-btn" onclick="openModal()">
-Instagram без VPN 2026 APK
-</button>
-
-<button class="app-btn" onclick="openModal()">
-YouTube без VPN 2026 APK
-</button>
-
-<button class="app-btn" onclick="openModal()">
-TikTok без VPN 2026 APK
-</button>
-
+<button class="btn" onclick="openModal()">WhatsApp Service</button>
+<button class="btn" onclick="openModal()">Telegram Service</button>
+<button class="btn" onclick="openModal()">Instagram Service</button>
+<button class="btn" onclick="openModal()">YouTube Service</button>
+<button class="btn" onclick="openModal()">TikTok Service</button>
 </div>
 
 <div class="modal" id="modal">
-<div class="modal-content">
+<div class="box">
 <h2>Подтверждение</h2>
+<p>Вы хотите продолжить?</p>
+<p><b>Стоимость: 1500 ₽</b></p>
 
-<p>
-Вы хотите продолжить установку?<br><br>
-Стоимость составляет <b>1500 рублей</b>.
-</p>
-
-<div class="modal-buttons">
-<button class="continue" onclick="goTelegram()">
-Продолжить
-</button>
-
-<button class="cancel" onclick="closeModal()">
-Отмена
-</button>
-</div>
+<button class="ok" onclick="go()">Продолжить</button>
+<button class="no" onclick="closeModal()">Отмена</button>
 </div>
 </div>
 
@@ -189,7 +129,7 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-function goTelegram(){
+function go(){
 window.location.href="https://t.me/Wp_Rus";
 }
 </script>
