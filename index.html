@@ -5,230 +5,281 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WhatsApp Plus Download 2026</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f5f5f5;
+background:#f5f5f5;
 }
 
 header{
-    background:#0a8f4f;
-    padding:20px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+background:#0a8f3d;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+position:sticky;
+top:0;
+z-index:999;
 }
 
 .logo{
-    color:white;
-    font-size:32px;
-    font-weight:bold;
+font-size:28px;
+font-weight:bold;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    font-weight:bold;
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+cursor:pointer;
 }
 
 .hero{
-    background:linear-gradient(135deg,#0a8f4f,#1db954);
-    color:white;
-    padding:80px 5%;
-    text-align:center;
+background:linear-gradient(rgba(0,128,0,.8),rgba(0,128,0,.8)),
+url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3');
+background-size:cover;
+background-position:center;
+padding:80px 20px;
+text-align:center;
+color:white;
 }
 
 .hero h1{
-    font-size:60px;
-    margin-bottom:15px;
+font-size:55px;
+margin-bottom:15px;
 }
 
 .hero p{
-    font-size:22px;
-    margin-bottom:30px;
+font-size:22px;
+margin-bottom:25px;
 }
 
-.hero-btn{
-    background:white;
-    color:#0a8f4f;
-    text-decoration:none;
-    padding:15px 35px;
-    border-radius:8px;
-    font-size:20px;
-    font-weight:bold;
+.btn{
+background:#1f9cff;
+padding:15px 35px;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-size:20px;
+font-weight:bold;
+display:inline-block;
 }
 
-.downloads{
-    max-width:1200px;
-    margin:auto;
-    padding:60px 20px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:50px 20px;
 }
 
 .card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 0 15px rgba(0,0,0,.1);
+background:white;
+width:320px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,.15);
+text-align:center;
 }
 
-.card h2{
-    color:#0a4ea3;
-    margin-bottom:20px;
+.card img{
+width:90px;
+margin:15px 0;
 }
 
-.flag{
-    font-size:70px;
-    margin-bottom:20px;
+.card button{
+width:100%;
+padding:15px;
+border:none;
+background:#1677ff;
+color:white;
+font-size:18px;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
 }
 
-.version{
-    font-size:20px;
-    margin-bottom:25px;
+.section{
+display:none;
+padding:50px 20px;
+max-width:1000px;
+margin:auto;
 }
 
-.download-btn{
-    display:block;
-    background:#1677ff;
-    color:white;
-    text-decoration:none;
-    padding:15px;
-    border-radius:10px;
-    font-size:22px;
-    font-weight:bold;
+.active{
+display:block;
 }
 
-.features{
-    background:#0a8f4f;
-    color:white;
-    padding:70px 20px;
-}
-
-.features h2{
-    text-align:center;
-    font-size:45px;
-    margin-bottom:40px;
-}
-
-.feature-list{
-    max-width:900px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.feature{
-    background:rgba(255,255,255,.1);
-    padding:20px;
-    border-radius:10px;
+.section h2{
+margin-bottom:20px;
+color:#0a8f3d;
 }
 
 .telegram{
-    text-align:center;
-    padding:50px 20px;
-    background:#111827;
-    color:white;
-}
-
-.telegram a{
-    color:#1da1f2;
-    text-decoration:none;
-    font-size:22px;
+position:fixed;
+bottom:25px;
+right:25px;
+width:70px;
+height:70px;
+background:#0088cc;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+color:white;
+text-decoration:none;
+box-shadow:0 0 20px rgba(0,0,0,.3);
 }
 
 footer{
-    background:black;
-    color:white;
-    text-align:center;
-    padding:20px;
+background:#0a8f3d;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:38px;
+}
+
+nav{
+display:none;
+}
+
+.card{
+width:100%;
+}
 }
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">WhatsApp Plus</div>
+<div class="logo">
+<i class="fab fa-whatsapp"></i> WhatsApp Plus
+</div>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Features</a>
-<a href="#">FAQ</a>
-<a href="#">Support</a>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('features')">Features</a>
+<a onclick="showPage('faq')">FAQ</a>
+<a onclick="showPage('support')">Support</a>
 </nav>
 </header>
 
-<section class="hero">
-<h1>WhatsApp Plus Download</h1>
+<div class="hero">
+<h1>WhatsApp Plus Download 2026</h1>
+<p>Download The Latest Version For Free</p>
+<a href="#" class="btn">Learn More</a>
+</div>
 
-<p>Download the Latest Version of WhatsApp Plus for Free!</p>
-
-<a href="#" class="hero-btn">Learn More</a>
-</section>
-
-<section class="downloads">
+<div class="cards">
 
 <div class="card">
-<h2>WhatsApp Plus Download GB 2026</h2>
-<div class="flag">🇦🇿</div>
-<div class="version">Latest Version 2026</div>
-<a href="#" class="download-btn">Download Now</a>
-</div>
-
-<div class="card">
-<h2>WhatsApp Plus Download EN 2026</h2>
-<div class="flag">🇺🇸</div>
-<div class="version">Latest Version 2026</div>
-<a href="#" class="download-btn">Download Now</a>
-</div>
-
-<div class="card">
-<h2>WhatsApp Plus Download UA 2025</h2>
-<div class="flag">🇺🇦</div>
-<div class="version">Version 2025</div>
-<a href="#" class="download-btn">Download Now</a>
-</div>
-
-</section>
-
-<section class="features">
-
-<h2>WhatsApp Plus Features</h2>
-
-<div class="feature-list">
-
-<div class="feature">✅ Anti-Ban Protection</div>
-<div class="feature">✅ Custom Themes</div>
-<div class="feature">✅ Hide Online Status</div>
-<div class="feature">✅ Auto Reply</div>
-<div class="feature">✅ Download Status</div>
-<div class="feature">✅ Enhanced Privacy</div>
-<div class="feature">✅ Fast Performance</div>
-<div class="feature">✅ Free Updates</div>
-
-</div>
-
-</section>
-
-<section class="telegram">
-<h2>Telegram Support</h2>
+<h2>English Version</h2>
+<img src="https://flagcdn.com/w320/us.png">
+<p>Latest Version 2026</p>
 <br>
-<a href="https://t.me/WH_1M">@WH_1M</a>
+<button>Download Now</button>
+</div>
+
+<div class="card">
+<h2>Azerbaijan Version</h2>
+<img src="https://flagcdn.com/w320/az.png">
+<p>Latest Version 2026</p>
+<br>
+<button>Download Now</button>
+</div>
+
+<div class="card">
+<h2>Ukraine Version</h2>
+<img src="https://flagcdn.com/w320/ua.png">
+<p>Latest Version 2026</p>
+<br>
+<button>Download Now</button>
+</div>
+
+</div>
+
+<section id="home" class="section active">
+<h2>Home</h2>
+<p>
+Welcome to WhatsApp Plus Download Center.
+Get the latest version and enjoy additional customization features.
+</p>
 </section>
+
+<section id="features" class="section">
+<h2>Features</h2>
+<p>
+✔ Advanced Privacy Settings<br><br>
+✔ Custom Themes<br><br>
+✔ Hide Online Status<br><br>
+✔ Enhanced Media Sharing<br><br>
+✔ Fast Performance
+</p>
+</section>
+
+<section id="faq" class="section">
+<h2>Frequently Asked Questions</h2>
+<p>
+Q: Is WhatsApp Plus free?<br>
+A: Yes.<br><br>
+
+Q: How do I update?<br>
+A: Download the latest version.<br><br>
+
+Q: Is installation easy?<br>
+A: Yes, it only takes a few minutes.
+</p>
+</section>
+
+<section id="support" class="section">
+<h2>Support</h2>
+<p>
+Need help with installation or updates?
+Contact us through Telegram.
+</p>
+</section>
+
+<a href="https://t.me/Wh_1M" class="telegram" target="_blank">
+<i class="fab fa-telegram-plane"></i>
+</a>
 
 <footer>
 © 2026 WhatsApp Plus. All Rights Reserved.
 </footer>
+
+<script>
+function showPage(page){
+
+let sections=document.querySelectorAll('.section');
+
+sections.forEach(section=>{
+section.classList.remove('active');
+});
+
+document.getElementById(page).classList.add('active');
+
+window.scrollTo({
+top:500,
+behavior:'smooth'
+});
+}
+</script>
 
 </body>
 </html>
