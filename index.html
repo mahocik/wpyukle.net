@@ -19,7 +19,7 @@ color:#fff;
 text-align:center;
 }
 
-/* TOP TIME */
+/* TIME */
 .timebar{
 background:#111;
 padding:10px;
@@ -34,20 +34,21 @@ background:linear-gradient(135deg,#111,#000);
 }
 
 .logo{font-size:70px;margin-bottom:10px;}
-h1{font-size:40px;margin-bottom:10px;}
+h1{font-size:38px;margin-bottom:10px;}
 .desc{color:#aaa;max-width:600px;margin:auto;}
 
 /* BUTTON */
 .btn{
 display:inline-block;
 margin-top:20px;
-padding:14px 30px;
+padding:14px 35px;
 background:#25D366;
 color:#fff;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
 cursor:pointer;
+border:none;
 }
 
 /* FEATURES */
@@ -67,7 +68,7 @@ border-radius:15px;
 border:1px solid #222;
 }
 
-/* OVERLAY */
+/* POPUP */
 .overlay{
 display:none;
 position:fixed;
@@ -88,21 +89,36 @@ width:340px;
 border:1px solid #333;
 }
 
-/* CARD VISUAL */
+/* CARD DESIGN */
 .card-box{
 background:linear-gradient(135deg,#1a1a1a,#000);
 padding:18px;
-border-radius:15px;
+border-radius:18px;
 margin:15px 0;
-text-align:left;
 border:1px solid #333;
+text-align:left;
+position:relative;
+}
+
+.bank{
+font-size:14px;
+color:#aaa;
+}
+
+.chip{
+width:50px;
+height:35px;
+background:gold;
+border-radius:6px;
+margin-top:10px;
 }
 
 .card-number{
-margin-top:15px;
+margin-top:20px;
 font-size:18px;
 color:#25D366;
-letter-spacing:2px;
+letter-spacing:3px;
+font-weight:bold;
 }
 
 /* FORM */
@@ -127,22 +143,13 @@ margin-top:40px;
 padding:30px;
 display:flex;
 justify-content:center;
-gap:30px;
+gap:25px;
 align-items:center;
 }
 
 .footer img{
 width:40px;
-height:auto;
 opacity:0.8;
-}
-
-.close{
-margin-top:10px;
-display:inline-block;
-color:#aaa;
-cursor:pointer;
-font-size:14px;
 }
 </style>
 </head>
@@ -155,9 +162,9 @@ font-size:14px;
 <section class="hero">
 <div class="logo"></div>
 <h1>iPhone | iOS WhatsApp Plus</h1>
-<p class="desc">Premium aktivləşdirmə xidməti</p>
+<p class="desc">Premium aktivləşdirmə sistemi</p>
 
-<div class="btn" onclick="openPay()">Davam Et</div>
+<button class="btn" onclick="openPay()">Davam Et</button>
 </section>
 
 <section class="features">
@@ -172,22 +179,24 @@ font-size:14px;
 
 <h2>💳 Checkout</h2>
 
-<!-- FORM -->
 <input type="text" placeholder="Ad Soyad">
 <input type="email" placeholder="Email">
-<input class="amount" type="text" value="WhatsApp Plus - 10 ₼" readonly>
+
+<input class="amount" value="WhatsApp Plus - 10 ₼" readonly>
 
 <div class="card-box">
-💳 Kapital Bank ödənişi<br><br>
+<div class="bank">Kapital Bank</div>
+<div class="chip"></div>
+
 <div class="card-number">
-4169 7388 0733 8524
+4169 **** **** 8524
 </div>
 </div>
 
-<div class="btn">Ödənişi Et</div>
+<button class="btn">Ödəniş Et</button>
 
-<br>
-<span class="close" onclick="closePay()">Bağla ✖</span>
+<br><br>
+<span style="color:#aaa;cursor:pointer;" onclick="closePay()">Bağla ✖</span>
 
 </div>
 </div>
