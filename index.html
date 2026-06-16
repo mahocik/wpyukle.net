@@ -3,101 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Plus iPhone</title>
+<title> iPhone | iOS WhatsApp Plus</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
 body{
-    margin:0;
-    background:#0f172a;
-    color:#fff;
-    font-family:Arial;
-    text-align:center;
+background:#000;
+color:#fff;
+text-align:center;
 }
 
-.container{
-    max-width:500px;
-    margin:auto;
-    padding:40px 20px;
+/* TOP */
+.topbar{
+background:#111;
+padding:12px;
+color:#25D366;
 }
 
-.box{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    margin:20px 0;
+/* HERO */
+.hero{
+padding:70px 20px;
+background:linear-gradient(135deg,#111,#000);
 }
+
+.logo{font-size:70px;margin-bottom:10px;}
+
+h1{font-size:40px;margin-bottom:10px;}
+
+.desc{color:#aaa;max-width:600px;margin:auto;font-size:18px;}
 
 .btn{
-    display:block;
-    background:#25D366;
-    color:#fff;
-    padding:15px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
-    margin-top:15px;
+display:inline-block;
+margin-top:25px;
+padding:15px 35px;
+background:#25D366;
+color:#fff;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+cursor:pointer;
 }
 
-.paybox{
-    background:#111827;
-    padding:15px;
-    border-radius:12px;
-    margin-top:20px;
+/* FEATURES */
+.features{
+padding:50px 20px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
 }
 
-.hidden{
-    display:none;
+.card{
+background:#111;
+padding:20px;
+width:240px;
+border-radius:15px;
+border:1px solid #222;
+}
+
+/* POPUP */
+.overlay{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.popup{
+background:#111;
+padding:25px;
+border-radius:20px;
+width:320px;
+border:1px solid #333;
+text-align:center;
+animation:pop .3s ease;
+}
+
+@keyframes pop{
+from{transform:scale(0.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.card-box{
+background:linear-gradient(135deg,#1a1a1a,#000);
+padding:20px;
+border-radius:15px;
+margin:20px 0;
+text-align:left;
+border:1px solid #333;
+}
+
+.chip{
+width:50px;
+height:35px;
+background:gold;
+border-radius:6px;
+}
+
+.card-number{
+margin-top:20px;
+font-size:18px;
+color:#25D366;
+letter-spacing:2px;
+}
+
+.close-btn{
+margin-top:10px;
+display:inline-block;
+color:#aaa;
+cursor:pointer;
 }
 </style>
-
-<script>
-function showPayment(){
-    document.getElementById("pay").classList.remove("hidden");
-}
-
-function goWhatsApp(){
-    let phone = "212649276900";
-    let message = "Salam, WhatsApp Plus sifarişi etmək istəyirəm. Zəhmət olmasa kömək edin.";
-    
-    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-    window.location.href = url;
-}
-</script>
-
 </head>
 
 <body>
 
-<div class="container">
-
-<h1>WhatsApp Plus iPhone</h1>
-
-<div class="box">
-💎 Tam versiya aktivləşdirmə<br>
-⚡ Sürətli sistem<br>
-📱 iPhone uyğun
+<div class="topbar">
+📞 Əlaqə: +212649276900
 </div>
 
-<button class="btn" onclick="showPayment()">Davam et</button>
+<section class="hero">
+<div class="logo"></div>
+<h1>iPhone | iOS WhatsApp Plus</h1>
 
-<div id="pay" class="paybox hidden">
-
-<h3>Ödəniş məlumatı</h3>
-
-<p>
-💳 Kapital Bank köçürmə<br><br>
-
-<b>Kart:</b> XXXX XXXX XXXX XXXX<br>
-<b>Məbləğ:</b> 5 AZN
+<p class="desc">
+iPhone istifadəçiləri üçün premium xidmət. Sürətli aktivləşdirmə.
 </p>
 
-<p>Ödənişi etdikdən sonra WhatsApp-a keç</p>
+<div class="btn" onclick="openPay()">Davam Et</div>
+</section>
 
-<button class="btn" onclick="goWhatsApp()">WhatsApp-a keç</button>
+<section class="features">
+<div class="card">⚡ Sürətli aktivləşdirmə</div>
+<div class="card">🔒 Təhlükəsiz istifadə</div>
+<div class="card">📲 WhatsApp dəstək</div>
+</section>
 
+<!-- POPUP -->
+<div class="overlay" id="overlay">
+<div class="popup">
+
+<h2>💳 Ödəniş</h2>
+
+<div class="card-box">
+<div class="chip"></div>
+<div class="card-number">
+4169 7388 0733 8524
+</div>
 </div>
 
+<a href="https://wa.me/212649276900" class="btn">
+Qəbzi Göndər
+</a>
+
+<br>
+<span class="close-btn" onclick="closePay()">Bağla ✖</span>
+
 </div>
+</div>
+
+<script>
+function openPay(){
+document.getElementById("overlay").style.display="flex";
+}
+
+function closePay(){
+document.getElementById("overlay").style.display="none";
+}
+</script>
 
 </body>
 </html>
