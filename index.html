@@ -13,10 +13,13 @@ box-sizing:border-box;
 font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
+/* 🌟 PREMIUM APPLE STYLE BACKGROUND */
 body{
-background:#000;
 color:#fff;
 text-align:center;
+background: radial-gradient(circle at top, #1a1a1a 0%, #000 60%),
+            radial-gradient(circle at bottom, #0f0f0f 0%, #000 70%);
+min-height:100vh;
 }
 
 /* TIME */
@@ -30,7 +33,6 @@ color:#25D366;
 /* HERO */
 .hero{
 padding:60px 20px;
-background:linear-gradient(135deg,#111,#000);
 }
 
 .logo{font-size:70px;margin-bottom:10px;}
@@ -89,7 +91,7 @@ width:340px;
 border:1px solid #333;
 }
 
-/* CARD DESIGN */
+/* CARD */
 .card-box{
 background:linear-gradient(135deg,#1a1a1a,#000);
 padding:18px;
@@ -97,7 +99,6 @@ border-radius:18px;
 margin:15px 0;
 border:1px solid #333;
 text-align:left;
-position:relative;
 }
 
 .bank{
@@ -121,7 +122,7 @@ letter-spacing:3px;
 font-weight:bold;
 }
 
-/* FORM */
+/* INPUTS */
 input{
 width:100%;
 padding:10px;
@@ -137,26 +138,15 @@ color:#25D366;
 font-weight:bold;
 }
 
-/* FOOTER LOGOS */
+/* FOOTER REMOVED */
 .footer{
-margin-top:40px;
-padding:30px;
-display:flex;
-justify-content:center;
-gap:25px;
-align-items:center;
-}
-
-.footer img{
-width:40px;
-opacity:0.8;
+display:none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TIME -->
 <div class="timebar" id="time"></div>
 
 <section class="hero">
@@ -193,18 +183,14 @@ opacity:0.8;
 </div>
 </div>
 
-<button class="btn">Ödəniş Et</button>
+<a class="btn" href="https://wa.me/212649276900" target="_blank">
+Ödəniş Et
+</a>
 
 <br><br>
 <span style="color:#aaa;cursor:pointer;" onclick="closePay()">Bağla ✖</span>
 
 </div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/M10_logo.png">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Kapital_Bank_logo.png">
 </div>
 
 <script>
@@ -216,7 +202,6 @@ function closePay(){
 document.getElementById("overlay").style.display="none";
 }
 
-/* CLOCK */
 function updateTime(){
 let now = new Date();
 document.getElementById("time").innerText =
