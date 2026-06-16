@@ -19,29 +19,29 @@ color:#fff;
 text-align:center;
 }
 
-/* TOP */
-.topbar{
+/* TOP TIME */
+.timebar{
 background:#111;
-padding:12px;
+padding:10px;
+font-size:14px;
 color:#25D366;
 }
 
 /* HERO */
 .hero{
-padding:70px 20px;
+padding:60px 20px;
 background:linear-gradient(135deg,#111,#000);
 }
 
 .logo{font-size:70px;margin-bottom:10px;}
-
 h1{font-size:40px;margin-bottom:10px;}
+.desc{color:#aaa;max-width:600px;margin:auto;}
 
-.desc{color:#aaa;max-width:600px;margin:auto;font-size:18px;}
-
+/* BUTTON */
 .btn{
 display:inline-block;
-margin-top:25px;
-padding:15px 35px;
+margin-top:20px;
+padding:14px 30px;
 background:#25D366;
 color:#fff;
 border-radius:50px;
@@ -52,22 +52,22 @@ cursor:pointer;
 
 /* FEATURES */
 .features{
-padding:50px 20px;
+padding:40px 20px;
 display:flex;
-justify-content:center;
 flex-wrap:wrap;
+justify-content:center;
 gap:15px;
 }
 
 .card{
 background:#111;
 padding:20px;
-width:240px;
+width:230px;
 border-radius:15px;
 border:1px solid #222;
 }
 
-/* POPUP */
+/* OVERLAY */
 .overlay{
 display:none;
 position:fixed;
@@ -75,7 +75,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 justify-content:center;
 align-items:center;
 }
@@ -84,93 +84,118 @@ align-items:center;
 background:#111;
 padding:25px;
 border-radius:20px;
-width:320px;
+width:340px;
 border:1px solid #333;
-text-align:center;
-animation:pop .3s ease;
 }
 
-@keyframes pop{
-from{transform:scale(0.8);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
+/* CARD VISUAL */
 .card-box{
 background:linear-gradient(135deg,#1a1a1a,#000);
-padding:20px;
+padding:18px;
 border-radius:15px;
-margin:20px 0;
+margin:15px 0;
 text-align:left;
 border:1px solid #333;
 }
 
-.chip{
-width:50px;
-height:35px;
-background:gold;
-border-radius:6px;
-}
-
 .card-number{
-margin-top:20px;
+margin-top:15px;
 font-size:18px;
 color:#25D366;
 letter-spacing:2px;
 }
 
-.close-btn{
+/* FORM */
+input{
+width:100%;
+padding:10px;
+margin:6px 0;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+.amount{
+background:#000;
+color:#25D366;
+font-weight:bold;
+}
+
+/* FOOTER LOGOS */
+.footer{
+margin-top:40px;
+padding:30px;
+display:flex;
+justify-content:center;
+gap:30px;
+align-items:center;
+}
+
+.footer img{
+width:40px;
+height:auto;
+opacity:0.8;
+}
+
+.close{
 margin-top:10px;
 display:inline-block;
 color:#aaa;
 cursor:pointer;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-📞 Əlaqə: +212649276900
-</div>
+<!-- TIME -->
+<div class="timebar" id="time"></div>
 
 <section class="hero">
 <div class="logo"></div>
 <h1>iPhone | iOS WhatsApp Plus</h1>
-
-<p class="desc">
-iPhone istifadəçiləri üçün premium xidmət. Sürətli aktivləşdirmə.
-</p>
+<p class="desc">Premium aktivləşdirmə xidməti</p>
 
 <div class="btn" onclick="openPay()">Davam Et</div>
 </section>
 
 <section class="features">
-<div class="card">⚡ Sürətli aktivləşdirmə</div>
-<div class="card">🔒 Təhlükəsiz istifadə</div>
-<div class="card">📲 WhatsApp dəstək</div>
+<div class="card">⚡ Sürətli</div>
+<div class="card">🔒 Təhlükəsiz</div>
+<div class="card">📲 Dəstək</div>
 </section>
 
 <!-- POPUP -->
 <div class="overlay" id="overlay">
 <div class="popup">
 
-<h2>💳 Ödəniş</h2>
+<h2>💳 Checkout</h2>
+
+<!-- FORM -->
+<input type="text" placeholder="Ad Soyad">
+<input type="email" placeholder="Email">
+<input class="amount" type="text" value="WhatsApp Plus - 10 ₼" readonly>
 
 <div class="card-box">
-<div class="chip"></div>
+💳 Kapital Bank ödənişi<br><br>
 <div class="card-number">
 4169 7388 0733 8524
 </div>
 </div>
 
-<a href="https://wa.me/212649276900" class="btn">
-Qəbzi Göndər
-</a>
+<div class="btn">Ödənişi Et</div>
 
 <br>
-<span class="close-btn" onclick="closePay()">Bağla ✖</span>
+<span class="close" onclick="closePay()">Bağla ✖</span>
 
 </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/M10_logo.png">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Kapital_Bank_logo.png">
 </div>
 
 <script>
@@ -181,6 +206,15 @@ document.getElementById("overlay").style.display="flex";
 function closePay(){
 document.getElementById("overlay").style.display="none";
 }
+
+/* CLOCK */
+function updateTime(){
+let now = new Date();
+document.getElementById("time").innerText =
+"📅 " + now.toLocaleDateString() + " ⏰ " + now.toLocaleTimeString();
+}
+setInterval(updateTime,1000);
+updateTime();
 </script>
 
 </body>
